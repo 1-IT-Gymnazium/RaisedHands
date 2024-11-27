@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34408.163
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RaisedHands.Api", "RaisedHands\RaisedHands.Api.csproj", "{668C8360-E83C-4C8F-BAD6-AF4B59BDA270}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RaisedHands.Data", "RaisedHands.Data\RaisedHands.Data.csproj", "{B850EFE5-3BA0-4F08-9C5A-F4A3B3F50975}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{668C8360-E83C-4C8F-BAD6-AF4B59BDA270}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{668C8360-E83C-4C8F-BAD6-AF4B59BDA270}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{668C8360-E83C-4C8F-BAD6-AF4B59BDA270}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{668C8360-E83C-4C8F-BAD6-AF4B59BDA270}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B850EFE5-3BA0-4F08-9C5A-F4A3B3F50975}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B850EFE5-3BA0-4F08-9C5A-F4A3B3F50975}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B850EFE5-3BA0-4F08-9C5A-F4A3B3F50975}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B850EFE5-3BA0-4F08-9C5A-F4A3B3F50975}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {57139A78-D5C3-4D12-8B67-AD01E0FD74F8}
+	EndGlobalSection
+EndGlobal
