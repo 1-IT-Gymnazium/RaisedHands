@@ -16,6 +16,8 @@ namespace RaisedHands.Data.Entities
 
         public string Code { get; set; } = null!;
 
+        public ICollection<Room> Rooms { get; set; } = new HashSet<Room>();
+
         public Guid OwnerId { get; set; }
         public User Owner { get; set; } = null!;
         public Instant CreatedAt { get; set; }

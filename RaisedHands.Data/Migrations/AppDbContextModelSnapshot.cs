@@ -610,7 +610,7 @@ namespace RaisedHands.Data.Migrations
             modelBuilder.Entity("RaisedHands.Data.Entities.Room", b =>
                 {
                     b.HasOne("RaisedHands.Data.Entities.Group", "Group")
-                        .WithMany()
+                        .WithMany("Rooms")
                         .HasForeignKey("GroupId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -654,6 +654,11 @@ namespace RaisedHands.Data.Migrations
                     b.Navigation("Role");
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("RaisedHands.Data.Entities.Group", b =>
+                {
+                    b.Navigation("Rooms");
                 });
 
             modelBuilder.Entity("RaisedHands.Data.Entities.Role", b =>

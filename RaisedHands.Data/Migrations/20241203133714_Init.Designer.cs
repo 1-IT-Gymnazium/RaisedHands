@@ -13,7 +13,7 @@ using RaisedHands.Data;
 namespace RaisedHands.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20241127113829_Init")]
+    [Migration("20241203133714_Init")]
     partial class Init
     {
         /// <inheritdoc />
@@ -613,7 +613,7 @@ namespace RaisedHands.Data.Migrations
             modelBuilder.Entity("RaisedHands.Data.Entities.Room", b =>
                 {
                     b.HasOne("RaisedHands.Data.Entities.Group", "Group")
-                        .WithMany()
+                        .WithMany("Rooms")
                         .HasForeignKey("GroupId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -657,6 +657,11 @@ namespace RaisedHands.Data.Migrations
                     b.Navigation("Role");
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("RaisedHands.Data.Entities.Group", b =>
+                {
+                    b.Navigation("Rooms");
                 });
 
             modelBuilder.Entity("RaisedHands.Data.Entities.Role", b =>

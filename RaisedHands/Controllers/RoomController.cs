@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using RaisedHands.Api.Models.Groups;
 using RaisedHands.Data.Entities;
 using RaisedHands.Data.Interfaces;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace RaisedHands.Api.Controllers;
 
@@ -82,6 +83,46 @@ public class RoomController : ControllerBase
         await _dbContext.SaveChangesAsync();
 
         return Ok();
+    }
+
+    [HttpPatch("api/v1/Room/{id}")]
+    public async Task<ActionResult> Update(
+        [FromRoute] Guid id,
+        [FromBody] JsonPatchDocument<RoomCreateModel> patch
+        )
+    {
+        var dbEntity = await _dbContext
+            .Set<Room>()
+            .FilterDeleted()
+            .SingleOrDefaultAsync(x => x.Id == id);
+
+        if (dbEntity == null)
+        {
+            return NotFound();
+        }
+
+        var toUpdate = dbEntity.ToUpdate();
+
+        patch.ApplyTo(toUpdate);
+
+        var uniqueCheck = await _dbContext.Set<Room>().AnyAsync(x => x.Name == toUpdate.Name);
+
+        if (uniqueCheck)
+        {
+            ModelState.AddModelError<RoomCreateModel>(x => x.Name, "name is not unique");
+        }
+
+        if (!(ModelState.IsValid && TryValidateModel(toUpdate)))
+        {
+            return ValidationProblem(ModelState);
+        }
+
+        dbEntity.Name = toUpdate.Name;
+
+        await _dbContext.SaveChangesAsync();
+
+        dbEntity = await _dbContext.Set<Room>().FirstAsync(x => x.Id == id);
+        return Ok(dbEntity.ToDetail());
     }
 
     [HttpDelete("api/v1/Room/{id}")]

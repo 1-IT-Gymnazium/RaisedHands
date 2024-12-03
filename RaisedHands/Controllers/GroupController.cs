@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using NodaTime;
 using NodaTime.Text;
 using RaisedHands.Api.Models.Groups;
+using RaisedHands.Api.Models.Rooms;
 using RaisedHands.Api.Utilities;
 using RaisedHands.Data;
 using RaisedHands.Data.Entities;
@@ -34,9 +35,10 @@ public class GroupController : ControllerBase
     {
         var dbEntities = await _dbContext
             .Set<Group>()
+            .Include(x => x.Rooms)
             .ToListAsync();
 
-        return Ok(dbEntities);
+        return Ok(dbEntities.Select(x => x.ToDetail()));
     }
     /// <summary>
     /// 
@@ -50,6 +52,8 @@ public class GroupController : ControllerBase
     {
         var dbEntity = await _dbContext
             .Set<Group>()
+            .Include(x => x.Rooms)
+            .Include(x => x.Owner)
             .FirstOrDefaultAsync(x => x.Id == id);
 
         if (dbEntity == null)
@@ -57,11 +61,7 @@ public class GroupController : ControllerBase
             return NotFound();
         }
 
-        var result = new GroupDetailModel
-        {
-            Name = dbEntity.Name,
-            Code = dbEntity.Code,
-        };
+        var result = dbEntity.ToDetail();
 
         return Ok(result);
     }
@@ -113,7 +113,9 @@ public class GroupController : ControllerBase
         [FromRoute] Guid id,
         [FromBody] JsonPatchDocument<GroupCreateModel> patch)
     {
-        var dbEntity = await _dbContext.Set<Group>().FirstOrDefaultAsync(x => x.Id == id);
+        var dbEntity = await _dbContext
+            .Set<Group>()
+            .FirstOrDefaultAsync(x => x.Id == id);
 
         if (dbEntity == null)
         {
@@ -159,6 +161,7 @@ public class GroupController : ControllerBase
     {
         var dbEntity = await _dbContext
             .Set<Group>()
+            .Include(x => x.Rooms)
             .FilterDeleted()
             .SingleOrDefaultAsync(x => x.Id == id);
 

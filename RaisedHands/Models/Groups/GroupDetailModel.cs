@@ -1,3 +1,4 @@
+using RaisedHands.Api.Models.Rooms;
 using RaisedHands.Data.Entities;
 
 namespace RaisedHands.Api.Models.Groups;
@@ -5,6 +6,8 @@ namespace RaisedHands.Api.Models.Groups;
 public class GroupDetailModel
 
 {
+    public List<RoomDetailModel> Rooms;
+
     public Guid Id { get; set; }
     public string Name { get; set; } = null!;
 
@@ -20,6 +23,7 @@ public static class GroupDetailModelExtensions
             Id = source.Id,
             Name = source.Name,
             Code = source.Code,
-            Owner = source.Owner
+            Owner = source.Owner,
+            Rooms = source.Rooms.Select(x => x.ToDetail()).ToList()
         };
 }
