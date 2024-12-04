@@ -7,12 +7,13 @@ using System.Threading.Tasks;
 
 namespace RaisedHands.Data.Entities;
 
-public class UserGroup
+public class UserRoleGroup
 {
-    public int Id { get; set; }
+    public Guid Id { get; set; }
 
     public Guid GroupId { get; set; }
     public Group Group { get; set; } = null!;
 
-    public IdentityUserRole<Guid> User { get; set; } = null!;
+    public Guid UserRoleId { get; set; }
+    public UserRole UserRole { get; set; } = null!;
 }

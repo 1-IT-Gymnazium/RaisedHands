@@ -18,6 +18,8 @@ namespace RaisedHands.Data.Entities
 
         public ICollection<Room> Rooms { get; set; } = new HashSet<Room>();
 
+        public ICollection<UserRoleGroup> UserGroups { get; set; } = [];
+
         public Guid OwnerId { get; set; }
         public User Owner { get; set; } = null!;
         public Instant CreatedAt { get; set; }

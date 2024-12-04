@@ -5,6 +5,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
+#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
+
 namespace RaisedHands.Data.Migrations
 {
     /// <inheritdoc />
@@ -149,13 +151,13 @@ namespace RaisedHands.Data.Migrations
                 name: "AspNetUserRoles",
                 columns: table => new
                 {
+                    Id = table.Column<Guid>(type: "uuid", nullable: false),
                     UserId = table.Column<Guid>(type: "uuid", nullable: false),
-                    RoleId = table.Column<Guid>(type: "uuid", nullable: false),
-                    Discriminator = table.Column<string>(type: "character varying(34)", maxLength: 34, nullable: false)
+                    RoleId = table.Column<Guid>(type: "uuid", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_AspNetUserRoles", x => new { x.UserId, x.RoleId });
+                    table.PrimaryKey("PK_AspNetUserRoles", x => x.Id);
                     table.ForeignKey(
                         name: "FK_AspNetUserRoles_AspNetRoles_RoleId",
                         column: x => x.RoleId,
@@ -247,20 +249,18 @@ namespace RaisedHands.Data.Migrations
                 name: "UserGroups",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "integer", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Id = table.Column<Guid>(type: "uuid", nullable: false),
                     GroupId = table.Column<Guid>(type: "uuid", nullable: false),
-                    UserId = table.Column<Guid>(type: "uuid", nullable: false),
                     UserRoleId = table.Column<Guid>(type: "uuid", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_UserGroups", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_UserGroups_AspNetUserRoles_UserId_UserRoleId",
-                        columns: x => new { x.UserId, x.UserRoleId },
+                        name: "FK_UserGroups_AspNetUserRoles_UserRoleId",
+                        column: x => x.UserRoleId,
                         principalTable: "AspNetUserRoles",
-                        principalColumns: new[] { "UserId", "RoleId" },
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_UserGroups_Groups_GroupId",
@@ -328,7 +328,12 @@ namespace RaisedHands.Data.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { new Guid("74681c7e-6270-4ed1-8f2d-9347a326f974"), null, "Admin", null });
+                values: new object[,]
+                {
+                    { new Guid("29d79252-1b53-4b92-a8dd-403d547fc3c4"), null, "Student", null },
+                    { new Guid("74681c7e-6270-4ed1-8f2d-9347a326f974"), null, "Admin", null },
+                    { new Guid("ddb9ab69-cedf-4531-a2fd-138969b4bdd3"), null, "Teacher", null }
+                });
 
             migrationBuilder.InsertData(
                 table: "AspnNetUser",
@@ -360,6 +365,11 @@ namespace RaisedHands.Data.Migrations
                 name: "IX_AspNetUserRoles_RoleId",
                 table: "AspNetUserRoles",
                 column: "RoleId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AspNetUserRoles_UserId",
+                table: "AspNetUserRoles",
+                column: "UserId");
 
             migrationBuilder.CreateIndex(
                 name: "EmailIndex",
@@ -408,9 +418,9 @@ namespace RaisedHands.Data.Migrations
                 column: "GroupId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_UserGroups_UserId_UserRoleId",
+                name: "IX_UserGroups_UserRoleId",
                 table: "UserGroups",
-                columns: new[] { "UserId", "UserRoleId" });
+                column: "UserRoleId");
         }
 
         /// <inheritdoc />

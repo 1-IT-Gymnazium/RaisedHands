@@ -13,7 +13,7 @@ using RaisedHands.Data;
 namespace RaisedHands.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20241203133714_Init")]
+    [Migration("20241204121413_Init")]
     partial class Init
     {
         /// <inheritdoc />
@@ -93,28 +93,6 @@ namespace RaisedHands.Data.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("AspNetUserLogins", (string)null);
-                });
-
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<System.Guid>", b =>
-                {
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uuid");
-
-                    b.Property<Guid>("RoleId")
-                        .HasColumnType("uuid");
-
-                    b.Property<string>("Discriminator")
-                        .IsRequired()
-                        .HasMaxLength(34)
-                        .HasColumnType("character varying(34)");
-
-                    b.HasKey("UserId", "RoleId");
-
-                    b.ToTable("AspNetUserRoles", (string)null);
-
-                    b.HasDiscriminator().HasValue("IdentityUserRole<Guid>");
-
-                    b.UseTphMappingStrategy();
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<System.Guid>", b =>
@@ -322,6 +300,16 @@ namespace RaisedHands.Data.Migrations
                         {
                             Id = new Guid("74681c7e-6270-4ed1-8f2d-9347a326f974"),
                             Name = "Admin"
+                        },
+                        new
+                        {
+                            Id = new Guid("29d79252-1b53-4b92-a8dd-403d547fc3c4"),
+                            Name = "Student"
+                        },
+                        new
+                        {
+                            Id = new Guid("ddb9ab69-cedf-4531-a2fd-138969b4bdd3"),
+                            Name = "Teacher"
                         });
                 });
 
@@ -490,18 +478,34 @@ namespace RaisedHands.Data.Migrations
                         });
                 });
 
-            modelBuilder.Entity("RaisedHands.Data.Entities.UserGroup", b =>
+            modelBuilder.Entity("RaisedHands.Data.Entities.UserRole", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
+                        .HasColumnType("uuid");
 
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<Guid>("GroupId")
+                    b.Property<Guid>("RoleId")
                         .HasColumnType("uuid");
 
                     b.Property<Guid>("UserId")
+                        .HasColumnType("uuid");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RoleId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("AspNetUserRoles", (string)null);
+                });
+
+            modelBuilder.Entity("RaisedHands.Data.Entities.UserRoleGroup", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("GroupId")
                         .HasColumnType("uuid");
 
                     b.Property<Guid>("UserRoleId")
@@ -511,18 +515,9 @@ namespace RaisedHands.Data.Migrations
 
                     b.HasIndex("GroupId");
 
-                    b.HasIndex("UserId", "UserRoleId");
+                    b.HasIndex("UserRoleId");
 
                     b.ToTable("UserGroups");
-                });
-
-            modelBuilder.Entity("RaisedHands.Data.Entities.UserRole", b =>
-                {
-                    b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUserRole<System.Guid>");
-
-                    b.HasIndex("RoleId");
-
-                    b.HasDiscriminator().HasValue("UserRole");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>
@@ -621,25 +616,6 @@ namespace RaisedHands.Data.Migrations
                     b.Navigation("Group");
                 });
 
-            modelBuilder.Entity("RaisedHands.Data.Entities.UserGroup", b =>
-                {
-                    b.HasOne("RaisedHands.Data.Entities.Group", "Group")
-                        .WithMany()
-                        .HasForeignKey("GroupId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUserRole<System.Guid>", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId", "UserRoleId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Group");
-
-                    b.Navigation("User");
-                });
-
             modelBuilder.Entity("RaisedHands.Data.Entities.UserRole", b =>
                 {
                     b.HasOne("RaisedHands.Data.Entities.Role", "Role")
@@ -659,9 +635,30 @@ namespace RaisedHands.Data.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("RaisedHands.Data.Entities.UserRoleGroup", b =>
+                {
+                    b.HasOne("RaisedHands.Data.Entities.Group", "Group")
+                        .WithMany("UserGroups")
+                        .HasForeignKey("GroupId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("RaisedHands.Data.Entities.UserRole", "UserRole")
+                        .WithMany("UserGroups")
+                        .HasForeignKey("UserRoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Group");
+
+                    b.Navigation("UserRole");
+                });
+
             modelBuilder.Entity("RaisedHands.Data.Entities.Group", b =>
                 {
                     b.Navigation("Rooms");
+
+                    b.Navigation("UserGroups");
                 });
 
             modelBuilder.Entity("RaisedHands.Data.Entities.Role", b =>
@@ -672,6 +669,11 @@ namespace RaisedHands.Data.Migrations
             modelBuilder.Entity("RaisedHands.Data.Entities.User", b =>
                 {
                     b.Navigation("Roles");
+                });
+
+            modelBuilder.Entity("RaisedHands.Data.Entities.UserRole", b =>
+                {
+                    b.Navigation("UserGroups");
                 });
 #pragma warning restore 612, 618
         }
