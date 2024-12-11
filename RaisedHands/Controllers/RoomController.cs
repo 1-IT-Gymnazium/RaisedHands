@@ -32,6 +32,10 @@ public class RoomController : ControllerBase
         _dbContext = dbContext;
     }
 
+    /// <summary>
+    /// Retrieves a list of all rooms.
+    /// </summary>
+    /// <returns>A list of RoomDetailModel representing all rooms.</returns>
     [HttpGet("api/v1/Room")]
     public async Task<ActionResult<IEnumerable<RoomDetailModel>>> GetList()
     {
@@ -42,6 +46,11 @@ public class RoomController : ControllerBase
         return Ok(dbEntities);
     }
 
+    /// <summary>
+    /// Retrieves the details of a specific room by its ID.
+    /// </summary>
+    /// <param name="id">The unique identifier of the room.</param>
+    /// <returns>The details of the specified room.</returns>
     [HttpGet("api/v1/Room/{id}")]
     public async Task<ActionResult<RoomDetailModel>> Get(
    [FromRoute] Guid id
@@ -64,6 +73,11 @@ public class RoomController : ControllerBase
         return Ok(result);
     }
 
+    /// <summary>
+    /// Creates a new room and associates it with a specified group.
+    /// </summary>
+    /// <param name="model">The model containing details for the new room.</param>
+    /// <returns>A success response upon creation.</returns>
     [HttpPost("api/v1/Room")]
     public async Task<ActionResult> Create(
       [FromBody] RoomCreateModel model
@@ -85,6 +99,12 @@ public class RoomController : ControllerBase
         return Ok();
     }
 
+    /// <summary>
+    /// Updates specific properties of a room using a JSON Patch document.
+    /// </summary>
+    /// <param name="id">The unique identifier of the room to update.</param>
+    /// <param name="patch">The JSON Patch document containing the updates.</param>
+    /// <returns>The updated details of the room.</returns>
     [HttpPatch("api/v1/Room/{id}")]
     public async Task<ActionResult> Update(
         [FromRoute] Guid id,
@@ -125,6 +145,11 @@ public class RoomController : ControllerBase
         return Ok(dbEntity.ToDetail());
     }
 
+    /// <summary>
+    /// Soft-deletes a room by marking it as deleted in the database.
+    /// </summary>
+    /// <param name="id">The unique identifier of the room to delete.</param>
+    /// <returns>No content if successful.</returns>
     [HttpDelete("api/v1/Room/{id}")]
     public async Task<ActionResult> Delete(
     [FromRoute] Guid id

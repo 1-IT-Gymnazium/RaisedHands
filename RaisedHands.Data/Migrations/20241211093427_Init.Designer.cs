@@ -13,7 +13,7 @@ using RaisedHands.Data;
 namespace RaisedHands.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20241204121413_Init")]
+    [Migration("20241211093427_Init")]
     partial class Init
     {
         /// <inheritdoc />
@@ -226,14 +226,14 @@ namespace RaisedHands.Data.Migrations
                     b.Property<Guid>("RoomId")
                         .HasColumnType("uuid");
 
-                    b.Property<Guid>("UserId")
+                    b.Property<Guid>("UserRoleGroupId")
                         .HasColumnType("uuid");
 
                     b.HasKey("Id");
 
                     b.HasIndex("RoomId");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("UserRoleGroupId");
 
                     b.ToTable("Hands");
                 });
@@ -250,6 +250,9 @@ namespace RaisedHands.Data.Migrations
                     b.Property<DateTime>("DateTime")
                         .HasColumnType("timestamp with time zone");
 
+                    b.Property<bool>("IsAnonymous")
+                        .HasColumnType("boolean");
+
                     b.Property<Guid>("RoomId")
                         .HasColumnType("uuid");
 
@@ -257,14 +260,14 @@ namespace RaisedHands.Data.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<Guid>("UserId")
+                    b.Property<Guid?>("UserRoleGroupId")
                         .HasColumnType("uuid");
 
                     b.HasKey("Id");
 
                     b.HasIndex("RoomId");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("UserRoleGroupId");
 
                     b.ToTable("Questions");
                 });
@@ -575,15 +578,15 @@ namespace RaisedHands.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("RaisedHands.Data.Entities.User", "User")
+                    b.HasOne("RaisedHands.Data.Entities.UserRoleGroup", "UserRoleGroup")
                         .WithMany()
-                        .HasForeignKey("UserId")
+                        .HasForeignKey("UserRoleGroupId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Room");
 
-                    b.Navigation("User");
+                    b.Navigation("UserRoleGroup");
                 });
 
             modelBuilder.Entity("RaisedHands.Data.Entities.Question", b =>
@@ -594,15 +597,13 @@ namespace RaisedHands.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("RaisedHands.Data.Entities.User", "User")
+                    b.HasOne("RaisedHands.Data.Entities.UserRoleGroup", "UserRoleGroup")
                         .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("UserRoleGroupId");
 
                     b.Navigation("Room");
 
-                    b.Navigation("User");
+                    b.Navigation("UserRoleGroup");
                 });
 
             modelBuilder.Entity("RaisedHands.Data.Entities.Room", b =>

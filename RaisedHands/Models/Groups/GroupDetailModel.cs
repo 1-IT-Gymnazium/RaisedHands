@@ -5,16 +5,15 @@ using RaisedHands.Data.Entities;
 namespace RaisedHands.Api.Models.Groups;
 
 public class GroupDetailModel
-
 {
-    public List<RoomDetailModel> Rooms;
-
     public Guid Id { get; set; }
     public string Name { get; set; } = null!;
 
     public string Code { get; set; } = null!;
 
     public UserDetailModel Owner { get; set; } = null!;
+
+    public List<RoomDetailModel>? Rooms;
 }
 public static class GroupDetailModelExtensions
 {

@@ -14,9 +14,6 @@ public class RoomDetailModel
 
     public Group GroupId { get; set; } = null!;
 
-    public string CreatedAt { get; set; } = null!;
-
-    public List<RoomDetailModel> Todos { get; set; }
 }
 
 public static class RoomDetailModelExtensions

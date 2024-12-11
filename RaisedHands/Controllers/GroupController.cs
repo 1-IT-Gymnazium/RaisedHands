@@ -30,6 +30,10 @@ public class GroupController : ControllerBase
         _dbContext = dbContext;
     }
 
+    /// <summary>
+    /// Retrieves a list of all groups, including their associated rooms and owners.
+    /// </summary>
+    /// <returns>A list of GroupDetailModel representing all groups.</returns>
     [HttpGet("api/v1/Group")]
     public async Task<ActionResult<IEnumerable<GroupDetailModel>>> GetList()
     {
@@ -41,11 +45,12 @@ public class GroupController : ControllerBase
 
         return Ok(dbEntities.Select(x => x.ToDetail()));
     }
+
     /// <summary>
-    /// 
+    /// Retrieves the details of a specific group by its ID.
     /// </summary>
-    /// <param name="id"></param>
-    /// <returns>The group detail</returns>
+    /// <param name="id">The unique identifier of the group.</param>
+    /// <returns>The details of the specified group.</returns>
     [HttpGet("api/v1/Group/{id}")]
     public async Task<ActionResult<GroupDetailModel>> Get(
        [FromRoute] Guid id
@@ -68,10 +73,10 @@ public class GroupController : ControllerBase
     }
 
     /// <summary>
-    /// 
+    /// Creates a new group with a unique code and links the current user as the owner with the "Teacher" role.
     /// </summary>
-    /// <param name="model"></param>
-    /// <returns></returns>
+    /// <param name="model">The model containing details for the new group.</param>
+    /// <returns>The details of the created group.</returns>
     [HttpPost("api/v1/Group")]
     public async Task<ActionResult> Create(
     [FromBody] GroupCreateModel model
@@ -102,48 +107,49 @@ public class GroupController : ControllerBase
         _dbContext.Add(newGroup);
         await _dbContext.SaveChangesAsync();
 
-        // Check if the user already has the Teacher role in UserRole
         var userId = User.GetUserId();
-        var teacherRoleId = (await _dbContext.Set<Role>().FirstAsync(x => x.Name == "Teacher")).Id; // Retrieve Teacher Role Id
 
-        // Fetch UserRole for this user and role
+        var teacherRoleId = (await _dbContext.Set<Role>().FirstAsync(x => x.Name == "Teacher")).Id;
+
         var userRole = await _dbContext.Set<UserRole>().FirstOrDefaultAsync(x => x.UserId == userId && x.RoleId == teacherRoleId);
 
         if (userRole == null)
         {
-            // If the user does not have the Teacher role, add it
             userRole = new UserRole
             {
                 Id = Guid.NewGuid(),
                 UserId = userId,
-                RoleId = teacherRoleId // Link to the Teacher role
+                RoleId = teacherRoleId
             };
 
             _dbContext.Add(userRole);
             await _dbContext.SaveChangesAsync();
         }
 
-        // Create and add the UserGroup entry linking the user to the group
         var userGroup = new UserRoleGroup
         {
             Id = Guid.NewGuid(),
             GroupId = newGroup.Id,
-            UserRoleId = userRole.Id // Use the Teacher role ID
+            UserRoleId = userRole.Id
         };
 
         _dbContext.Add(userGroup);
         await _dbContext.SaveChangesAsync();
 
-        // Fetch the created group including its owner
         var dbEntity = await _dbContext.Set<Group>()
                                         .Include(x => x.Owner)
                                         .FirstAsync(x => x.Id == newGroup.Id);
 
-        // Generate the URL for the created group
         var url = Url.Action(nameof(Get), new { dbEntity.Id }) ?? throw new Exception("failed to generate url");
         return Created(url, dbEntity.ToDetail());
     }
 
+    /// <summary>
+    /// Generates a unique alphanumeric code of the specified length. 
+    /// Ensures the code does not already exist in the database by checking against the `Group` table.
+    /// </summary>
+    /// <param name="length">The desired length of the code (default is 6).</param>
+    /// <returns>A unique alphanumeric code as a string.</returns>
     private async Task<string> GenerateUniqueCodeAsync(int length = 6)
     {
         const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
@@ -161,8 +167,13 @@ public class GroupController : ControllerBase
         return code;
     }
 
+    /// <summary>
+    /// Updates specific properties of a group using a JSON Patch document.
+    /// </summary>
+    /// <param name="id">The unique identifier of the group to update.</param>
+    /// <param name="patch">The JSON Patch document containing the updates.</param>
+    /// <returns>The updated details of the group.</returns>
     [HttpPatch("api/v1/Group/{id}")]
-
     public async Task<ActionResult<GroupDetailModel>> Update(
         [FromRoute] Guid id,
         [FromBody] JsonPatchDocument<GroupCreateModel> patch)
@@ -208,6 +219,11 @@ public class GroupController : ControllerBase
 ]*/
     }
 
+    /// <summary>
+    /// Soft-deletes a group by marking it as deleted in the database.
+    /// </summary>
+    /// <param name="id">The unique identifier of the group to delete.</param>
+    /// <returns>No content if successful.</returns>
     [HttpDelete("api/v1/Group/{id}")]
     public async Task<ActionResult> Delete(
         [FromRoute] Guid id
@@ -230,9 +246,15 @@ public class GroupController : ControllerBase
         return NoContent();
     }
 
+    /// <summary>
+    /// Adds the current user to a group using the group's unique code. 
+    /// If the user does not have the "Student" role, it is assigned.
+    /// </summary>
+    /// <param name="code">The unique code of the group to join.</param>
+    /// <returns>A confirmation message on successful addition.</returns>
     [HttpPost("api/v1/Group/{code}/AddUser")]
     public async Task<ActionResult> AddCurrentUserToGroupByCode(
-        [FromRoute] string code)
+     [FromRoute] string code)
     {
         // Retrieve the group by its unique code
         var dbGroup = await _dbContext
@@ -249,6 +271,15 @@ public class GroupController : ControllerBase
         if (userId == Guid.Empty)
         {
             return Unauthorized(new { Message = "Invalid or unauthorized user" });
+        }
+
+        // Check if the user is already in the group (role does not matter)
+        var isUserInGroup = await _dbContext.Set<UserRoleGroup>()
+            .AnyAsync(ug => ug.GroupId == dbGroup.Id && ug.UserRole.UserId == userId);
+
+        if (isUserInGroup)
+        {
+            return Conflict(new { Message = "You are already a member of the group" });
         }
 
         // Check if the user already has the "Student" role in UserRole
@@ -275,15 +306,6 @@ public class GroupController : ControllerBase
 
             _dbContext.Add(userRole);
             await _dbContext.SaveChangesAsync();
-        }
-
-        // Check if the user is already a member of the group with the Student role
-        var userGroupExists = await _dbContext.Set<UserRoleGroup>()
-            .AnyAsync(ug => ug.GroupId == dbGroup.Id && ug.UserRoleId == userRole.Id);
-
-        if (userGroupExists)
-        {
-            return Conflict(new { Message = "You are already a member of the group" });
         }
 
         // Create and add the UserGroup entry linking the user to the group

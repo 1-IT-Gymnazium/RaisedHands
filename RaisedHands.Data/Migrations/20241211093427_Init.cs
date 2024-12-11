@@ -278,21 +278,21 @@ namespace RaisedHands.Data.Migrations
                     DateTime = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     Answered = table.Column<bool>(type: "boolean", nullable: false),
                     RoomId = table.Column<Guid>(type: "uuid", nullable: false),
-                    UserId = table.Column<Guid>(type: "uuid", nullable: false)
+                    UserRoleGroupId = table.Column<Guid>(type: "uuid", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Hands", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Hands_AspnNetUser_UserId",
-                        column: x => x.UserId,
-                        principalTable: "AspnNetUser",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
                         name: "FK_Hands_Rooms_RoomId",
                         column: x => x.RoomId,
                         principalTable: "Rooms",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Hands_UserGroups_UserRoleGroupId",
+                        column: x => x.UserRoleGroupId,
+                        principalTable: "UserGroups",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -305,24 +305,24 @@ namespace RaisedHands.Data.Migrations
                     Text = table.Column<string>(type: "text", nullable: false),
                     DateTime = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     Answered = table.Column<bool>(type: "boolean", nullable: false),
+                    IsAnonymous = table.Column<bool>(type: "boolean", nullable: false),
                     RoomId = table.Column<Guid>(type: "uuid", nullable: false),
-                    UserId = table.Column<Guid>(type: "uuid", nullable: false)
+                    UserRoleGroupId = table.Column<Guid>(type: "uuid", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Questions", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Questions_AspnNetUser_UserId",
-                        column: x => x.UserId,
-                        principalTable: "AspnNetUser",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Questions_Rooms_RoomId",
                         column: x => x.RoomId,
                         principalTable: "Rooms",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Questions_UserGroups_UserRoleGroupId",
+                        column: x => x.UserRoleGroupId,
+                        principalTable: "UserGroups",
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.InsertData(
@@ -393,9 +393,9 @@ namespace RaisedHands.Data.Migrations
                 column: "RoomId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Hands_UserId",
+                name: "IX_Hands_UserRoleGroupId",
                 table: "Hands",
-                column: "UserId");
+                column: "UserRoleGroupId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Questions_RoomId",
@@ -403,9 +403,9 @@ namespace RaisedHands.Data.Migrations
                 column: "RoomId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Questions_UserId",
+                name: "IX_Questions_UserRoleGroupId",
                 table: "Questions",
-                column: "UserId");
+                column: "UserRoleGroupId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Rooms_GroupId",
@@ -448,10 +448,10 @@ namespace RaisedHands.Data.Migrations
                 name: "Questions");
 
             migrationBuilder.DropTable(
-                name: "UserGroups");
+                name: "Rooms");
 
             migrationBuilder.DropTable(
-                name: "Rooms");
+                name: "UserGroups");
 
             migrationBuilder.DropTable(
                 name: "AspNetUserRoles");

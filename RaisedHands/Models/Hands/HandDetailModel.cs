@@ -4,7 +4,7 @@ namespace RaisedHands.Api.Models.Hands
 {
     public class HandDetailModel
     {
-        public User User { get; set; } = null!;
+        public UserRoleGroup UserRoleGroup { get; set; } = null!;
 
         public DateTime DateTime { get; set; }
 
