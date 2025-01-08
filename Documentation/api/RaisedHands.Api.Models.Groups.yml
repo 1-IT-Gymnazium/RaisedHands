@@ -1,0 +1,84 @@
+### YamlMime:ManagedReference
+items:
+- uid: RaisedHands.Api.Models.Groups
+  commentId: N:RaisedHands.Api.Models.Groups
+  id: RaisedHands.Api.Models.Groups
+  children:
+  - RaisedHands.Api.Models.Groups.GroupCreateModel
+  - RaisedHands.Api.Models.Groups.GroupCreateModelExtensions
+  - RaisedHands.Api.Models.Groups.GroupDetailModel
+  - RaisedHands.Api.Models.Groups.GroupDetailModelExtensions
+  langs:
+  - csharp
+  - vb
+  name: RaisedHands.Api.Models.Groups
+  nameWithType: RaisedHands.Api.Models.Groups
+  fullName: RaisedHands.Api.Models.Groups
+  type: Namespace
+  assemblies:
+  - RaisedHands.Api
+references:
+- uid: RaisedHands.Api.Models.Groups.GroupCreateModel
+  commentId: T:RaisedHands.Api.Models.Groups.GroupCreateModel
+  parent: RaisedHands.Api.Models.Groups
+  href: RaisedHands.Api.Models.Groups.GroupCreateModel.html
+  name: GroupCreateModel
+  nameWithType: GroupCreateModel
+  fullName: RaisedHands.Api.Models.Groups.GroupCreateModel
+- uid: RaisedHands.Api.Models.Groups.GroupCreateModelExtensions
+  commentId: T:RaisedHands.Api.Models.Groups.GroupCreateModelExtensions
+  href: RaisedHands.Api.Models.Groups.GroupCreateModelExtensions.html
+  name: GroupCreateModelExtensions
+  nameWithType: GroupCreateModelExtensions
+  fullName: RaisedHands.Api.Models.Groups.GroupCreateModelExtensions
+- uid: RaisedHands.Api.Models.Groups.GroupDetailModel
+  commentId: T:RaisedHands.Api.Models.Groups.GroupDetailModel
+  parent: RaisedHands.Api.Models.Groups
+  href: RaisedHands.Api.Models.Groups.GroupDetailModel.html
+  name: GroupDetailModel
+  nameWithType: GroupDetailModel
+  fullName: RaisedHands.Api.Models.Groups.GroupDetailModel
+- uid: RaisedHands.Api.Models.Groups.GroupDetailModelExtensions
+  commentId: T:RaisedHands.Api.Models.Groups.GroupDetailModelExtensions
+  href: RaisedHands.Api.Models.Groups.GroupDetailModelExtensions.html
+  name: GroupDetailModelExtensions
+  nameWithType: GroupDetailModelExtensions
+  fullName: RaisedHands.Api.Models.Groups.GroupDetailModelExtensions
+- uid: RaisedHands.Api.Models.Groups
+  commentId: N:RaisedHands.Api.Models.Groups
+  href: RaisedHands.html
+  name: RaisedHands.Api.Models.Groups
+  nameWithType: RaisedHands.Api.Models.Groups
+  fullName: RaisedHands.Api.Models.Groups
+  spec.csharp:
+  - uid: RaisedHands
+    name: RaisedHands
+    href: RaisedHands.html
+  - name: .
+  - uid: RaisedHands.Api
+    name: Api
+    href: RaisedHands.Api.html
+  - name: .
+  - uid: RaisedHands.Api.Models
+    name: Models
+    href: RaisedHands.Api.Models.html
+  - name: .
+  - uid: RaisedHands.Api.Models.Groups
+    name: Groups
+    href: RaisedHands.Api.Models.Groups.html
+  spec.vb:
+  - uid: RaisedHands
+    name: RaisedHands
+    href: RaisedHands.html
+  - name: .
+  - uid: RaisedHands.Api
+    name: Api
+    href: RaisedHands.Api.html
+  - name: .
+  - uid: RaisedHands.Api.Models
+    name: Models
+    href: RaisedHands.Api.Models.html
+  - name: .
+  - uid: RaisedHands.Api.Models.Groups
+    name: Groups
+    href: RaisedHands.Api.Models.Groups.html

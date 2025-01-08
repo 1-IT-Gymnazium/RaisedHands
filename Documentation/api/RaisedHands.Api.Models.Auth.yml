@@ -1,0 +1,78 @@
+### YamlMime:ManagedReference
+items:
+- uid: RaisedHands.Api.Models.Auth
+  commentId: N:RaisedHands.Api.Models.Auth
+  id: RaisedHands.Api.Models.Auth
+  children:
+  - RaisedHands.Api.Models.Auth.LoginModel
+  - RaisedHands.Api.Models.Auth.RegisterModel
+  - RaisedHands.Api.Models.Auth.TokenModel
+  langs:
+  - csharp
+  - vb
+  name: RaisedHands.Api.Models.Auth
+  nameWithType: RaisedHands.Api.Models.Auth
+  fullName: RaisedHands.Api.Models.Auth
+  type: Namespace
+  assemblies:
+  - RaisedHands.Api
+references:
+- uid: RaisedHands.Api.Models.Auth.LoginModel
+  commentId: T:RaisedHands.Api.Models.Auth.LoginModel
+  parent: RaisedHands.Api.Models.Auth
+  href: RaisedHands.Api.Models.Auth.LoginModel.html
+  name: LoginModel
+  nameWithType: LoginModel
+  fullName: RaisedHands.Api.Models.Auth.LoginModel
+- uid: RaisedHands.Api.Models.Auth.RegisterModel
+  commentId: T:RaisedHands.Api.Models.Auth.RegisterModel
+  parent: RaisedHands.Api.Models.Auth
+  href: RaisedHands.Api.Models.Auth.RegisterModel.html
+  name: RegisterModel
+  nameWithType: RegisterModel
+  fullName: RaisedHands.Api.Models.Auth.RegisterModel
+- uid: RaisedHands.Api.Models.Auth.TokenModel
+  commentId: T:RaisedHands.Api.Models.Auth.TokenModel
+  parent: RaisedHands.Api.Models.Auth
+  href: RaisedHands.Api.Models.Auth.TokenModel.html
+  name: TokenModel
+  nameWithType: TokenModel
+  fullName: RaisedHands.Api.Models.Auth.TokenModel
+- uid: RaisedHands.Api.Models.Auth
+  commentId: N:RaisedHands.Api.Models.Auth
+  href: RaisedHands.html
+  name: RaisedHands.Api.Models.Auth
+  nameWithType: RaisedHands.Api.Models.Auth
+  fullName: RaisedHands.Api.Models.Auth
+  spec.csharp:
+  - uid: RaisedHands
+    name: RaisedHands
+    href: RaisedHands.html
+  - name: .
+  - uid: RaisedHands.Api
+    name: Api
+    href: RaisedHands.Api.html
+  - name: .
+  - uid: RaisedHands.Api.Models
+    name: Models
+    href: RaisedHands.Api.Models.html
+  - name: .
+  - uid: RaisedHands.Api.Models.Auth
+    name: Auth
+    href: RaisedHands.Api.Models.Auth.html
+  spec.vb:
+  - uid: RaisedHands
+    name: RaisedHands
+    href: RaisedHands.html
+  - name: .
+  - uid: RaisedHands.Api
+    name: Api
+    href: RaisedHands.Api.html
+  - name: .
+  - uid: RaisedHands.Api.Models
+    name: Models
+    href: RaisedHands.Api.Models.html
+  - name: .
+  - uid: RaisedHands.Api.Models.Auth
+    name: Auth
+    href: RaisedHands.Api.Models.Auth.html

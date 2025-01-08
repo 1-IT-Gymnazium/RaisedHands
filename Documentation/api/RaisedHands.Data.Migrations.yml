@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: RaisedHands.Data.Migrations
+  commentId: N:RaisedHands.Data.Migrations
+  id: RaisedHands.Data.Migrations
+  children:
+  - RaisedHands.Data.Migrations.Init
+  langs:
+  - csharp
+  - vb
+  name: RaisedHands.Data.Migrations
+  nameWithType: RaisedHands.Data.Migrations
+  fullName: RaisedHands.Data.Migrations
+  type: Namespace
+  assemblies:
+  - RaisedHands.Data
+references:
+- uid: RaisedHands.Data.Migrations.Init
+  commentId: T:RaisedHands.Data.Migrations.Init
+  href: RaisedHands.Data.Migrations.Init.html
+  name: Init
+  nameWithType: Init
+  fullName: RaisedHands.Data.Migrations.Init

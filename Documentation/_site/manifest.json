@@ -1,0 +1,688 @@
+{
+  "source_base_path": "C:/Users/natal/source/repos/RaisedHands/Documentation",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Resource",
+      "output": {
+        "resource": {
+          "relative_path": "index.json"
+        }
+      }
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RaisedHands.Api.BackgroundServices.EmailSenderBackgroundService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RaisedHands.Api.BackgroundServices.EmailSenderBackgroundService.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RaisedHands.Api.BackgroundServices.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RaisedHands.Api.BackgroundServices.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RaisedHands.Api.Controllers.AuthController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RaisedHands.Api.Controllers.AuthController.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RaisedHands.Api.Controllers.GroupController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RaisedHands.Api.Controllers.GroupController.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RaisedHands.Api.Controllers.QuestionController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RaisedHands.Api.Controllers.QuestionController.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RaisedHands.Api.Controllers.RoomController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RaisedHands.Api.Controllers.RoomController.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RaisedHands.Api.Controllers.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RaisedHands.Api.Controllers.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RaisedHands.Api.Hubs.QuestionHub.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RaisedHands.Api.Hubs.QuestionHub.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RaisedHands.Api.Hubs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RaisedHands.Api.Hubs.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RaisedHands.Api.Models.Auth.LoginModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RaisedHands.Api.Models.Auth.LoginModel.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RaisedHands.Api.Models.Auth.RegisterModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RaisedHands.Api.Models.Auth.RegisterModel.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RaisedHands.Api.Models.Auth.TokenModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RaisedHands.Api.Models.Auth.TokenModel.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RaisedHands.Api.Models.Auth.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RaisedHands.Api.Models.Auth.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RaisedHands.Api.Models.Groups.GroupCreateModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RaisedHands.Api.Models.Groups.GroupCreateModel.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RaisedHands.Api.Models.Groups.GroupCreateModelExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RaisedHands.Api.Models.Groups.GroupCreateModelExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RaisedHands.Api.Models.Groups.GroupDetailModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RaisedHands.Api.Models.Groups.GroupDetailModel.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RaisedHands.Api.Models.Groups.GroupDetailModelExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RaisedHands.Api.Models.Groups.GroupDetailModelExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RaisedHands.Api.Models.Groups.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RaisedHands.Api.Models.Groups.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RaisedHands.Api.Models.Hands.HandDetailModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RaisedHands.Api.Models.Hands.HandDetailModel.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RaisedHands.Api.Models.Hands.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RaisedHands.Api.Models.Hands.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RaisedHands.Api.Models.IdNameModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RaisedHands.Api.Models.IdNameModel.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RaisedHands.Api.Models.Questions.QuestionCreateModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RaisedHands.Api.Models.Questions.QuestionCreateModel.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RaisedHands.Api.Models.Questions.QuestionDetailModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RaisedHands.Api.Models.Questions.QuestionDetailModel.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RaisedHands.Api.Models.Questions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RaisedHands.Api.Models.Questions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RaisedHands.Api.Models.Rooms.RoomCreateModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RaisedHands.Api.Models.Rooms.RoomCreateModel.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RaisedHands.Api.Models.Rooms.RoomCreateModelExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RaisedHands.Api.Models.Rooms.RoomCreateModelExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RaisedHands.Api.Models.Rooms.RoomDetailModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RaisedHands.Api.Models.Rooms.RoomDetailModel.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RaisedHands.Api.Models.Rooms.RoomDetailModelExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RaisedHands.Api.Models.Rooms.RoomDetailModelExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RaisedHands.Api.Models.Rooms.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RaisedHands.Api.Models.Rooms.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RaisedHands.Api.Models.Users.UserDetailModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RaisedHands.Api.Models.Users.UserDetailModel.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RaisedHands.Api.Models.Users.UserDetailModelExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RaisedHands.Api.Models.Users.UserDetailModelExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RaisedHands.Api.Models.Users.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RaisedHands.Api.Models.Users.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RaisedHands.Api.Models.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RaisedHands.Api.Models.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RaisedHands.Api.Program.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RaisedHands.Api.Program.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RaisedHands.Api.Services.EmailSenderService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RaisedHands.Api.Services.EmailSenderService.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RaisedHands.Api.Services.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RaisedHands.Api.Services.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RaisedHands.Api.Settings.SmtpSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RaisedHands.Api.Settings.SmtpSettings.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RaisedHands.Api.Settings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RaisedHands.Api.Settings.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RaisedHands.Api.Utilities.ClaimsPrincipalExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RaisedHands.Api.Utilities.ClaimsPrincipalExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RaisedHands.Api.Utilities.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RaisedHands.Api.Utilities.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RaisedHands.Api.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RaisedHands.Api.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RaisedHands.Data.AppDbContext.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RaisedHands.Data.AppDbContext.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RaisedHands.Data.Entities.Email.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RaisedHands.Data.Entities.Email.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RaisedHands.Data.Entities.Group.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RaisedHands.Data.Entities.Group.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RaisedHands.Data.Entities.GroupExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RaisedHands.Data.Entities.GroupExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RaisedHands.Data.Entities.Hand.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RaisedHands.Data.Entities.Hand.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RaisedHands.Data.Entities.Question.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RaisedHands.Data.Entities.Question.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RaisedHands.Data.Entities.Role.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RaisedHands.Data.Entities.Role.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RaisedHands.Data.Entities.Room.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RaisedHands.Data.Entities.Room.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RaisedHands.Data.Entities.RoomExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RaisedHands.Data.Entities.RoomExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RaisedHands.Data.Entities.User.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RaisedHands.Data.Entities.User.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RaisedHands.Data.Entities.UserRole.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RaisedHands.Data.Entities.UserRole.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RaisedHands.Data.Entities.UserRoleGroup.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RaisedHands.Data.Entities.UserRoleGroup.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RaisedHands.Data.Entities.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RaisedHands.Data.Entities.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RaisedHands.Data.Interfaces.ITrackable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RaisedHands.Data.Interfaces.ITrackable.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RaisedHands.Data.Interfaces.ITrackableExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RaisedHands.Data.Interfaces.ITrackableExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RaisedHands.Data.Interfaces.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RaisedHands.Data.Interfaces.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RaisedHands.Data.Migrations.Init.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RaisedHands.Data.Migrations.Init.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RaisedHands.Data.Migrations.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RaisedHands.Data.Migrations.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RaisedHands.Data.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RaisedHands.Data.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html"
+        },
+        ".json": {
+          "relative_path": "api/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/getting-started.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/getting-started.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/introduction.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/introduction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "docs/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "docs/toc.html"
+        },
+        ".json": {
+          "relative_path": "docs/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html"
+        },
+        ".json": {
+          "relative_path": "toc.json"
+        }
+      },
+      "version": ""
+    }
+  ],
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}

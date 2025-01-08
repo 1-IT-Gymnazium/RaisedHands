@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: RaisedHands.Api.Models
+  commentId: N:RaisedHands.Api.Models
+  id: RaisedHands.Api.Models
+  children:
+  - RaisedHands.Api.Models.IdNameModel
+  langs:
+  - csharp
+  - vb
+  name: RaisedHands.Api.Models
+  nameWithType: RaisedHands.Api.Models
+  fullName: RaisedHands.Api.Models
+  type: Namespace
+  assemblies:
+  - RaisedHands.Api
+references:
+- uid: RaisedHands.Api.Models.IdNameModel
+  commentId: T:RaisedHands.Api.Models.IdNameModel
+  href: RaisedHands.Api.Models.IdNameModel.html
+  name: IdNameModel
+  nameWithType: IdNameModel
+  fullName: RaisedHands.Api.Models.IdNameModel

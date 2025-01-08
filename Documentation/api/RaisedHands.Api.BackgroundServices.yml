@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: RaisedHands.Api.BackgroundServices
+  commentId: N:RaisedHands.Api.BackgroundServices
+  id: RaisedHands.Api.BackgroundServices
+  children:
+  - RaisedHands.Api.BackgroundServices.EmailSenderBackgroundService
+  langs:
+  - csharp
+  - vb
+  name: RaisedHands.Api.BackgroundServices
+  nameWithType: RaisedHands.Api.BackgroundServices
+  fullName: RaisedHands.Api.BackgroundServices
+  type: Namespace
+  assemblies:
+  - RaisedHands.Api
+references:
+- uid: RaisedHands.Api.BackgroundServices.EmailSenderBackgroundService
+  commentId: T:RaisedHands.Api.BackgroundServices.EmailSenderBackgroundService
+  href: RaisedHands.Api.BackgroundServices.EmailSenderBackgroundService.html
+  name: EmailSenderBackgroundService
+  nameWithType: EmailSenderBackgroundService
+  fullName: RaisedHands.Api.BackgroundServices.EmailSenderBackgroundService

@@ -1,0 +1,69 @@
+### YamlMime:ManagedReference
+items:
+- uid: RaisedHands.Api.Models.Questions
+  commentId: N:RaisedHands.Api.Models.Questions
+  id: RaisedHands.Api.Models.Questions
+  children:
+  - RaisedHands.Api.Models.Questions.QuestionCreateModel
+  - RaisedHands.Api.Models.Questions.QuestionDetailModel
+  langs:
+  - csharp
+  - vb
+  name: RaisedHands.Api.Models.Questions
+  nameWithType: RaisedHands.Api.Models.Questions
+  fullName: RaisedHands.Api.Models.Questions
+  type: Namespace
+  assemblies:
+  - RaisedHands.Api
+references:
+- uid: RaisedHands.Api.Models.Questions.QuestionCreateModel
+  commentId: T:RaisedHands.Api.Models.Questions.QuestionCreateModel
+  parent: RaisedHands.Api.Models.Questions
+  href: RaisedHands.Api.Models.Questions.QuestionCreateModel.html
+  name: QuestionCreateModel
+  nameWithType: QuestionCreateModel
+  fullName: RaisedHands.Api.Models.Questions.QuestionCreateModel
+- uid: RaisedHands.Api.Models.Questions.QuestionDetailModel
+  commentId: T:RaisedHands.Api.Models.Questions.QuestionDetailModel
+  href: RaisedHands.Api.Models.Questions.QuestionDetailModel.html
+  name: QuestionDetailModel
+  nameWithType: QuestionDetailModel
+  fullName: RaisedHands.Api.Models.Questions.QuestionDetailModel
+- uid: RaisedHands.Api.Models.Questions
+  commentId: N:RaisedHands.Api.Models.Questions
+  href: RaisedHands.html
+  name: RaisedHands.Api.Models.Questions
+  nameWithType: RaisedHands.Api.Models.Questions
+  fullName: RaisedHands.Api.Models.Questions
+  spec.csharp:
+  - uid: RaisedHands
+    name: RaisedHands
+    href: RaisedHands.html
+  - name: .
+  - uid: RaisedHands.Api
+    name: Api
+    href: RaisedHands.Api.html
+  - name: .
+  - uid: RaisedHands.Api.Models
+    name: Models
+    href: RaisedHands.Api.Models.html
+  - name: .
+  - uid: RaisedHands.Api.Models.Questions
+    name: Questions
+    href: RaisedHands.Api.Models.Questions.html
+  spec.vb:
+  - uid: RaisedHands
+    name: RaisedHands
+    href: RaisedHands.html
+  - name: .
+  - uid: RaisedHands.Api
+    name: Api
+    href: RaisedHands.Api.html
+  - name: .
+  - uid: RaisedHands.Api.Models
+    name: Models
+    href: RaisedHands.Api.Models.html
+  - name: .
+  - uid: RaisedHands.Api.Models.Questions
+    name: Questions
+    href: RaisedHands.Api.Models.Questions.html

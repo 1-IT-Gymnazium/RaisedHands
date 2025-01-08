@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: RaisedHands.Api.Hubs
+  commentId: N:RaisedHands.Api.Hubs
+  id: RaisedHands.Api.Hubs
+  children:
+  - RaisedHands.Api.Hubs.QuestionHub
+  langs:
+  - csharp
+  - vb
+  name: RaisedHands.Api.Hubs
+  nameWithType: RaisedHands.Api.Hubs
+  fullName: RaisedHands.Api.Hubs
+  type: Namespace
+  assemblies:
+  - RaisedHands.Api
+references:
+- uid: RaisedHands.Api.Hubs.QuestionHub
+  commentId: T:RaisedHands.Api.Hubs.QuestionHub
+  href: RaisedHands.Api.Hubs.QuestionHub.html
+  name: QuestionHub
+  nameWithType: QuestionHub
+  fullName: RaisedHands.Api.Hubs.QuestionHub

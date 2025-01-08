@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: RaisedHands.Api.Settings
+  commentId: N:RaisedHands.Api.Settings
+  id: RaisedHands.Api.Settings
+  children:
+  - RaisedHands.Api.Settings.SmtpSettings
+  langs:
+  - csharp
+  - vb
+  name: RaisedHands.Api.Settings
+  nameWithType: RaisedHands.Api.Settings
+  fullName: RaisedHands.Api.Settings
+  type: Namespace
+  assemblies:
+  - RaisedHands.Api
+references:
+- uid: RaisedHands.Api.Settings.SmtpSettings
+  commentId: T:RaisedHands.Api.Settings.SmtpSettings
+  href: RaisedHands.Api.Settings.SmtpSettings.html
+  name: SmtpSettings
+  nameWithType: SmtpSettings
+  fullName: RaisedHands.Api.Settings.SmtpSettings

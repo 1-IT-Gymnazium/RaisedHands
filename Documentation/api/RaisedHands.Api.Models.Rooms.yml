@@ -1,0 +1,84 @@
+### YamlMime:ManagedReference
+items:
+- uid: RaisedHands.Api.Models.Rooms
+  commentId: N:RaisedHands.Api.Models.Rooms
+  id: RaisedHands.Api.Models.Rooms
+  children:
+  - RaisedHands.Api.Models.Rooms.RoomCreateModel
+  - RaisedHands.Api.Models.Rooms.RoomCreateModelExtensions
+  - RaisedHands.Api.Models.Rooms.RoomDetailModel
+  - RaisedHands.Api.Models.Rooms.RoomDetailModelExtensions
+  langs:
+  - csharp
+  - vb
+  name: RaisedHands.Api.Models.Rooms
+  nameWithType: RaisedHands.Api.Models.Rooms
+  fullName: RaisedHands.Api.Models.Rooms
+  type: Namespace
+  assemblies:
+  - RaisedHands.Api
+references:
+- uid: RaisedHands.Api.Models.Rooms.RoomCreateModel
+  commentId: T:RaisedHands.Api.Models.Rooms.RoomCreateModel
+  parent: RaisedHands.Api.Models.Rooms
+  href: RaisedHands.Api.Models.Rooms.RoomCreateModel.html
+  name: RoomCreateModel
+  nameWithType: RoomCreateModel
+  fullName: RaisedHands.Api.Models.Rooms.RoomCreateModel
+- uid: RaisedHands.Api.Models.Rooms.RoomCreateModelExtensions
+  commentId: T:RaisedHands.Api.Models.Rooms.RoomCreateModelExtensions
+  href: RaisedHands.Api.Models.Rooms.RoomCreateModelExtensions.html
+  name: RoomCreateModelExtensions
+  nameWithType: RoomCreateModelExtensions
+  fullName: RaisedHands.Api.Models.Rooms.RoomCreateModelExtensions
+- uid: RaisedHands.Api.Models.Rooms.RoomDetailModel
+  commentId: T:RaisedHands.Api.Models.Rooms.RoomDetailModel
+  parent: RaisedHands.Api.Models.Rooms
+  href: RaisedHands.Api.Models.Rooms.RoomDetailModel.html
+  name: RoomDetailModel
+  nameWithType: RoomDetailModel
+  fullName: RaisedHands.Api.Models.Rooms.RoomDetailModel
+- uid: RaisedHands.Api.Models.Rooms.RoomDetailModelExtensions
+  commentId: T:RaisedHands.Api.Models.Rooms.RoomDetailModelExtensions
+  href: RaisedHands.Api.Models.Rooms.RoomDetailModelExtensions.html
+  name: RoomDetailModelExtensions
+  nameWithType: RoomDetailModelExtensions
+  fullName: RaisedHands.Api.Models.Rooms.RoomDetailModelExtensions
+- uid: RaisedHands.Api.Models.Rooms
+  commentId: N:RaisedHands.Api.Models.Rooms
+  href: RaisedHands.html
+  name: RaisedHands.Api.Models.Rooms
+  nameWithType: RaisedHands.Api.Models.Rooms
+  fullName: RaisedHands.Api.Models.Rooms
+  spec.csharp:
+  - uid: RaisedHands
+    name: RaisedHands
+    href: RaisedHands.html
+  - name: .
+  - uid: RaisedHands.Api
+    name: Api
+    href: RaisedHands.Api.html
+  - name: .
+  - uid: RaisedHands.Api.Models
+    name: Models
+    href: RaisedHands.Api.Models.html
+  - name: .
+  - uid: RaisedHands.Api.Models.Rooms
+    name: Rooms
+    href: RaisedHands.Api.Models.Rooms.html
+  spec.vb:
+  - uid: RaisedHands
+    name: RaisedHands
+    href: RaisedHands.html
+  - name: .
+  - uid: RaisedHands.Api
+    name: Api
+    href: RaisedHands.Api.html
+  - name: .
+  - uid: RaisedHands.Api.Models
+    name: Models
+    href: RaisedHands.Api.Models.html
+  - name: .
+  - uid: RaisedHands.Api.Models.Rooms
+    name: Rooms
+    href: RaisedHands.Api.Models.Rooms.html

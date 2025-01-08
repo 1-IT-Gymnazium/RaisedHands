@@ -1,0 +1,1627 @@
+### YamlMime:ManagedReference
+items:
+- uid: RaisedHands.Data.Entities.Room
+  commentId: T:RaisedHands.Data.Entities.Room
+  id: Room
+  parent: RaisedHands.Data.Entities
+  children:
+  - RaisedHands.Data.Entities.Room.CreatedAt
+  - RaisedHands.Data.Entities.Room.CreatedBy
+  - RaisedHands.Data.Entities.Room.DateTime
+  - RaisedHands.Data.Entities.Room.DeletedAt
+  - RaisedHands.Data.Entities.Room.DeletedBy
+  - RaisedHands.Data.Entities.Room.EndDate
+  - RaisedHands.Data.Entities.Room.Group
+  - RaisedHands.Data.Entities.Room.GroupId
+  - RaisedHands.Data.Entities.Room.Id
+  - RaisedHands.Data.Entities.Room.ModifiedAt
+  - RaisedHands.Data.Entities.Room.ModifiedBy
+  - RaisedHands.Data.Entities.Room.Name
+  langs:
+  - csharp
+  - vb
+  name: Room
+  nameWithType: Room
+  fullName: RaisedHands.Data.Entities.Room
+  type: Class
+  source:
+    remote:
+      path: src/RaisedHands.Data/Entities/Room.cs
+      branch: dev
+      repo: https://github.com/1-IT-Gymnazium/RaisedHands.git
+    id: Room
+    path: ../src/RaisedHands.Data/Entities/Room.cs
+    startLine: 10
+  assemblies:
+  - RaisedHands.Data
+  namespace: RaisedHands.Data.Entities
+  syntax:
+    content: 'public class Room : ITrackable'
+    content.vb: Public Class Room Implements ITrackable
+  inheritance:
+  - System.Object
+  implements:
+  - RaisedHands.Data.Interfaces.ITrackable
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  extensionMethods:
+  - RaisedHands.Data.Entities.Room.RaisedHands.Data.Interfaces.ITrackableExtensions.SetCreateBySystem``1(NodaTime.Instant)
+  - RaisedHands.Data.Entities.Room.RaisedHands.Data.Interfaces.ITrackableExtensions.SetCreateBy``1(System.String,NodaTime.Instant)
+  - RaisedHands.Data.Entities.Room.RaisedHands.Data.Interfaces.ITrackableExtensions.SetDeleteBySystem``1(NodaTime.Instant)
+  - RaisedHands.Data.Entities.Room.RaisedHands.Data.Interfaces.ITrackableExtensions.SetDeleteBy``1(System.String,NodaTime.Instant)
+  - RaisedHands.Data.Entities.Room.RaisedHands.Data.Interfaces.ITrackableExtensions.SetModifyBySystem``1(NodaTime.Instant)
+  - RaisedHands.Data.Entities.Room.RaisedHands.Data.Interfaces.ITrackableExtensions.SetModifyBy``1(System.String,NodaTime.Instant)
+- uid: RaisedHands.Data.Entities.Room.Id
+  commentId: P:RaisedHands.Data.Entities.Room.Id
+  id: Id
+  parent: RaisedHands.Data.Entities.Room
+  langs:
+  - csharp
+  - vb
+  name: Id
+  nameWithType: Room.Id
+  fullName: RaisedHands.Data.Entities.Room.Id
+  type: Property
+  source:
+    remote:
+      path: src/RaisedHands.Data/Entities/Room.cs
+      branch: dev
+      repo: https://github.com/1-IT-Gymnazium/RaisedHands.git
+    id: Id
+    path: ../src/RaisedHands.Data/Entities/Room.cs
+    startLine: 12
+  assemblies:
+  - RaisedHands.Data
+  namespace: RaisedHands.Data.Entities
+  syntax:
+    content: public Guid Id { get; set; }
+    parameters: []
+    return:
+      type: System.Guid
+    content.vb: Public Property Id As Guid
+  overload: RaisedHands.Data.Entities.Room.Id*
+- uid: RaisedHands.Data.Entities.Room.Name
+  commentId: P:RaisedHands.Data.Entities.Room.Name
+  id: Name
+  parent: RaisedHands.Data.Entities.Room
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: Room.Name
+  fullName: RaisedHands.Data.Entities.Room.Name
+  type: Property
+  source:
+    remote:
+      path: src/RaisedHands.Data/Entities/Room.cs
+      branch: dev
+      repo: https://github.com/1-IT-Gymnazium/RaisedHands.git
+    id: Name
+    path: ../src/RaisedHands.Data/Entities/Room.cs
+    startLine: 14
+  assemblies:
+  - RaisedHands.Data
+  namespace: RaisedHands.Data.Entities
+  syntax:
+    content: public string Name { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Name As String
+  overload: RaisedHands.Data.Entities.Room.Name*
+- uid: RaisedHands.Data.Entities.Room.DateTime
+  commentId: P:RaisedHands.Data.Entities.Room.DateTime
+  id: DateTime
+  parent: RaisedHands.Data.Entities.Room
+  langs:
+  - csharp
+  - vb
+  name: DateTime
+  nameWithType: Room.DateTime
+  fullName: RaisedHands.Data.Entities.Room.DateTime
+  type: Property
+  source:
+    remote:
+      path: src/RaisedHands.Data/Entities/Room.cs
+      branch: dev
+      repo: https://github.com/1-IT-Gymnazium/RaisedHands.git
+    id: DateTime
+    path: ../src/RaisedHands.Data/Entities/Room.cs
+    startLine: 16
+  assemblies:
+  - RaisedHands.Data
+  namespace: RaisedHands.Data.Entities
+  syntax:
+    content: public DateTime DateTime { get; set; }
+    parameters: []
+    return:
+      type: System.DateTime
+    content.vb: Public Property DateTime As Date
+  overload: RaisedHands.Data.Entities.Room.DateTime*
+- uid: RaisedHands.Data.Entities.Room.GroupId
+  commentId: P:RaisedHands.Data.Entities.Room.GroupId
+  id: GroupId
+  parent: RaisedHands.Data.Entities.Room
+  langs:
+  - csharp
+  - vb
+  name: GroupId
+  nameWithType: Room.GroupId
+  fullName: RaisedHands.Data.Entities.Room.GroupId
+  type: Property
+  source:
+    remote:
+      path: src/RaisedHands.Data/Entities/Room.cs
+      branch: dev
+      repo: https://github.com/1-IT-Gymnazium/RaisedHands.git
+    id: GroupId
+    path: ../src/RaisedHands.Data/Entities/Room.cs
+    startLine: 18
+  assemblies:
+  - RaisedHands.Data
+  namespace: RaisedHands.Data.Entities
+  syntax:
+    content: public Guid GroupId { get; set; }
+    parameters: []
+    return:
+      type: System.Guid
+    content.vb: Public Property GroupId As Guid
+  overload: RaisedHands.Data.Entities.Room.GroupId*
+- uid: RaisedHands.Data.Entities.Room.Group
+  commentId: P:RaisedHands.Data.Entities.Room.Group
+  id: Group
+  parent: RaisedHands.Data.Entities.Room
+  langs:
+  - csharp
+  - vb
+  name: Group
+  nameWithType: Room.Group
+  fullName: RaisedHands.Data.Entities.Room.Group
+  type: Property
+  source:
+    remote:
+      path: src/RaisedHands.Data/Entities/Room.cs
+      branch: dev
+      repo: https://github.com/1-IT-Gymnazium/RaisedHands.git
+    id: Group
+    path: ../src/RaisedHands.Data/Entities/Room.cs
+    startLine: 19
+  assemblies:
+  - RaisedHands.Data
+  namespace: RaisedHands.Data.Entities
+  syntax:
+    content: public Group Group { get; set; }
+    parameters: []
+    return:
+      type: RaisedHands.Data.Entities.Group
+    content.vb: Public Property Group As Group
+  overload: RaisedHands.Data.Entities.Room.Group*
+- uid: RaisedHands.Data.Entities.Room.EndDate
+  commentId: P:RaisedHands.Data.Entities.Room.EndDate
+  id: EndDate
+  parent: RaisedHands.Data.Entities.Room
+  langs:
+  - csharp
+  - vb
+  name: EndDate
+  nameWithType: Room.EndDate
+  fullName: RaisedHands.Data.Entities.Room.EndDate
+  type: Property
+  source:
+    remote:
+      path: src/RaisedHands.Data/Entities/Room.cs
+      branch: dev
+      repo: https://github.com/1-IT-Gymnazium/RaisedHands.git
+    id: EndDate
+    path: ../src/RaisedHands.Data/Entities/Room.cs
+    startLine: 21
+  assemblies:
+  - RaisedHands.Data
+  namespace: RaisedHands.Data.Entities
+  syntax:
+    content: public DateTime? EndDate { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.DateTime}
+    content.vb: Public Property EndDate As Date?
+  overload: RaisedHands.Data.Entities.Room.EndDate*
+- uid: RaisedHands.Data.Entities.Room.CreatedAt
+  commentId: P:RaisedHands.Data.Entities.Room.CreatedAt
+  id: CreatedAt
+  parent: RaisedHands.Data.Entities.Room
+  langs:
+  - csharp
+  - vb
+  name: CreatedAt
+  nameWithType: Room.CreatedAt
+  fullName: RaisedHands.Data.Entities.Room.CreatedAt
+  type: Property
+  source:
+    remote:
+      path: src/RaisedHands.Data/Entities/Room.cs
+      branch: dev
+      repo: https://github.com/1-IT-Gymnazium/RaisedHands.git
+    id: CreatedAt
+    path: ../src/RaisedHands.Data/Entities/Room.cs
+    startLine: 22
+  assemblies:
+  - RaisedHands.Data
+  namespace: RaisedHands.Data.Entities
+  example: []
+  syntax:
+    content: public Instant CreatedAt { get; set; }
+    parameters: []
+    return:
+      type: NodaTime.Instant
+    content.vb: Public Property CreatedAt As Instant
+  overload: RaisedHands.Data.Entities.Room.CreatedAt*
+  implements:
+  - RaisedHands.Data.Interfaces.ITrackable.CreatedAt
+- uid: RaisedHands.Data.Entities.Room.CreatedBy
+  commentId: P:RaisedHands.Data.Entities.Room.CreatedBy
+  id: CreatedBy
+  parent: RaisedHands.Data.Entities.Room
+  langs:
+  - csharp
+  - vb
+  name: CreatedBy
+  nameWithType: Room.CreatedBy
+  fullName: RaisedHands.Data.Entities.Room.CreatedBy
+  type: Property
+  source:
+    remote:
+      path: src/RaisedHands.Data/Entities/Room.cs
+      branch: dev
+      repo: https://github.com/1-IT-Gymnazium/RaisedHands.git
+    id: CreatedBy
+    path: ../src/RaisedHands.Data/Entities/Room.cs
+    startLine: 23
+  assemblies:
+  - RaisedHands.Data
+  namespace: RaisedHands.Data.Entities
+  example: []
+  syntax:
+    content: public string CreatedBy { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property CreatedBy As String
+  overload: RaisedHands.Data.Entities.Room.CreatedBy*
+  implements:
+  - RaisedHands.Data.Interfaces.ITrackable.CreatedBy
+- uid: RaisedHands.Data.Entities.Room.ModifiedAt
+  commentId: P:RaisedHands.Data.Entities.Room.ModifiedAt
+  id: ModifiedAt
+  parent: RaisedHands.Data.Entities.Room
+  langs:
+  - csharp
+  - vb
+  name: ModifiedAt
+  nameWithType: Room.ModifiedAt
+  fullName: RaisedHands.Data.Entities.Room.ModifiedAt
+  type: Property
+  source:
+    remote:
+      path: src/RaisedHands.Data/Entities/Room.cs
+      branch: dev
+      repo: https://github.com/1-IT-Gymnazium/RaisedHands.git
+    id: ModifiedAt
+    path: ../src/RaisedHands.Data/Entities/Room.cs
+    startLine: 24
+  assemblies:
+  - RaisedHands.Data
+  namespace: RaisedHands.Data.Entities
+  example: []
+  syntax:
+    content: public Instant ModifiedAt { get; set; }
+    parameters: []
+    return:
+      type: NodaTime.Instant
+    content.vb: Public Property ModifiedAt As Instant
+  overload: RaisedHands.Data.Entities.Room.ModifiedAt*
+  implements:
+  - RaisedHands.Data.Interfaces.ITrackable.ModifiedAt
+- uid: RaisedHands.Data.Entities.Room.ModifiedBy
+  commentId: P:RaisedHands.Data.Entities.Room.ModifiedBy
+  id: ModifiedBy
+  parent: RaisedHands.Data.Entities.Room
+  langs:
+  - csharp
+  - vb
+  name: ModifiedBy
+  nameWithType: Room.ModifiedBy
+  fullName: RaisedHands.Data.Entities.Room.ModifiedBy
+  type: Property
+  source:
+    remote:
+      path: src/RaisedHands.Data/Entities/Room.cs
+      branch: dev
+      repo: https://github.com/1-IT-Gymnazium/RaisedHands.git
+    id: ModifiedBy
+    path: ../src/RaisedHands.Data/Entities/Room.cs
+    startLine: 25
+  assemblies:
+  - RaisedHands.Data
+  namespace: RaisedHands.Data.Entities
+  example: []
+  syntax:
+    content: public string ModifiedBy { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property ModifiedBy As String
+  overload: RaisedHands.Data.Entities.Room.ModifiedBy*
+  implements:
+  - RaisedHands.Data.Interfaces.ITrackable.ModifiedBy
+- uid: RaisedHands.Data.Entities.Room.DeletedAt
+  commentId: P:RaisedHands.Data.Entities.Room.DeletedAt
+  id: DeletedAt
+  parent: RaisedHands.Data.Entities.Room
+  langs:
+  - csharp
+  - vb
+  name: DeletedAt
+  nameWithType: Room.DeletedAt
+  fullName: RaisedHands.Data.Entities.Room.DeletedAt
+  type: Property
+  source:
+    remote:
+      path: src/RaisedHands.Data/Entities/Room.cs
+      branch: dev
+      repo: https://github.com/1-IT-Gymnazium/RaisedHands.git
+    id: DeletedAt
+    path: ../src/RaisedHands.Data/Entities/Room.cs
+    startLine: 26
+  assemblies:
+  - RaisedHands.Data
+  namespace: RaisedHands.Data.Entities
+  example: []
+  syntax:
+    content: public Instant? DeletedAt { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{NodaTime.Instant}
+    content.vb: Public Property DeletedAt As Instant?
+  overload: RaisedHands.Data.Entities.Room.DeletedAt*
+  implements:
+  - RaisedHands.Data.Interfaces.ITrackable.DeletedAt
+- uid: RaisedHands.Data.Entities.Room.DeletedBy
+  commentId: P:RaisedHands.Data.Entities.Room.DeletedBy
+  id: DeletedBy
+  parent: RaisedHands.Data.Entities.Room
+  langs:
+  - csharp
+  - vb
+  name: DeletedBy
+  nameWithType: Room.DeletedBy
+  fullName: RaisedHands.Data.Entities.Room.DeletedBy
+  type: Property
+  source:
+    remote:
+      path: src/RaisedHands.Data/Entities/Room.cs
+      branch: dev
+      repo: https://github.com/1-IT-Gymnazium/RaisedHands.git
+    id: DeletedBy
+    path: ../src/RaisedHands.Data/Entities/Room.cs
+    startLine: 27
+  assemblies:
+  - RaisedHands.Data
+  namespace: RaisedHands.Data.Entities
+  example: []
+  syntax:
+    content: public string? DeletedBy { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property DeletedBy As String
+  overload: RaisedHands.Data.Entities.Room.DeletedBy*
+  implements:
+  - RaisedHands.Data.Interfaces.ITrackable.DeletedBy
+references:
+- uid: RaisedHands.Data.Entities
+  commentId: N:RaisedHands.Data.Entities
+  href: RaisedHands.html
+  name: RaisedHands.Data.Entities
+  nameWithType: RaisedHands.Data.Entities
+  fullName: RaisedHands.Data.Entities
+  spec.csharp:
+  - uid: RaisedHands
+    name: RaisedHands
+    href: RaisedHands.html
+  - name: .
+  - uid: RaisedHands.Data
+    name: Data
+    href: RaisedHands.Data.html
+  - name: .
+  - uid: RaisedHands.Data.Entities
+    name: Entities
+    href: RaisedHands.Data.Entities.html
+  spec.vb:
+  - uid: RaisedHands
+    name: RaisedHands
+    href: RaisedHands.html
+  - name: .
+  - uid: RaisedHands.Data
+    name: Data
+    href: RaisedHands.Data.html
+  - name: .
+  - uid: RaisedHands.Data.Entities
+    name: Entities
+    href: RaisedHands.Data.Entities.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: RaisedHands.Data.Interfaces.ITrackable
+  commentId: T:RaisedHands.Data.Interfaces.ITrackable
+  parent: RaisedHands.Data.Interfaces
+  href: RaisedHands.Data.Interfaces.ITrackable.html
+  name: ITrackable
+  nameWithType: ITrackable
+  fullName: RaisedHands.Data.Interfaces.ITrackable
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: RaisedHands.Data.Entities.Room.RaisedHands.Data.Interfaces.ITrackableExtensions.SetCreateBySystem``1(NodaTime.Instant)
+  commentId: M:RaisedHands.Data.Interfaces.ITrackableExtensions.SetCreateBySystem``1(``0,NodaTime.Instant)
+  parent: RaisedHands.Data.Interfaces.ITrackableExtensions
+  definition: RaisedHands.Data.Interfaces.ITrackableExtensions.SetCreateBySystem``1(``0,NodaTime.Instant)
+  href: RaisedHands.Data.Interfaces.ITrackableExtensions.html#RaisedHands_Data_Interfaces_ITrackableExtensions_SetCreateBySystem__1___0_NodaTime_Instant_
+  name: SetCreateBySystem<Room>(Room, Instant)
+  nameWithType: ITrackableExtensions.SetCreateBySystem<Room>(Room, Instant)
+  fullName: RaisedHands.Data.Interfaces.ITrackableExtensions.SetCreateBySystem<RaisedHands.Data.Entities.Room>(RaisedHands.Data.Entities.Room, NodaTime.Instant)
+  nameWithType.vb: ITrackableExtensions.SetCreateBySystem(Of Room)(Room, Instant)
+  fullName.vb: RaisedHands.Data.Interfaces.ITrackableExtensions.SetCreateBySystem(Of RaisedHands.Data.Entities.Room)(RaisedHands.Data.Entities.Room, NodaTime.Instant)
+  name.vb: SetCreateBySystem(Of Room)(Room, Instant)
+  spec.csharp:
+  - uid: RaisedHands.Data.Interfaces.ITrackableExtensions.SetCreateBySystem``1(RaisedHands.Data.Entities.Room,NodaTime.Instant)
+    name: SetCreateBySystem
+    href: RaisedHands.Data.Interfaces.ITrackableExtensions.html#RaisedHands_Data_Interfaces_ITrackableExtensions_SetCreateBySystem__1___0_NodaTime_Instant_
+  - name: <
+  - uid: RaisedHands.Data.Entities.Room
+    name: Room
+    href: RaisedHands.Data.Entities.Room.html
+  - name: '>'
+  - name: (
+  - uid: RaisedHands.Data.Entities.Room
+    name: Room
+    href: RaisedHands.Data.Entities.Room.html
+  - name: ','
+  - name: " "
+  - uid: NodaTime.Instant
+    name: Instant
+    isExternal: true
+    href: https://github.com/jskeet/nodatime/blob/4d0e4c04dd5f09304a7e53a0675dce1597ea0143/src/NodaTime/Instant.cs
+  - name: )
+  spec.vb:
+  - uid: RaisedHands.Data.Interfaces.ITrackableExtensions.SetCreateBySystem``1(RaisedHands.Data.Entities.Room,NodaTime.Instant)
+    name: SetCreateBySystem
+    href: RaisedHands.Data.Interfaces.ITrackableExtensions.html#RaisedHands_Data_Interfaces_ITrackableExtensions_SetCreateBySystem__1___0_NodaTime_Instant_
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RaisedHands.Data.Entities.Room
+    name: Room
+    href: RaisedHands.Data.Entities.Room.html
+  - name: )
+  - name: (
+  - uid: RaisedHands.Data.Entities.Room
+    name: Room
+    href: RaisedHands.Data.Entities.Room.html
+  - name: ','
+  - name: " "
+  - uid: NodaTime.Instant
+    name: Instant
+    isExternal: true
+    href: https://github.com/jskeet/nodatime/blob/4d0e4c04dd5f09304a7e53a0675dce1597ea0143/src/NodaTime/Instant.cs
+  - name: )
+- uid: RaisedHands.Data.Entities.Room.RaisedHands.Data.Interfaces.ITrackableExtensions.SetCreateBy``1(System.String,NodaTime.Instant)
+  commentId: M:RaisedHands.Data.Interfaces.ITrackableExtensions.SetCreateBy``1(``0,System.String,NodaTime.Instant)
+  parent: RaisedHands.Data.Interfaces.ITrackableExtensions
+  definition: RaisedHands.Data.Interfaces.ITrackableExtensions.SetCreateBy``1(``0,System.String,NodaTime.Instant)
+  href: RaisedHands.Data.Interfaces.ITrackableExtensions.html#RaisedHands_Data_Interfaces_ITrackableExtensions_SetCreateBy__1___0_System_String_NodaTime_Instant_
+  name: SetCreateBy<Room>(Room, string, Instant)
+  nameWithType: ITrackableExtensions.SetCreateBy<Room>(Room, string, Instant)
+  fullName: RaisedHands.Data.Interfaces.ITrackableExtensions.SetCreateBy<RaisedHands.Data.Entities.Room>(RaisedHands.Data.Entities.Room, string, NodaTime.Instant)
+  nameWithType.vb: ITrackableExtensions.SetCreateBy(Of Room)(Room, String, Instant)
+  fullName.vb: RaisedHands.Data.Interfaces.ITrackableExtensions.SetCreateBy(Of RaisedHands.Data.Entities.Room)(RaisedHands.Data.Entities.Room, String, NodaTime.Instant)
+  name.vb: SetCreateBy(Of Room)(Room, String, Instant)
+  spec.csharp:
+  - uid: RaisedHands.Data.Interfaces.ITrackableExtensions.SetCreateBy``1(RaisedHands.Data.Entities.Room,System.String,NodaTime.Instant)
+    name: SetCreateBy
+    href: RaisedHands.Data.Interfaces.ITrackableExtensions.html#RaisedHands_Data_Interfaces_ITrackableExtensions_SetCreateBy__1___0_System_String_NodaTime_Instant_
+  - name: <
+  - uid: RaisedHands.Data.Entities.Room
+    name: Room
+    href: RaisedHands.Data.Entities.Room.html
+  - name: '>'
+  - name: (
+  - uid: RaisedHands.Data.Entities.Room
+    name: Room
+    href: RaisedHands.Data.Entities.Room.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: NodaTime.Instant
+    name: Instant
+    isExternal: true
+    href: https://github.com/jskeet/nodatime/blob/4d0e4c04dd5f09304a7e53a0675dce1597ea0143/src/NodaTime/Instant.cs
+  - name: )
+  spec.vb:
+  - uid: RaisedHands.Data.Interfaces.ITrackableExtensions.SetCreateBy``1(RaisedHands.Data.Entities.Room,System.String,NodaTime.Instant)
+    name: SetCreateBy
+    href: RaisedHands.Data.Interfaces.ITrackableExtensions.html#RaisedHands_Data_Interfaces_ITrackableExtensions_SetCreateBy__1___0_System_String_NodaTime_Instant_
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RaisedHands.Data.Entities.Room
+    name: Room
+    href: RaisedHands.Data.Entities.Room.html
+  - name: )
+  - name: (
+  - uid: RaisedHands.Data.Entities.Room
+    name: Room
+    href: RaisedHands.Data.Entities.Room.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: NodaTime.Instant
+    name: Instant
+    isExternal: true
+    href: https://github.com/jskeet/nodatime/blob/4d0e4c04dd5f09304a7e53a0675dce1597ea0143/src/NodaTime/Instant.cs
+  - name: )
+- uid: RaisedHands.Data.Entities.Room.RaisedHands.Data.Interfaces.ITrackableExtensions.SetDeleteBySystem``1(NodaTime.Instant)
+  commentId: M:RaisedHands.Data.Interfaces.ITrackableExtensions.SetDeleteBySystem``1(``0,NodaTime.Instant)
+  parent: RaisedHands.Data.Interfaces.ITrackableExtensions
+  definition: RaisedHands.Data.Interfaces.ITrackableExtensions.SetDeleteBySystem``1(``0,NodaTime.Instant)
+  href: RaisedHands.Data.Interfaces.ITrackableExtensions.html#RaisedHands_Data_Interfaces_ITrackableExtensions_SetDeleteBySystem__1___0_NodaTime_Instant_
+  name: SetDeleteBySystem<Room>(Room, Instant)
+  nameWithType: ITrackableExtensions.SetDeleteBySystem<Room>(Room, Instant)
+  fullName: RaisedHands.Data.Interfaces.ITrackableExtensions.SetDeleteBySystem<RaisedHands.Data.Entities.Room>(RaisedHands.Data.Entities.Room, NodaTime.Instant)
+  nameWithType.vb: ITrackableExtensions.SetDeleteBySystem(Of Room)(Room, Instant)
+  fullName.vb: RaisedHands.Data.Interfaces.ITrackableExtensions.SetDeleteBySystem(Of RaisedHands.Data.Entities.Room)(RaisedHands.Data.Entities.Room, NodaTime.Instant)
+  name.vb: SetDeleteBySystem(Of Room)(Room, Instant)
+  spec.csharp:
+  - uid: RaisedHands.Data.Interfaces.ITrackableExtensions.SetDeleteBySystem``1(RaisedHands.Data.Entities.Room,NodaTime.Instant)
+    name: SetDeleteBySystem
+    href: RaisedHands.Data.Interfaces.ITrackableExtensions.html#RaisedHands_Data_Interfaces_ITrackableExtensions_SetDeleteBySystem__1___0_NodaTime_Instant_
+  - name: <
+  - uid: RaisedHands.Data.Entities.Room
+    name: Room
+    href: RaisedHands.Data.Entities.Room.html
+  - name: '>'
+  - name: (
+  - uid: RaisedHands.Data.Entities.Room
+    name: Room
+    href: RaisedHands.Data.Entities.Room.html
+  - name: ','
+  - name: " "
+  - uid: NodaTime.Instant
+    name: Instant
+    isExternal: true
+    href: https://github.com/jskeet/nodatime/blob/4d0e4c04dd5f09304a7e53a0675dce1597ea0143/src/NodaTime/Instant.cs
+  - name: )
+  spec.vb:
+  - uid: RaisedHands.Data.Interfaces.ITrackableExtensions.SetDeleteBySystem``1(RaisedHands.Data.Entities.Room,NodaTime.Instant)
+    name: SetDeleteBySystem
+    href: RaisedHands.Data.Interfaces.ITrackableExtensions.html#RaisedHands_Data_Interfaces_ITrackableExtensions_SetDeleteBySystem__1___0_NodaTime_Instant_
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RaisedHands.Data.Entities.Room
+    name: Room
+    href: RaisedHands.Data.Entities.Room.html
+  - name: )
+  - name: (
+  - uid: RaisedHands.Data.Entities.Room
+    name: Room
+    href: RaisedHands.Data.Entities.Room.html
+  - name: ','
+  - name: " "
+  - uid: NodaTime.Instant
+    name: Instant
+    isExternal: true
+    href: https://github.com/jskeet/nodatime/blob/4d0e4c04dd5f09304a7e53a0675dce1597ea0143/src/NodaTime/Instant.cs
+  - name: )
+- uid: RaisedHands.Data.Entities.Room.RaisedHands.Data.Interfaces.ITrackableExtensions.SetDeleteBy``1(System.String,NodaTime.Instant)
+  commentId: M:RaisedHands.Data.Interfaces.ITrackableExtensions.SetDeleteBy``1(``0,System.String,NodaTime.Instant)
+  parent: RaisedHands.Data.Interfaces.ITrackableExtensions
+  definition: RaisedHands.Data.Interfaces.ITrackableExtensions.SetDeleteBy``1(``0,System.String,NodaTime.Instant)
+  href: RaisedHands.Data.Interfaces.ITrackableExtensions.html#RaisedHands_Data_Interfaces_ITrackableExtensions_SetDeleteBy__1___0_System_String_NodaTime_Instant_
+  name: SetDeleteBy<Room>(Room, string, Instant)
+  nameWithType: ITrackableExtensions.SetDeleteBy<Room>(Room, string, Instant)
+  fullName: RaisedHands.Data.Interfaces.ITrackableExtensions.SetDeleteBy<RaisedHands.Data.Entities.Room>(RaisedHands.Data.Entities.Room, string, NodaTime.Instant)
+  nameWithType.vb: ITrackableExtensions.SetDeleteBy(Of Room)(Room, String, Instant)
+  fullName.vb: RaisedHands.Data.Interfaces.ITrackableExtensions.SetDeleteBy(Of RaisedHands.Data.Entities.Room)(RaisedHands.Data.Entities.Room, String, NodaTime.Instant)
+  name.vb: SetDeleteBy(Of Room)(Room, String, Instant)
+  spec.csharp:
+  - uid: RaisedHands.Data.Interfaces.ITrackableExtensions.SetDeleteBy``1(RaisedHands.Data.Entities.Room,System.String,NodaTime.Instant)
+    name: SetDeleteBy
+    href: RaisedHands.Data.Interfaces.ITrackableExtensions.html#RaisedHands_Data_Interfaces_ITrackableExtensions_SetDeleteBy__1___0_System_String_NodaTime_Instant_
+  - name: <
+  - uid: RaisedHands.Data.Entities.Room
+    name: Room
+    href: RaisedHands.Data.Entities.Room.html
+  - name: '>'
+  - name: (
+  - uid: RaisedHands.Data.Entities.Room
+    name: Room
+    href: RaisedHands.Data.Entities.Room.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: NodaTime.Instant
+    name: Instant
+    isExternal: true
+    href: https://github.com/jskeet/nodatime/blob/4d0e4c04dd5f09304a7e53a0675dce1597ea0143/src/NodaTime/Instant.cs
+  - name: )
+  spec.vb:
+  - uid: RaisedHands.Data.Interfaces.ITrackableExtensions.SetDeleteBy``1(RaisedHands.Data.Entities.Room,System.String,NodaTime.Instant)
+    name: SetDeleteBy
+    href: RaisedHands.Data.Interfaces.ITrackableExtensions.html#RaisedHands_Data_Interfaces_ITrackableExtensions_SetDeleteBy__1___0_System_String_NodaTime_Instant_
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RaisedHands.Data.Entities.Room
+    name: Room
+    href: RaisedHands.Data.Entities.Room.html
+  - name: )
+  - name: (
+  - uid: RaisedHands.Data.Entities.Room
+    name: Room
+    href: RaisedHands.Data.Entities.Room.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: NodaTime.Instant
+    name: Instant
+    isExternal: true
+    href: https://github.com/jskeet/nodatime/blob/4d0e4c04dd5f09304a7e53a0675dce1597ea0143/src/NodaTime/Instant.cs
+  - name: )
+- uid: RaisedHands.Data.Entities.Room.RaisedHands.Data.Interfaces.ITrackableExtensions.SetModifyBySystem``1(NodaTime.Instant)
+  commentId: M:RaisedHands.Data.Interfaces.ITrackableExtensions.SetModifyBySystem``1(``0,NodaTime.Instant)
+  parent: RaisedHands.Data.Interfaces.ITrackableExtensions
+  definition: RaisedHands.Data.Interfaces.ITrackableExtensions.SetModifyBySystem``1(``0,NodaTime.Instant)
+  href: RaisedHands.Data.Interfaces.ITrackableExtensions.html#RaisedHands_Data_Interfaces_ITrackableExtensions_SetModifyBySystem__1___0_NodaTime_Instant_
+  name: SetModifyBySystem<Room>(Room, Instant)
+  nameWithType: ITrackableExtensions.SetModifyBySystem<Room>(Room, Instant)
+  fullName: RaisedHands.Data.Interfaces.ITrackableExtensions.SetModifyBySystem<RaisedHands.Data.Entities.Room>(RaisedHands.Data.Entities.Room, NodaTime.Instant)
+  nameWithType.vb: ITrackableExtensions.SetModifyBySystem(Of Room)(Room, Instant)
+  fullName.vb: RaisedHands.Data.Interfaces.ITrackableExtensions.SetModifyBySystem(Of RaisedHands.Data.Entities.Room)(RaisedHands.Data.Entities.Room, NodaTime.Instant)
+  name.vb: SetModifyBySystem(Of Room)(Room, Instant)
+  spec.csharp:
+  - uid: RaisedHands.Data.Interfaces.ITrackableExtensions.SetModifyBySystem``1(RaisedHands.Data.Entities.Room,NodaTime.Instant)
+    name: SetModifyBySystem
+    href: RaisedHands.Data.Interfaces.ITrackableExtensions.html#RaisedHands_Data_Interfaces_ITrackableExtensions_SetModifyBySystem__1___0_NodaTime_Instant_
+  - name: <
+  - uid: RaisedHands.Data.Entities.Room
+    name: Room
+    href: RaisedHands.Data.Entities.Room.html
+  - name: '>'
+  - name: (
+  - uid: RaisedHands.Data.Entities.Room
+    name: Room
+    href: RaisedHands.Data.Entities.Room.html
+  - name: ','
+  - name: " "
+  - uid: NodaTime.Instant
+    name: Instant
+    isExternal: true
+    href: https://github.com/jskeet/nodatime/blob/4d0e4c04dd5f09304a7e53a0675dce1597ea0143/src/NodaTime/Instant.cs
+  - name: )
+  spec.vb:
+  - uid: RaisedHands.Data.Interfaces.ITrackableExtensions.SetModifyBySystem``1(RaisedHands.Data.Entities.Room,NodaTime.Instant)
+    name: SetModifyBySystem
+    href: RaisedHands.Data.Interfaces.ITrackableExtensions.html#RaisedHands_Data_Interfaces_ITrackableExtensions_SetModifyBySystem__1___0_NodaTime_Instant_
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RaisedHands.Data.Entities.Room
+    name: Room
+    href: RaisedHands.Data.Entities.Room.html
+  - name: )
+  - name: (
+  - uid: RaisedHands.Data.Entities.Room
+    name: Room
+    href: RaisedHands.Data.Entities.Room.html
+  - name: ','
+  - name: " "
+  - uid: NodaTime.Instant
+    name: Instant
+    isExternal: true
+    href: https://github.com/jskeet/nodatime/blob/4d0e4c04dd5f09304a7e53a0675dce1597ea0143/src/NodaTime/Instant.cs
+  - name: )
+- uid: RaisedHands.Data.Entities.Room.RaisedHands.Data.Interfaces.ITrackableExtensions.SetModifyBy``1(System.String,NodaTime.Instant)
+  commentId: M:RaisedHands.Data.Interfaces.ITrackableExtensions.SetModifyBy``1(``0,System.String,NodaTime.Instant)
+  parent: RaisedHands.Data.Interfaces.ITrackableExtensions
+  definition: RaisedHands.Data.Interfaces.ITrackableExtensions.SetModifyBy``1(``0,System.String,NodaTime.Instant)
+  href: RaisedHands.Data.Interfaces.ITrackableExtensions.html#RaisedHands_Data_Interfaces_ITrackableExtensions_SetModifyBy__1___0_System_String_NodaTime_Instant_
+  name: SetModifyBy<Room>(Room, string, Instant)
+  nameWithType: ITrackableExtensions.SetModifyBy<Room>(Room, string, Instant)
+  fullName: RaisedHands.Data.Interfaces.ITrackableExtensions.SetModifyBy<RaisedHands.Data.Entities.Room>(RaisedHands.Data.Entities.Room, string, NodaTime.Instant)
+  nameWithType.vb: ITrackableExtensions.SetModifyBy(Of Room)(Room, String, Instant)
+  fullName.vb: RaisedHands.Data.Interfaces.ITrackableExtensions.SetModifyBy(Of RaisedHands.Data.Entities.Room)(RaisedHands.Data.Entities.Room, String, NodaTime.Instant)
+  name.vb: SetModifyBy(Of Room)(Room, String, Instant)
+  spec.csharp:
+  - uid: RaisedHands.Data.Interfaces.ITrackableExtensions.SetModifyBy``1(RaisedHands.Data.Entities.Room,System.String,NodaTime.Instant)
+    name: SetModifyBy
+    href: RaisedHands.Data.Interfaces.ITrackableExtensions.html#RaisedHands_Data_Interfaces_ITrackableExtensions_SetModifyBy__1___0_System_String_NodaTime_Instant_
+  - name: <
+  - uid: RaisedHands.Data.Entities.Room
+    name: Room
+    href: RaisedHands.Data.Entities.Room.html
+  - name: '>'
+  - name: (
+  - uid: RaisedHands.Data.Entities.Room
+    name: Room
+    href: RaisedHands.Data.Entities.Room.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: NodaTime.Instant
+    name: Instant
+    isExternal: true
+    href: https://github.com/jskeet/nodatime/blob/4d0e4c04dd5f09304a7e53a0675dce1597ea0143/src/NodaTime/Instant.cs
+  - name: )
+  spec.vb:
+  - uid: RaisedHands.Data.Interfaces.ITrackableExtensions.SetModifyBy``1(RaisedHands.Data.Entities.Room,System.String,NodaTime.Instant)
+    name: SetModifyBy
+    href: RaisedHands.Data.Interfaces.ITrackableExtensions.html#RaisedHands_Data_Interfaces_ITrackableExtensions_SetModifyBy__1___0_System_String_NodaTime_Instant_
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RaisedHands.Data.Entities.Room
+    name: Room
+    href: RaisedHands.Data.Entities.Room.html
+  - name: )
+  - name: (
+  - uid: RaisedHands.Data.Entities.Room
+    name: Room
+    href: RaisedHands.Data.Entities.Room.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: NodaTime.Instant
+    name: Instant
+    isExternal: true
+    href: https://github.com/jskeet/nodatime/blob/4d0e4c04dd5f09304a7e53a0675dce1597ea0143/src/NodaTime/Instant.cs
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: RaisedHands.Data.Interfaces
+  commentId: N:RaisedHands.Data.Interfaces
+  href: RaisedHands.html
+  name: RaisedHands.Data.Interfaces
+  nameWithType: RaisedHands.Data.Interfaces
+  fullName: RaisedHands.Data.Interfaces
+  spec.csharp:
+  - uid: RaisedHands
+    name: RaisedHands
+    href: RaisedHands.html
+  - name: .
+  - uid: RaisedHands.Data
+    name: Data
+    href: RaisedHands.Data.html
+  - name: .
+  - uid: RaisedHands.Data.Interfaces
+    name: Interfaces
+    href: RaisedHands.Data.Interfaces.html
+  spec.vb:
+  - uid: RaisedHands
+    name: RaisedHands
+    href: RaisedHands.html
+  - name: .
+  - uid: RaisedHands.Data
+    name: Data
+    href: RaisedHands.Data.html
+  - name: .
+  - uid: RaisedHands.Data.Interfaces
+    name: Interfaces
+    href: RaisedHands.Data.Interfaces.html
+- uid: RaisedHands.Data.Interfaces.ITrackableExtensions.SetCreateBySystem``1(``0,NodaTime.Instant)
+  commentId: M:RaisedHands.Data.Interfaces.ITrackableExtensions.SetCreateBySystem``1(``0,NodaTime.Instant)
+  isExternal: true
+  href: RaisedHands.Data.Interfaces.ITrackableExtensions.html#RaisedHands_Data_Interfaces_ITrackableExtensions_SetCreateBySystem__1___0_NodaTime_Instant_
+  name: SetCreateBySystem<T>(T, Instant)
+  nameWithType: ITrackableExtensions.SetCreateBySystem<T>(T, Instant)
+  fullName: RaisedHands.Data.Interfaces.ITrackableExtensions.SetCreateBySystem<T>(T, NodaTime.Instant)
+  nameWithType.vb: ITrackableExtensions.SetCreateBySystem(Of T)(T, Instant)
+  fullName.vb: RaisedHands.Data.Interfaces.ITrackableExtensions.SetCreateBySystem(Of T)(T, NodaTime.Instant)
+  name.vb: SetCreateBySystem(Of T)(T, Instant)
+  spec.csharp:
+  - uid: RaisedHands.Data.Interfaces.ITrackableExtensions.SetCreateBySystem``1(``0,NodaTime.Instant)
+    name: SetCreateBySystem
+    href: RaisedHands.Data.Interfaces.ITrackableExtensions.html#RaisedHands_Data_Interfaces_ITrackableExtensions_SetCreateBySystem__1___0_NodaTime_Instant_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: NodaTime.Instant
+    name: Instant
+    isExternal: true
+    href: https://github.com/jskeet/nodatime/blob/4d0e4c04dd5f09304a7e53a0675dce1597ea0143/src/NodaTime/Instant.cs
+  - name: )
+  spec.vb:
+  - uid: RaisedHands.Data.Interfaces.ITrackableExtensions.SetCreateBySystem``1(``0,NodaTime.Instant)
+    name: SetCreateBySystem
+    href: RaisedHands.Data.Interfaces.ITrackableExtensions.html#RaisedHands_Data_Interfaces_ITrackableExtensions_SetCreateBySystem__1___0_NodaTime_Instant_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: NodaTime.Instant
+    name: Instant
+    isExternal: true
+    href: https://github.com/jskeet/nodatime/blob/4d0e4c04dd5f09304a7e53a0675dce1597ea0143/src/NodaTime/Instant.cs
+  - name: )
+- uid: RaisedHands.Data.Interfaces.ITrackableExtensions
+  commentId: T:RaisedHands.Data.Interfaces.ITrackableExtensions
+  parent: RaisedHands.Data.Interfaces
+  href: RaisedHands.Data.Interfaces.ITrackableExtensions.html
+  name: ITrackableExtensions
+  nameWithType: ITrackableExtensions
+  fullName: RaisedHands.Data.Interfaces.ITrackableExtensions
+- uid: RaisedHands.Data.Interfaces.ITrackableExtensions.SetCreateBy``1(``0,System.String,NodaTime.Instant)
+  commentId: M:RaisedHands.Data.Interfaces.ITrackableExtensions.SetCreateBy``1(``0,System.String,NodaTime.Instant)
+  isExternal: true
+  href: RaisedHands.Data.Interfaces.ITrackableExtensions.html#RaisedHands_Data_Interfaces_ITrackableExtensions_SetCreateBy__1___0_System_String_NodaTime_Instant_
+  name: SetCreateBy<T>(T, string, Instant)
+  nameWithType: ITrackableExtensions.SetCreateBy<T>(T, string, Instant)
+  fullName: RaisedHands.Data.Interfaces.ITrackableExtensions.SetCreateBy<T>(T, string, NodaTime.Instant)
+  nameWithType.vb: ITrackableExtensions.SetCreateBy(Of T)(T, String, Instant)
+  fullName.vb: RaisedHands.Data.Interfaces.ITrackableExtensions.SetCreateBy(Of T)(T, String, NodaTime.Instant)
+  name.vb: SetCreateBy(Of T)(T, String, Instant)
+  spec.csharp:
+  - uid: RaisedHands.Data.Interfaces.ITrackableExtensions.SetCreateBy``1(``0,System.String,NodaTime.Instant)
+    name: SetCreateBy
+    href: RaisedHands.Data.Interfaces.ITrackableExtensions.html#RaisedHands_Data_Interfaces_ITrackableExtensions_SetCreateBy__1___0_System_String_NodaTime_Instant_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: NodaTime.Instant
+    name: Instant
+    isExternal: true
+    href: https://github.com/jskeet/nodatime/blob/4d0e4c04dd5f09304a7e53a0675dce1597ea0143/src/NodaTime/Instant.cs
+  - name: )
+  spec.vb:
+  - uid: RaisedHands.Data.Interfaces.ITrackableExtensions.SetCreateBy``1(``0,System.String,NodaTime.Instant)
+    name: SetCreateBy
+    href: RaisedHands.Data.Interfaces.ITrackableExtensions.html#RaisedHands_Data_Interfaces_ITrackableExtensions_SetCreateBy__1___0_System_String_NodaTime_Instant_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: NodaTime.Instant
+    name: Instant
+    isExternal: true
+    href: https://github.com/jskeet/nodatime/blob/4d0e4c04dd5f09304a7e53a0675dce1597ea0143/src/NodaTime/Instant.cs
+  - name: )
+- uid: RaisedHands.Data.Interfaces.ITrackableExtensions.SetDeleteBySystem``1(``0,NodaTime.Instant)
+  commentId: M:RaisedHands.Data.Interfaces.ITrackableExtensions.SetDeleteBySystem``1(``0,NodaTime.Instant)
+  isExternal: true
+  href: RaisedHands.Data.Interfaces.ITrackableExtensions.html#RaisedHands_Data_Interfaces_ITrackableExtensions_SetDeleteBySystem__1___0_NodaTime_Instant_
+  name: SetDeleteBySystem<T>(T, Instant)
+  nameWithType: ITrackableExtensions.SetDeleteBySystem<T>(T, Instant)
+  fullName: RaisedHands.Data.Interfaces.ITrackableExtensions.SetDeleteBySystem<T>(T, NodaTime.Instant)
+  nameWithType.vb: ITrackableExtensions.SetDeleteBySystem(Of T)(T, Instant)
+  fullName.vb: RaisedHands.Data.Interfaces.ITrackableExtensions.SetDeleteBySystem(Of T)(T, NodaTime.Instant)
+  name.vb: SetDeleteBySystem(Of T)(T, Instant)
+  spec.csharp:
+  - uid: RaisedHands.Data.Interfaces.ITrackableExtensions.SetDeleteBySystem``1(``0,NodaTime.Instant)
+    name: SetDeleteBySystem
+    href: RaisedHands.Data.Interfaces.ITrackableExtensions.html#RaisedHands_Data_Interfaces_ITrackableExtensions_SetDeleteBySystem__1___0_NodaTime_Instant_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: NodaTime.Instant
+    name: Instant
+    isExternal: true
+    href: https://github.com/jskeet/nodatime/blob/4d0e4c04dd5f09304a7e53a0675dce1597ea0143/src/NodaTime/Instant.cs
+  - name: )
+  spec.vb:
+  - uid: RaisedHands.Data.Interfaces.ITrackableExtensions.SetDeleteBySystem``1(``0,NodaTime.Instant)
+    name: SetDeleteBySystem
+    href: RaisedHands.Data.Interfaces.ITrackableExtensions.html#RaisedHands_Data_Interfaces_ITrackableExtensions_SetDeleteBySystem__1___0_NodaTime_Instant_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: NodaTime.Instant
+    name: Instant
+    isExternal: true
+    href: https://github.com/jskeet/nodatime/blob/4d0e4c04dd5f09304a7e53a0675dce1597ea0143/src/NodaTime/Instant.cs
+  - name: )
+- uid: RaisedHands.Data.Interfaces.ITrackableExtensions.SetDeleteBy``1(``0,System.String,NodaTime.Instant)
+  commentId: M:RaisedHands.Data.Interfaces.ITrackableExtensions.SetDeleteBy``1(``0,System.String,NodaTime.Instant)
+  isExternal: true
+  href: RaisedHands.Data.Interfaces.ITrackableExtensions.html#RaisedHands_Data_Interfaces_ITrackableExtensions_SetDeleteBy__1___0_System_String_NodaTime_Instant_
+  name: SetDeleteBy<T>(T, string, Instant)
+  nameWithType: ITrackableExtensions.SetDeleteBy<T>(T, string, Instant)
+  fullName: RaisedHands.Data.Interfaces.ITrackableExtensions.SetDeleteBy<T>(T, string, NodaTime.Instant)
+  nameWithType.vb: ITrackableExtensions.SetDeleteBy(Of T)(T, String, Instant)
+  fullName.vb: RaisedHands.Data.Interfaces.ITrackableExtensions.SetDeleteBy(Of T)(T, String, NodaTime.Instant)
+  name.vb: SetDeleteBy(Of T)(T, String, Instant)
+  spec.csharp:
+  - uid: RaisedHands.Data.Interfaces.ITrackableExtensions.SetDeleteBy``1(``0,System.String,NodaTime.Instant)
+    name: SetDeleteBy
+    href: RaisedHands.Data.Interfaces.ITrackableExtensions.html#RaisedHands_Data_Interfaces_ITrackableExtensions_SetDeleteBy__1___0_System_String_NodaTime_Instant_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: NodaTime.Instant
+    name: Instant
+    isExternal: true
+    href: https://github.com/jskeet/nodatime/blob/4d0e4c04dd5f09304a7e53a0675dce1597ea0143/src/NodaTime/Instant.cs
+  - name: )
+  spec.vb:
+  - uid: RaisedHands.Data.Interfaces.ITrackableExtensions.SetDeleteBy``1(``0,System.String,NodaTime.Instant)
+    name: SetDeleteBy
+    href: RaisedHands.Data.Interfaces.ITrackableExtensions.html#RaisedHands_Data_Interfaces_ITrackableExtensions_SetDeleteBy__1___0_System_String_NodaTime_Instant_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: NodaTime.Instant
+    name: Instant
+    isExternal: true
+    href: https://github.com/jskeet/nodatime/blob/4d0e4c04dd5f09304a7e53a0675dce1597ea0143/src/NodaTime/Instant.cs
+  - name: )
+- uid: RaisedHands.Data.Interfaces.ITrackableExtensions.SetModifyBySystem``1(``0,NodaTime.Instant)
+  commentId: M:RaisedHands.Data.Interfaces.ITrackableExtensions.SetModifyBySystem``1(``0,NodaTime.Instant)
+  isExternal: true
+  href: RaisedHands.Data.Interfaces.ITrackableExtensions.html#RaisedHands_Data_Interfaces_ITrackableExtensions_SetModifyBySystem__1___0_NodaTime_Instant_
+  name: SetModifyBySystem<T>(T, Instant)
+  nameWithType: ITrackableExtensions.SetModifyBySystem<T>(T, Instant)
+  fullName: RaisedHands.Data.Interfaces.ITrackableExtensions.SetModifyBySystem<T>(T, NodaTime.Instant)
+  nameWithType.vb: ITrackableExtensions.SetModifyBySystem(Of T)(T, Instant)
+  fullName.vb: RaisedHands.Data.Interfaces.ITrackableExtensions.SetModifyBySystem(Of T)(T, NodaTime.Instant)
+  name.vb: SetModifyBySystem(Of T)(T, Instant)
+  spec.csharp:
+  - uid: RaisedHands.Data.Interfaces.ITrackableExtensions.SetModifyBySystem``1(``0,NodaTime.Instant)
+    name: SetModifyBySystem
+    href: RaisedHands.Data.Interfaces.ITrackableExtensions.html#RaisedHands_Data_Interfaces_ITrackableExtensions_SetModifyBySystem__1___0_NodaTime_Instant_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: NodaTime.Instant
+    name: Instant
+    isExternal: true
+    href: https://github.com/jskeet/nodatime/blob/4d0e4c04dd5f09304a7e53a0675dce1597ea0143/src/NodaTime/Instant.cs
+  - name: )
+  spec.vb:
+  - uid: RaisedHands.Data.Interfaces.ITrackableExtensions.SetModifyBySystem``1(``0,NodaTime.Instant)
+    name: SetModifyBySystem
+    href: RaisedHands.Data.Interfaces.ITrackableExtensions.html#RaisedHands_Data_Interfaces_ITrackableExtensions_SetModifyBySystem__1___0_NodaTime_Instant_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: NodaTime.Instant
+    name: Instant
+    isExternal: true
+    href: https://github.com/jskeet/nodatime/blob/4d0e4c04dd5f09304a7e53a0675dce1597ea0143/src/NodaTime/Instant.cs
+  - name: )
+- uid: RaisedHands.Data.Interfaces.ITrackableExtensions.SetModifyBy``1(``0,System.String,NodaTime.Instant)
+  commentId: M:RaisedHands.Data.Interfaces.ITrackableExtensions.SetModifyBy``1(``0,System.String,NodaTime.Instant)
+  isExternal: true
+  href: RaisedHands.Data.Interfaces.ITrackableExtensions.html#RaisedHands_Data_Interfaces_ITrackableExtensions_SetModifyBy__1___0_System_String_NodaTime_Instant_
+  name: SetModifyBy<T>(T, string, Instant)
+  nameWithType: ITrackableExtensions.SetModifyBy<T>(T, string, Instant)
+  fullName: RaisedHands.Data.Interfaces.ITrackableExtensions.SetModifyBy<T>(T, string, NodaTime.Instant)
+  nameWithType.vb: ITrackableExtensions.SetModifyBy(Of T)(T, String, Instant)
+  fullName.vb: RaisedHands.Data.Interfaces.ITrackableExtensions.SetModifyBy(Of T)(T, String, NodaTime.Instant)
+  name.vb: SetModifyBy(Of T)(T, String, Instant)
+  spec.csharp:
+  - uid: RaisedHands.Data.Interfaces.ITrackableExtensions.SetModifyBy``1(``0,System.String,NodaTime.Instant)
+    name: SetModifyBy
+    href: RaisedHands.Data.Interfaces.ITrackableExtensions.html#RaisedHands_Data_Interfaces_ITrackableExtensions_SetModifyBy__1___0_System_String_NodaTime_Instant_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: NodaTime.Instant
+    name: Instant
+    isExternal: true
+    href: https://github.com/jskeet/nodatime/blob/4d0e4c04dd5f09304a7e53a0675dce1597ea0143/src/NodaTime/Instant.cs
+  - name: )
+  spec.vb:
+  - uid: RaisedHands.Data.Interfaces.ITrackableExtensions.SetModifyBy``1(``0,System.String,NodaTime.Instant)
+    name: SetModifyBy
+    href: RaisedHands.Data.Interfaces.ITrackableExtensions.html#RaisedHands_Data_Interfaces_ITrackableExtensions_SetModifyBy__1___0_System_String_NodaTime_Instant_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: NodaTime.Instant
+    name: Instant
+    isExternal: true
+    href: https://github.com/jskeet/nodatime/blob/4d0e4c04dd5f09304a7e53a0675dce1597ea0143/src/NodaTime/Instant.cs
+  - name: )
+- uid: RaisedHands.Data.Entities.Room.Id*
+  commentId: Overload:RaisedHands.Data.Entities.Room.Id
+  href: RaisedHands.Data.Entities.Room.html#RaisedHands_Data_Entities_Room_Id
+  name: Id
+  nameWithType: Room.Id
+  fullName: RaisedHands.Data.Entities.Room.Id
+- uid: System.Guid
+  commentId: T:System.Guid
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.guid
+  name: Guid
+  nameWithType: Guid
+  fullName: System.Guid
+- uid: RaisedHands.Data.Entities.Room.Name*
+  commentId: Overload:RaisedHands.Data.Entities.Room.Name
+  href: RaisedHands.Data.Entities.Room.html#RaisedHands_Data_Entities_Room_Name
+  name: Name
+  nameWithType: Room.Name
+  fullName: RaisedHands.Data.Entities.Room.Name
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: RaisedHands.Data.Entities.Room.DateTime*
+  commentId: Overload:RaisedHands.Data.Entities.Room.DateTime
+  href: RaisedHands.Data.Entities.Room.html#RaisedHands_Data_Entities_Room_DateTime
+  name: DateTime
+  nameWithType: Room.DateTime
+  fullName: RaisedHands.Data.Entities.Room.DateTime
+- uid: System.DateTime
+  commentId: T:System.DateTime
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.datetime
+  name: DateTime
+  nameWithType: DateTime
+  fullName: System.DateTime
+  nameWithType.vb: Date
+  fullName.vb: Date
+  name.vb: Date
+- uid: RaisedHands.Data.Entities.Room.GroupId*
+  commentId: Overload:RaisedHands.Data.Entities.Room.GroupId
+  href: RaisedHands.Data.Entities.Room.html#RaisedHands_Data_Entities_Room_GroupId
+  name: GroupId
+  nameWithType: Room.GroupId
+  fullName: RaisedHands.Data.Entities.Room.GroupId
+- uid: RaisedHands.Data.Entities.Room.Group*
+  commentId: Overload:RaisedHands.Data.Entities.Room.Group
+  href: RaisedHands.Data.Entities.Room.html#RaisedHands_Data_Entities_Room_Group
+  name: Group
+  nameWithType: Room.Group
+  fullName: RaisedHands.Data.Entities.Room.Group
+- uid: RaisedHands.Data.Entities.Group
+  commentId: T:RaisedHands.Data.Entities.Group
+  parent: RaisedHands.Data.Entities
+  href: RaisedHands.Data.Entities.Group.html
+  name: Group
+  nameWithType: Group
+  fullName: RaisedHands.Data.Entities.Group
+- uid: RaisedHands.Data.Entities.Room.EndDate*
+  commentId: Overload:RaisedHands.Data.Entities.Room.EndDate
+  href: RaisedHands.Data.Entities.Room.html#RaisedHands_Data_Entities_Room_EndDate
+  name: EndDate
+  nameWithType: Room.EndDate
+  fullName: RaisedHands.Data.Entities.Room.EndDate
+- uid: System.Nullable{System.DateTime}
+  commentId: T:System.Nullable{System.DateTime}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.datetime
+  name: DateTime?
+  nameWithType: DateTime?
+  fullName: System.DateTime?
+  nameWithType.vb: Date?
+  fullName.vb: Date?
+  name.vb: Date?
+  spec.csharp:
+  - uid: System.DateTime
+    name: DateTime
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.datetime
+  - name: '?'
+  spec.vb:
+  - uid: System.DateTime
+    name: Date
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.datetime
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: RaisedHands.Data.Entities.Room.CreatedAt*
+  commentId: Overload:RaisedHands.Data.Entities.Room.CreatedAt
+  href: RaisedHands.Data.Entities.Room.html#RaisedHands_Data_Entities_Room_CreatedAt
+  name: CreatedAt
+  nameWithType: Room.CreatedAt
+  fullName: RaisedHands.Data.Entities.Room.CreatedAt
+- uid: RaisedHands.Data.Interfaces.ITrackable.CreatedAt
+  commentId: P:RaisedHands.Data.Interfaces.ITrackable.CreatedAt
+  parent: RaisedHands.Data.Interfaces.ITrackable
+  href: RaisedHands.Data.Interfaces.ITrackable.html#RaisedHands_Data_Interfaces_ITrackable_CreatedAt
+  name: CreatedAt
+  nameWithType: ITrackable.CreatedAt
+  fullName: RaisedHands.Data.Interfaces.ITrackable.CreatedAt
+- uid: NodaTime.Instant
+  commentId: T:NodaTime.Instant
+  parent: NodaTime
+  isExternal: true
+  href: https://github.com/jskeet/nodatime/blob/4d0e4c04dd5f09304a7e53a0675dce1597ea0143/src/NodaTime/Instant.cs
+  name: Instant
+  nameWithType: Instant
+  fullName: NodaTime.Instant
+- uid: NodaTime
+  commentId: N:NodaTime
+  isExternal: true
+  name: NodaTime
+  nameWithType: NodaTime
+  fullName: NodaTime
+- uid: RaisedHands.Data.Entities.Room.CreatedBy*
+  commentId: Overload:RaisedHands.Data.Entities.Room.CreatedBy
+  href: RaisedHands.Data.Entities.Room.html#RaisedHands_Data_Entities_Room_CreatedBy
+  name: CreatedBy
+  nameWithType: Room.CreatedBy
+  fullName: RaisedHands.Data.Entities.Room.CreatedBy
+- uid: RaisedHands.Data.Interfaces.ITrackable.CreatedBy
+  commentId: P:RaisedHands.Data.Interfaces.ITrackable.CreatedBy
+  parent: RaisedHands.Data.Interfaces.ITrackable
+  href: RaisedHands.Data.Interfaces.ITrackable.html#RaisedHands_Data_Interfaces_ITrackable_CreatedBy
+  name: CreatedBy
+  nameWithType: ITrackable.CreatedBy
+  fullName: RaisedHands.Data.Interfaces.ITrackable.CreatedBy
+- uid: RaisedHands.Data.Entities.Room.ModifiedAt*
+  commentId: Overload:RaisedHands.Data.Entities.Room.ModifiedAt
+  href: RaisedHands.Data.Entities.Room.html#RaisedHands_Data_Entities_Room_ModifiedAt
+  name: ModifiedAt
+  nameWithType: Room.ModifiedAt
+  fullName: RaisedHands.Data.Entities.Room.ModifiedAt
+- uid: RaisedHands.Data.Interfaces.ITrackable.ModifiedAt
+  commentId: P:RaisedHands.Data.Interfaces.ITrackable.ModifiedAt
+  parent: RaisedHands.Data.Interfaces.ITrackable
+  href: RaisedHands.Data.Interfaces.ITrackable.html#RaisedHands_Data_Interfaces_ITrackable_ModifiedAt
+  name: ModifiedAt
+  nameWithType: ITrackable.ModifiedAt
+  fullName: RaisedHands.Data.Interfaces.ITrackable.ModifiedAt
+- uid: RaisedHands.Data.Entities.Room.ModifiedBy*
+  commentId: Overload:RaisedHands.Data.Entities.Room.ModifiedBy
+  href: RaisedHands.Data.Entities.Room.html#RaisedHands_Data_Entities_Room_ModifiedBy
+  name: ModifiedBy
+  nameWithType: Room.ModifiedBy
+  fullName: RaisedHands.Data.Entities.Room.ModifiedBy
+- uid: RaisedHands.Data.Interfaces.ITrackable.ModifiedBy
+  commentId: P:RaisedHands.Data.Interfaces.ITrackable.ModifiedBy
+  parent: RaisedHands.Data.Interfaces.ITrackable
+  href: RaisedHands.Data.Interfaces.ITrackable.html#RaisedHands_Data_Interfaces_ITrackable_ModifiedBy
+  name: ModifiedBy
+  nameWithType: ITrackable.ModifiedBy
+  fullName: RaisedHands.Data.Interfaces.ITrackable.ModifiedBy
+- uid: RaisedHands.Data.Entities.Room.DeletedAt*
+  commentId: Overload:RaisedHands.Data.Entities.Room.DeletedAt
+  href: RaisedHands.Data.Entities.Room.html#RaisedHands_Data_Entities_Room_DeletedAt
+  name: DeletedAt
+  nameWithType: Room.DeletedAt
+  fullName: RaisedHands.Data.Entities.Room.DeletedAt
+- uid: RaisedHands.Data.Interfaces.ITrackable.DeletedAt
+  commentId: P:RaisedHands.Data.Interfaces.ITrackable.DeletedAt
+  parent: RaisedHands.Data.Interfaces.ITrackable
+  href: RaisedHands.Data.Interfaces.ITrackable.html#RaisedHands_Data_Interfaces_ITrackable_DeletedAt
+  name: DeletedAt
+  nameWithType: ITrackable.DeletedAt
+  fullName: RaisedHands.Data.Interfaces.ITrackable.DeletedAt
+- uid: System.Nullable{NodaTime.Instant}
+  commentId: T:System.Nullable{NodaTime.Instant}
+  parent: System
+  definition: System.Nullable`1
+  href: https://github.com/jskeet/nodatime/blob/4d0e4c04dd5f09304a7e53a0675dce1597ea0143/src/NodaTime/Instant.cs
+  name: Instant?
+  nameWithType: Instant?
+  fullName: NodaTime.Instant?
+  spec.csharp:
+  - uid: NodaTime.Instant
+    name: Instant
+    isExternal: true
+    href: https://github.com/jskeet/nodatime/blob/4d0e4c04dd5f09304a7e53a0675dce1597ea0143/src/NodaTime/Instant.cs
+  - name: '?'
+  spec.vb:
+  - uid: NodaTime.Instant
+    name: Instant
+    isExternal: true
+    href: https://github.com/jskeet/nodatime/blob/4d0e4c04dd5f09304a7e53a0675dce1597ea0143/src/NodaTime/Instant.cs
+  - name: '?'
+- uid: RaisedHands.Data.Entities.Room.DeletedBy*
+  commentId: Overload:RaisedHands.Data.Entities.Room.DeletedBy
+  href: RaisedHands.Data.Entities.Room.html#RaisedHands_Data_Entities_Room_DeletedBy
+  name: DeletedBy
+  nameWithType: Room.DeletedBy
+  fullName: RaisedHands.Data.Entities.Room.DeletedBy
+- uid: RaisedHands.Data.Interfaces.ITrackable.DeletedBy
+  commentId: P:RaisedHands.Data.Interfaces.ITrackable.DeletedBy
+  parent: RaisedHands.Data.Interfaces.ITrackable
+  href: RaisedHands.Data.Interfaces.ITrackable.html#RaisedHands_Data_Interfaces_ITrackable_DeletedBy
+  name: DeletedBy
+  nameWithType: ITrackable.DeletedBy
+  fullName: RaisedHands.Data.Interfaces.ITrackable.DeletedBy

@@ -1,0 +1,629 @@
+### YamlMime:ManagedReference
+items:
+- uid: RaisedHands.Api.Services.EmailSenderService
+  commentId: T:RaisedHands.Api.Services.EmailSenderService
+  id: EmailSenderService
+  parent: RaisedHands.Api.Services
+  children:
+  - RaisedHands.Api.Services.EmailSenderService.#ctor(NodaTime.IClock,RaisedHands.Data.AppDbContext,Microsoft.Extensions.Options.IOptionsSnapshot{RaisedHands.Api.Settings.SmtpSettings})
+  - RaisedHands.Api.Services.EmailSenderService.AddEmailToSendAsync(System.String,System.String,System.String)
+  - RaisedHands.Api.Services.EmailSenderService.SendEmailsAsync
+  langs:
+  - csharp
+  - vb
+  name: EmailSenderService
+  nameWithType: EmailSenderService
+  fullName: RaisedHands.Api.Services.EmailSenderService
+  type: Class
+  source:
+    remote:
+      path: src/RaisedHands/Services/EmailSenderService.cs
+      branch: dev
+      repo: https://github.com/1-IT-Gymnazium/RaisedHands.git
+    id: EmailSenderService
+    path: ../src/RaisedHands/Services/EmailSenderService.cs
+    startLine: 12
+  assemblies:
+  - RaisedHands.Api
+  namespace: RaisedHands.Api.Services
+  syntax:
+    content: public class EmailSenderService
+    content.vb: Public Class EmailSenderService
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: RaisedHands.Api.Services.EmailSenderService.#ctor(NodaTime.IClock,RaisedHands.Data.AppDbContext,Microsoft.Extensions.Options.IOptionsSnapshot{RaisedHands.Api.Settings.SmtpSettings})
+  commentId: M:RaisedHands.Api.Services.EmailSenderService.#ctor(NodaTime.IClock,RaisedHands.Data.AppDbContext,Microsoft.Extensions.Options.IOptionsSnapshot{RaisedHands.Api.Settings.SmtpSettings})
+  id: '#ctor(NodaTime.IClock,RaisedHands.Data.AppDbContext,Microsoft.Extensions.Options.IOptionsSnapshot{RaisedHands.Api.Settings.SmtpSettings})'
+  parent: RaisedHands.Api.Services.EmailSenderService
+  langs:
+  - csharp
+  - vb
+  name: EmailSenderService(IClock, AppDbContext, IOptionsSnapshot<SmtpSettings>)
+  nameWithType: EmailSenderService.EmailSenderService(IClock, AppDbContext, IOptionsSnapshot<SmtpSettings>)
+  fullName: RaisedHands.Api.Services.EmailSenderService.EmailSenderService(NodaTime.IClock, RaisedHands.Data.AppDbContext, Microsoft.Extensions.Options.IOptionsSnapshot<RaisedHands.Api.Settings.SmtpSettings>)
+  type: Constructor
+  source:
+    remote:
+      path: src/RaisedHands/Services/EmailSenderService.cs
+      branch: dev
+      repo: https://github.com/1-IT-Gymnazium/RaisedHands.git
+    id: .ctor
+    path: ../src/RaisedHands/Services/EmailSenderService.cs
+    startLine: 18
+  assemblies:
+  - RaisedHands.Api
+  namespace: RaisedHands.Api.Services
+  syntax:
+    content: public EmailSenderService(IClock clock, AppDbContext dbContext, IOptionsSnapshot<SmtpSettings> smtpSettings)
+    parameters:
+    - id: clock
+      type: NodaTime.IClock
+    - id: dbContext
+      type: RaisedHands.Data.AppDbContext
+    - id: smtpSettings
+      type: Microsoft.Extensions.Options.IOptionsSnapshot{RaisedHands.Api.Settings.SmtpSettings}
+    content.vb: Public Sub New(clock As IClock, dbContext As AppDbContext, smtpSettings As IOptionsSnapshot(Of SmtpSettings))
+  overload: RaisedHands.Api.Services.EmailSenderService.#ctor*
+  nameWithType.vb: EmailSenderService.New(IClock, AppDbContext, IOptionsSnapshot(Of SmtpSettings))
+  fullName.vb: RaisedHands.Api.Services.EmailSenderService.New(NodaTime.IClock, RaisedHands.Data.AppDbContext, Microsoft.Extensions.Options.IOptionsSnapshot(Of RaisedHands.Api.Settings.SmtpSettings))
+  name.vb: New(IClock, AppDbContext, IOptionsSnapshot(Of SmtpSettings))
+- uid: RaisedHands.Api.Services.EmailSenderService.AddEmailToSendAsync(System.String,System.String,System.String)
+  commentId: M:RaisedHands.Api.Services.EmailSenderService.AddEmailToSendAsync(System.String,System.String,System.String)
+  id: AddEmailToSendAsync(System.String,System.String,System.String)
+  parent: RaisedHands.Api.Services.EmailSenderService
+  langs:
+  - csharp
+  - vb
+  name: AddEmailToSendAsync(string, string, string)
+  nameWithType: EmailSenderService.AddEmailToSendAsync(string, string, string)
+  fullName: RaisedHands.Api.Services.EmailSenderService.AddEmailToSendAsync(string, string, string)
+  type: Method
+  source:
+    remote:
+      path: src/RaisedHands/Services/EmailSenderService.cs
+      branch: dev
+      repo: https://github.com/1-IT-Gymnazium/RaisedHands.git
+    id: AddEmailToSendAsync
+    path: ../src/RaisedHands/Services/EmailSenderService.cs
+    startLine: 29
+  assemblies:
+  - RaisedHands.Api
+  namespace: RaisedHands.Api.Services
+  syntax:
+    content: public Task AddEmailToSendAsync(string receiver, string subject, string body)
+    parameters:
+    - id: receiver
+      type: System.String
+    - id: subject
+      type: System.String
+    - id: body
+      type: System.String
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Public Function AddEmailToSendAsync(receiver As String, subject As String, body As String) As Task
+  overload: RaisedHands.Api.Services.EmailSenderService.AddEmailToSendAsync*
+  nameWithType.vb: EmailSenderService.AddEmailToSendAsync(String, String, String)
+  fullName.vb: RaisedHands.Api.Services.EmailSenderService.AddEmailToSendAsync(String, String, String)
+  name.vb: AddEmailToSendAsync(String, String, String)
+- uid: RaisedHands.Api.Services.EmailSenderService.SendEmailsAsync
+  commentId: M:RaisedHands.Api.Services.EmailSenderService.SendEmailsAsync
+  id: SendEmailsAsync
+  parent: RaisedHands.Api.Services.EmailSenderService
+  langs:
+  - csharp
+  - vb
+  name: SendEmailsAsync()
+  nameWithType: EmailSenderService.SendEmailsAsync()
+  fullName: RaisedHands.Api.Services.EmailSenderService.SendEmailsAsync()
+  type: Method
+  source:
+    remote:
+      path: src/RaisedHands/Services/EmailSenderService.cs
+      branch: dev
+      repo: https://github.com/1-IT-Gymnazium/RaisedHands.git
+    id: SendEmailsAsync
+    path: ../src/RaisedHands/Services/EmailSenderService.cs
+    startLine: 50
+  assemblies:
+  - RaisedHands.Api
+  namespace: RaisedHands.Api.Services
+  syntax:
+    content: public Task SendEmailsAsync()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Public Function SendEmailsAsync() As Task
+  overload: RaisedHands.Api.Services.EmailSenderService.SendEmailsAsync*
+references:
+- uid: RaisedHands.Api.Services
+  commentId: N:RaisedHands.Api.Services
+  href: RaisedHands.html
+  name: RaisedHands.Api.Services
+  nameWithType: RaisedHands.Api.Services
+  fullName: RaisedHands.Api.Services
+  spec.csharp:
+  - uid: RaisedHands
+    name: RaisedHands
+    href: RaisedHands.html
+  - name: .
+  - uid: RaisedHands.Api
+    name: Api
+    href: RaisedHands.Api.html
+  - name: .
+  - uid: RaisedHands.Api.Services
+    name: Services
+    href: RaisedHands.Api.Services.html
+  spec.vb:
+  - uid: RaisedHands
+    name: RaisedHands
+    href: RaisedHands.html
+  - name: .
+  - uid: RaisedHands.Api
+    name: Api
+    href: RaisedHands.Api.html
+  - name: .
+  - uid: RaisedHands.Api.Services
+    name: Services
+    href: RaisedHands.Api.Services.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: RaisedHands.Api.Services.EmailSenderService.#ctor*
+  commentId: Overload:RaisedHands.Api.Services.EmailSenderService.#ctor
+  href: RaisedHands.Api.Services.EmailSenderService.html#RaisedHands_Api_Services_EmailSenderService__ctor_NodaTime_IClock_RaisedHands_Data_AppDbContext_Microsoft_Extensions_Options_IOptionsSnapshot_RaisedHands_Api_Settings_SmtpSettings__
+  name: EmailSenderService
+  nameWithType: EmailSenderService.EmailSenderService
+  fullName: RaisedHands.Api.Services.EmailSenderService.EmailSenderService
+  nameWithType.vb: EmailSenderService.New
+  fullName.vb: RaisedHands.Api.Services.EmailSenderService.New
+  name.vb: New
+- uid: NodaTime.IClock
+  commentId: T:NodaTime.IClock
+  parent: NodaTime
+  isExternal: true
+  href: https://github.com/jskeet/nodatime/blob/4d0e4c04dd5f09304a7e53a0675dce1597ea0143/src/NodaTime/IClock.cs
+  name: IClock
+  nameWithType: IClock
+  fullName: NodaTime.IClock
+- uid: RaisedHands.Data.AppDbContext
+  commentId: T:RaisedHands.Data.AppDbContext
+  parent: RaisedHands.Data
+  href: RaisedHands.Data.AppDbContext.html
+  name: AppDbContext
+  nameWithType: AppDbContext
+  fullName: RaisedHands.Data.AppDbContext
+- uid: Microsoft.Extensions.Options.IOptionsSnapshot{RaisedHands.Api.Settings.SmtpSettings}
+  commentId: T:Microsoft.Extensions.Options.IOptionsSnapshot{RaisedHands.Api.Settings.SmtpSettings}
+  parent: Microsoft.Extensions.Options
+  definition: Microsoft.Extensions.Options.IOptionsSnapshot`1
+  href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.options.ioptionssnapshot-1
+  name: IOptionsSnapshot<SmtpSettings>
+  nameWithType: IOptionsSnapshot<SmtpSettings>
+  fullName: Microsoft.Extensions.Options.IOptionsSnapshot<RaisedHands.Api.Settings.SmtpSettings>
+  nameWithType.vb: IOptionsSnapshot(Of SmtpSettings)
+  fullName.vb: Microsoft.Extensions.Options.IOptionsSnapshot(Of RaisedHands.Api.Settings.SmtpSettings)
+  name.vb: IOptionsSnapshot(Of SmtpSettings)
+  spec.csharp:
+  - uid: Microsoft.Extensions.Options.IOptionsSnapshot`1
+    name: IOptionsSnapshot
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.options.ioptionssnapshot-1
+  - name: <
+  - uid: RaisedHands.Api.Settings.SmtpSettings
+    name: SmtpSettings
+    href: RaisedHands.Api.Settings.SmtpSettings.html
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.Extensions.Options.IOptionsSnapshot`1
+    name: IOptionsSnapshot
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.options.ioptionssnapshot-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RaisedHands.Api.Settings.SmtpSettings
+    name: SmtpSettings
+    href: RaisedHands.Api.Settings.SmtpSettings.html
+  - name: )
+- uid: NodaTime
+  commentId: N:NodaTime
+  isExternal: true
+  name: NodaTime
+  nameWithType: NodaTime
+  fullName: NodaTime
+- uid: RaisedHands.Data
+  commentId: N:RaisedHands.Data
+  href: RaisedHands.html
+  name: RaisedHands.Data
+  nameWithType: RaisedHands.Data
+  fullName: RaisedHands.Data
+  spec.csharp:
+  - uid: RaisedHands
+    name: RaisedHands
+    href: RaisedHands.html
+  - name: .
+  - uid: RaisedHands.Data
+    name: Data
+    href: RaisedHands.Data.html
+  spec.vb:
+  - uid: RaisedHands
+    name: RaisedHands
+    href: RaisedHands.html
+  - name: .
+  - uid: RaisedHands.Data
+    name: Data
+    href: RaisedHands.Data.html
+- uid: Microsoft.Extensions.Options.IOptionsSnapshot`1
+  commentId: T:Microsoft.Extensions.Options.IOptionsSnapshot`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.options.ioptionssnapshot-1
+  name: IOptionsSnapshot<TOptions>
+  nameWithType: IOptionsSnapshot<TOptions>
+  fullName: Microsoft.Extensions.Options.IOptionsSnapshot<TOptions>
+  nameWithType.vb: IOptionsSnapshot(Of TOptions)
+  fullName.vb: Microsoft.Extensions.Options.IOptionsSnapshot(Of TOptions)
+  name.vb: IOptionsSnapshot(Of TOptions)
+  spec.csharp:
+  - uid: Microsoft.Extensions.Options.IOptionsSnapshot`1
+    name: IOptionsSnapshot
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.options.ioptionssnapshot-1
+  - name: <
+  - name: TOptions
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.Extensions.Options.IOptionsSnapshot`1
+    name: IOptionsSnapshot
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.options.ioptionssnapshot-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TOptions
+  - name: )
+- uid: Microsoft.Extensions.Options
+  commentId: N:Microsoft.Extensions.Options
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft
+  name: Microsoft.Extensions.Options
+  nameWithType: Microsoft.Extensions.Options
+  fullName: Microsoft.Extensions.Options
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions
+  - name: .
+  - uid: Microsoft.Extensions.Options
+    name: Options
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.options
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions
+  - name: .
+  - uid: Microsoft.Extensions.Options
+    name: Options
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.options
+- uid: RaisedHands.Api.Services.EmailSenderService.AddEmailToSendAsync*
+  commentId: Overload:RaisedHands.Api.Services.EmailSenderService.AddEmailToSendAsync
+  href: RaisedHands.Api.Services.EmailSenderService.html#RaisedHands_Api_Services_EmailSenderService_AddEmailToSendAsync_System_String_System_String_System_String_
+  name: AddEmailToSendAsync
+  nameWithType: EmailSenderService.AddEmailToSendAsync
+  fullName: RaisedHands.Api.Services.EmailSenderService.AddEmailToSendAsync
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: RaisedHands.Api.Services.EmailSenderService.SendEmailsAsync*
+  commentId: Overload:RaisedHands.Api.Services.EmailSenderService.SendEmailsAsync
+  href: RaisedHands.Api.Services.EmailSenderService.html#RaisedHands_Api_Services_EmailSenderService_SendEmailsAsync
+  name: SendEmailsAsync
+  nameWithType: EmailSenderService.SendEmailsAsync
+  fullName: RaisedHands.Api.Services.EmailSenderService.SendEmailsAsync

@@ -1,0 +1,62 @@
+### YamlMime:ManagedReference
+items:
+- uid: RaisedHands.Data.Interfaces
+  commentId: N:RaisedHands.Data.Interfaces
+  id: RaisedHands.Data.Interfaces
+  children:
+  - RaisedHands.Data.Interfaces.ITrackable
+  - RaisedHands.Data.Interfaces.ITrackableExtensions
+  langs:
+  - csharp
+  - vb
+  name: RaisedHands.Data.Interfaces
+  nameWithType: RaisedHands.Data.Interfaces
+  fullName: RaisedHands.Data.Interfaces
+  type: Namespace
+  assemblies:
+  - RaisedHands.Data
+references:
+- uid: RaisedHands.Data.Interfaces.ITrackable
+  commentId: T:RaisedHands.Data.Interfaces.ITrackable
+  parent: RaisedHands.Data.Interfaces
+  href: RaisedHands.Data.Interfaces.ITrackable.html
+  name: ITrackable
+  nameWithType: ITrackable
+  fullName: RaisedHands.Data.Interfaces.ITrackable
+- uid: RaisedHands.Data.Interfaces.ITrackableExtensions
+  commentId: T:RaisedHands.Data.Interfaces.ITrackableExtensions
+  parent: RaisedHands.Data.Interfaces
+  href: RaisedHands.Data.Interfaces.ITrackableExtensions.html
+  name: ITrackableExtensions
+  nameWithType: ITrackableExtensions
+  fullName: RaisedHands.Data.Interfaces.ITrackableExtensions
+- uid: RaisedHands.Data.Interfaces
+  commentId: N:RaisedHands.Data.Interfaces
+  href: RaisedHands.html
+  name: RaisedHands.Data.Interfaces
+  nameWithType: RaisedHands.Data.Interfaces
+  fullName: RaisedHands.Data.Interfaces
+  spec.csharp:
+  - uid: RaisedHands
+    name: RaisedHands
+    href: RaisedHands.html
+  - name: .
+  - uid: RaisedHands.Data
+    name: Data
+    href: RaisedHands.Data.html
+  - name: .
+  - uid: RaisedHands.Data.Interfaces
+    name: Interfaces
+    href: RaisedHands.Data.Interfaces.html
+  spec.vb:
+  - uid: RaisedHands
+    name: RaisedHands
+    href: RaisedHands.html
+  - name: .
+  - uid: RaisedHands.Data
+    name: Data
+    href: RaisedHands.Data.html
+  - name: .
+  - uid: RaisedHands.Data.Interfaces
+    name: Interfaces
+    href: RaisedHands.Data.Interfaces.html

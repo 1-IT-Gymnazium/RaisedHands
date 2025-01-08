@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: RaisedHands.Api.Utilities
+  commentId: N:RaisedHands.Api.Utilities
+  id: RaisedHands.Api.Utilities
+  children:
+  - RaisedHands.Api.Utilities.ClaimsPrincipalExtensions
+  langs:
+  - csharp
+  - vb
+  name: RaisedHands.Api.Utilities
+  nameWithType: RaisedHands.Api.Utilities
+  fullName: RaisedHands.Api.Utilities
+  type: Namespace
+  assemblies:
+  - RaisedHands.Data
+references:
+- uid: RaisedHands.Api.Utilities.ClaimsPrincipalExtensions
+  commentId: T:RaisedHands.Api.Utilities.ClaimsPrincipalExtensions
+  href: RaisedHands.Api.Utilities.ClaimsPrincipalExtensions.html
+  name: ClaimsPrincipalExtensions
+  nameWithType: ClaimsPrincipalExtensions
+  fullName: RaisedHands.Api.Utilities.ClaimsPrincipalExtensions

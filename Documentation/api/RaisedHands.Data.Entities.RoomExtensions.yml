@@ -1,0 +1,436 @@
+### YamlMime:ManagedReference
+items:
+- uid: RaisedHands.Data.Entities.RoomExtensions
+  commentId: T:RaisedHands.Data.Entities.RoomExtensions
+  id: RoomExtensions
+  parent: RaisedHands.Data.Entities
+  children:
+  - RaisedHands.Data.Entities.RoomExtensions.FilterDeleted(System.Linq.IQueryable{RaisedHands.Data.Entities.Room})
+  langs:
+  - csharp
+  - vb
+  name: RoomExtensions
+  nameWithType: RoomExtensions
+  fullName: RaisedHands.Data.Entities.RoomExtensions
+  type: Class
+  source:
+    remote:
+      path: src/RaisedHands.Data/Entities/Room.cs
+      branch: dev
+      repo: https://github.com/1-IT-Gymnazium/RaisedHands.git
+    id: RoomExtensions
+    path: ../src/RaisedHands.Data/Entities/Room.cs
+    startLine: 29
+  assemblies:
+  - RaisedHands.Data
+  namespace: RaisedHands.Data.Entities
+  syntax:
+    content: public static class RoomExtensions
+    content.vb: Public Module RoomExtensions
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: RaisedHands.Data.Entities.RoomExtensions.FilterDeleted(System.Linq.IQueryable{RaisedHands.Data.Entities.Room})
+  commentId: M:RaisedHands.Data.Entities.RoomExtensions.FilterDeleted(System.Linq.IQueryable{RaisedHands.Data.Entities.Room})
+  id: FilterDeleted(System.Linq.IQueryable{RaisedHands.Data.Entities.Room})
+  isExtensionMethod: true
+  parent: RaisedHands.Data.Entities.RoomExtensions
+  langs:
+  - csharp
+  - vb
+  name: FilterDeleted(IQueryable<Room>)
+  nameWithType: RoomExtensions.FilterDeleted(IQueryable<Room>)
+  fullName: RaisedHands.Data.Entities.RoomExtensions.FilterDeleted(System.Linq.IQueryable<RaisedHands.Data.Entities.Room>)
+  type: Method
+  source:
+    remote:
+      path: src/RaisedHands.Data/Entities/Room.cs
+      branch: dev
+      repo: https://github.com/1-IT-Gymnazium/RaisedHands.git
+    id: FilterDeleted
+    path: ../src/RaisedHands.Data/Entities/Room.cs
+    startLine: 31
+  assemblies:
+  - RaisedHands.Data
+  namespace: RaisedHands.Data.Entities
+  syntax:
+    content: public static IQueryable<Room> FilterDeleted(this IQueryable<Room> query)
+    parameters:
+    - id: query
+      type: System.Linq.IQueryable{RaisedHands.Data.Entities.Room}
+    return:
+      type: System.Linq.IQueryable{RaisedHands.Data.Entities.Room}
+    content.vb: Public Shared Function FilterDeleted(query As IQueryable(Of Room)) As IQueryable(Of Room)
+  overload: RaisedHands.Data.Entities.RoomExtensions.FilterDeleted*
+  nameWithType.vb: RoomExtensions.FilterDeleted(IQueryable(Of Room))
+  fullName.vb: RaisedHands.Data.Entities.RoomExtensions.FilterDeleted(System.Linq.IQueryable(Of RaisedHands.Data.Entities.Room))
+  name.vb: FilterDeleted(IQueryable(Of Room))
+references:
+- uid: RaisedHands.Data.Entities
+  commentId: N:RaisedHands.Data.Entities
+  href: RaisedHands.html
+  name: RaisedHands.Data.Entities
+  nameWithType: RaisedHands.Data.Entities
+  fullName: RaisedHands.Data.Entities
+  spec.csharp:
+  - uid: RaisedHands
+    name: RaisedHands
+    href: RaisedHands.html
+  - name: .
+  - uid: RaisedHands.Data
+    name: Data
+    href: RaisedHands.Data.html
+  - name: .
+  - uid: RaisedHands.Data.Entities
+    name: Entities
+    href: RaisedHands.Data.Entities.html
+  spec.vb:
+  - uid: RaisedHands
+    name: RaisedHands
+    href: RaisedHands.html
+  - name: .
+  - uid: RaisedHands.Data
+    name: Data
+    href: RaisedHands.Data.html
+  - name: .
+  - uid: RaisedHands.Data.Entities
+    name: Entities
+    href: RaisedHands.Data.Entities.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: RaisedHands.Data.Entities.RoomExtensions.FilterDeleted*
+  commentId: Overload:RaisedHands.Data.Entities.RoomExtensions.FilterDeleted
+  href: RaisedHands.Data.Entities.RoomExtensions.html#RaisedHands_Data_Entities_RoomExtensions_FilterDeleted_System_Linq_IQueryable_RaisedHands_Data_Entities_Room__
+  name: FilterDeleted
+  nameWithType: RoomExtensions.FilterDeleted
+  fullName: RaisedHands.Data.Entities.RoomExtensions.FilterDeleted
+- uid: System.Linq.IQueryable{RaisedHands.Data.Entities.Room}
+  commentId: T:System.Linq.IQueryable{RaisedHands.Data.Entities.Room}
+  parent: System.Linq
+  definition: System.Linq.IQueryable`1
+  href: https://learn.microsoft.com/dotnet/api/system.linq.iqueryable-1
+  name: IQueryable<Room>
+  nameWithType: IQueryable<Room>
+  fullName: System.Linq.IQueryable<RaisedHands.Data.Entities.Room>
+  nameWithType.vb: IQueryable(Of Room)
+  fullName.vb: System.Linq.IQueryable(Of RaisedHands.Data.Entities.Room)
+  name.vb: IQueryable(Of Room)
+  spec.csharp:
+  - uid: System.Linq.IQueryable`1
+    name: IQueryable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.iqueryable-1
+  - name: <
+  - uid: RaisedHands.Data.Entities.Room
+    name: Room
+    href: RaisedHands.Data.Entities.Room.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Linq.IQueryable`1
+    name: IQueryable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.iqueryable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RaisedHands.Data.Entities.Room
+    name: Room
+    href: RaisedHands.Data.Entities.Room.html
+  - name: )
+- uid: System.Linq.IQueryable`1
+  commentId: T:System.Linq.IQueryable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.linq.iqueryable-1
+  name: IQueryable<T>
+  nameWithType: IQueryable<T>
+  fullName: System.Linq.IQueryable<T>
+  nameWithType.vb: IQueryable(Of T)
+  fullName.vb: System.Linq.IQueryable(Of T)
+  name.vb: IQueryable(Of T)
+  spec.csharp:
+  - uid: System.Linq.IQueryable`1
+    name: IQueryable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.iqueryable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Linq.IQueryable`1
+    name: IQueryable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.iqueryable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Linq
+  commentId: N:System.Linq
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Linq
+  nameWithType: System.Linq
+  fullName: System.Linq
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Linq
+    name: Linq
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Linq
+    name: Linq
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq

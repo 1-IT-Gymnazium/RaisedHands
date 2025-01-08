@@ -1,0 +1,54 @@
+### YamlMime:ManagedReference
+items:
+- uid: RaisedHands.Api.Services
+  commentId: N:RaisedHands.Api.Services
+  id: RaisedHands.Api.Services
+  children:
+  - RaisedHands.Api.Services.EmailSenderService
+  langs:
+  - csharp
+  - vb
+  name: RaisedHands.Api.Services
+  nameWithType: RaisedHands.Api.Services
+  fullName: RaisedHands.Api.Services
+  type: Namespace
+  assemblies:
+  - RaisedHands.Api
+references:
+- uid: RaisedHands.Api.Services.EmailSenderService
+  commentId: T:RaisedHands.Api.Services.EmailSenderService
+  parent: RaisedHands.Api.Services
+  href: RaisedHands.Api.Services.EmailSenderService.html
+  name: EmailSenderService
+  nameWithType: EmailSenderService
+  fullName: RaisedHands.Api.Services.EmailSenderService
+- uid: RaisedHands.Api.Services
+  commentId: N:RaisedHands.Api.Services
+  href: RaisedHands.html
+  name: RaisedHands.Api.Services
+  nameWithType: RaisedHands.Api.Services
+  fullName: RaisedHands.Api.Services
+  spec.csharp:
+  - uid: RaisedHands
+    name: RaisedHands
+    href: RaisedHands.html
+  - name: .
+  - uid: RaisedHands.Api
+    name: Api
+    href: RaisedHands.Api.html
+  - name: .
+  - uid: RaisedHands.Api.Services
+    name: Services
+    href: RaisedHands.Api.Services.html
+  spec.vb:
+  - uid: RaisedHands
+    name: RaisedHands
+    href: RaisedHands.html
+  - name: .
+  - uid: RaisedHands.Api
+    name: Api
+    href: RaisedHands.Api.html
+  - name: .
+  - uid: RaisedHands.Api.Services
+    name: Services
+    href: RaisedHands.Api.Services.html

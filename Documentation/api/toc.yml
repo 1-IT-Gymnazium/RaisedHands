@@ -1,0 +1,201 @@
+### YamlMime:TableOfContent
+items:
+- uid: RaisedHands.Api
+  name: RaisedHands.Api
+  type: Namespace
+  items:
+  - uid: RaisedHands.Api.Program
+    name: Program
+    type: Class
+- uid: RaisedHands.Api.BackgroundServices
+  name: RaisedHands.Api.BackgroundServices
+  type: Namespace
+  items:
+  - uid: RaisedHands.Api.BackgroundServices.EmailSenderBackgroundService
+    name: EmailSenderBackgroundService
+    type: Class
+- uid: RaisedHands.Api.Controllers
+  name: RaisedHands.Api.Controllers
+  type: Namespace
+  items:
+  - uid: RaisedHands.Api.Controllers.AuthController
+    name: AuthController
+    type: Class
+  - uid: RaisedHands.Api.Controllers.GroupController
+    name: GroupController
+    type: Class
+  - uid: RaisedHands.Api.Controllers.QuestionController
+    name: QuestionController
+    type: Class
+  - uid: RaisedHands.Api.Controllers.RoomController
+    name: RoomController
+    type: Class
+- uid: RaisedHands.Api.Hubs
+  name: RaisedHands.Api.Hubs
+  type: Namespace
+  items:
+  - uid: RaisedHands.Api.Hubs.QuestionHub
+    name: QuestionHub
+    type: Class
+- uid: RaisedHands.Api.Models
+  name: RaisedHands.Api.Models
+  type: Namespace
+  items:
+  - uid: RaisedHands.Api.Models.IdNameModel
+    name: IdNameModel
+    type: Class
+- uid: RaisedHands.Api.Models.Auth
+  name: RaisedHands.Api.Models.Auth
+  type: Namespace
+  items:
+  - uid: RaisedHands.Api.Models.Auth.LoginModel
+    name: LoginModel
+    type: Class
+  - uid: RaisedHands.Api.Models.Auth.RegisterModel
+    name: RegisterModel
+    type: Class
+  - uid: RaisedHands.Api.Models.Auth.TokenModel
+    name: TokenModel
+    type: Class
+- uid: RaisedHands.Api.Models.Groups
+  name: RaisedHands.Api.Models.Groups
+  type: Namespace
+  items:
+  - uid: RaisedHands.Api.Models.Groups.GroupCreateModel
+    name: GroupCreateModel
+    type: Class
+  - uid: RaisedHands.Api.Models.Groups.GroupCreateModelExtensions
+    name: GroupCreateModelExtensions
+    type: Class
+  - uid: RaisedHands.Api.Models.Groups.GroupDetailModel
+    name: GroupDetailModel
+    type: Class
+  - uid: RaisedHands.Api.Models.Groups.GroupDetailModelExtensions
+    name: GroupDetailModelExtensions
+    type: Class
+- uid: RaisedHands.Api.Models.Hands
+  name: RaisedHands.Api.Models.Hands
+  type: Namespace
+  items:
+  - uid: RaisedHands.Api.Models.Hands.HandDetailModel
+    name: HandDetailModel
+    type: Class
+- uid: RaisedHands.Api.Models.Questions
+  name: RaisedHands.Api.Models.Questions
+  type: Namespace
+  items:
+  - uid: RaisedHands.Api.Models.Questions.QuestionCreateModel
+    name: QuestionCreateModel
+    type: Class
+  - uid: RaisedHands.Api.Models.Questions.QuestionDetailModel
+    name: QuestionDetailModel
+    type: Class
+- uid: RaisedHands.Api.Models.Rooms
+  name: RaisedHands.Api.Models.Rooms
+  type: Namespace
+  items:
+  - uid: RaisedHands.Api.Models.Rooms.RoomCreateModel
+    name: RoomCreateModel
+    type: Class
+  - uid: RaisedHands.Api.Models.Rooms.RoomCreateModelExtensions
+    name: RoomCreateModelExtensions
+    type: Class
+  - uid: RaisedHands.Api.Models.Rooms.RoomDetailModel
+    name: RoomDetailModel
+    type: Class
+  - uid: RaisedHands.Api.Models.Rooms.RoomDetailModelExtensions
+    name: RoomDetailModelExtensions
+    type: Class
+- uid: RaisedHands.Api.Models.Users
+  name: RaisedHands.Api.Models.Users
+  type: Namespace
+  items:
+  - uid: RaisedHands.Api.Models.Users.UserDetailModel
+    name: UserDetailModel
+    type: Class
+  - uid: RaisedHands.Api.Models.Users.UserDetailModelExtensions
+    name: UserDetailModelExtensions
+    type: Class
+- uid: RaisedHands.Api.Services
+  name: RaisedHands.Api.Services
+  type: Namespace
+  items:
+  - uid: RaisedHands.Api.Services.EmailSenderService
+    name: EmailSenderService
+    type: Class
+- uid: RaisedHands.Api.Settings
+  name: RaisedHands.Api.Settings
+  type: Namespace
+  items:
+  - uid: RaisedHands.Api.Settings.SmtpSettings
+    name: SmtpSettings
+    type: Class
+- uid: RaisedHands.Api.Utilities
+  name: RaisedHands.Api.Utilities
+  type: Namespace
+  items:
+  - uid: RaisedHands.Api.Utilities.ClaimsPrincipalExtensions
+    name: ClaimsPrincipalExtensions
+    type: Class
+- uid: RaisedHands.Data
+  name: RaisedHands.Data
+  type: Namespace
+  items:
+  - uid: RaisedHands.Data.AppDbContext
+    name: AppDbContext
+    type: Class
+- uid: RaisedHands.Data.Entities
+  name: RaisedHands.Data.Entities
+  type: Namespace
+  items:
+  - uid: RaisedHands.Data.Entities.Email
+    name: Email
+    type: Class
+  - uid: RaisedHands.Data.Entities.Group
+    name: Group
+    type: Class
+  - uid: RaisedHands.Data.Entities.GroupExtensions
+    name: GroupExtensions
+    type: Class
+  - uid: RaisedHands.Data.Entities.Hand
+    name: Hand
+    type: Class
+  - uid: RaisedHands.Data.Entities.Question
+    name: Question
+    type: Class
+  - uid: RaisedHands.Data.Entities.Role
+    name: Role
+    type: Class
+  - uid: RaisedHands.Data.Entities.Room
+    name: Room
+    type: Class
+  - uid: RaisedHands.Data.Entities.RoomExtensions
+    name: RoomExtensions
+    type: Class
+  - uid: RaisedHands.Data.Entities.User
+    name: User
+    type: Class
+  - uid: RaisedHands.Data.Entities.UserRole
+    name: UserRole
+    type: Class
+  - uid: RaisedHands.Data.Entities.UserRoleGroup
+    name: UserRoleGroup
+    type: Class
+- uid: RaisedHands.Data.Interfaces
+  name: RaisedHands.Data.Interfaces
+  type: Namespace
+  items:
+  - uid: RaisedHands.Data.Interfaces.ITrackable
+    name: ITrackable
+    type: Interface
+  - uid: RaisedHands.Data.Interfaces.ITrackableExtensions
+    name: ITrackableExtensions
+    type: Class
+- uid: RaisedHands.Data.Migrations
+  name: RaisedHands.Data.Migrations
+  type: Namespace
+  items:
+  - uid: RaisedHands.Data.Migrations.Init
+    name: Init
+    type: Class
+memberLayout: SamePage

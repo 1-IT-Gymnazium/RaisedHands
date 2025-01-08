@@ -1,0 +1,129 @@
+### YamlMime:ManagedReference
+items:
+- uid: RaisedHands.Data.Entities
+  commentId: N:RaisedHands.Data.Entities
+  id: RaisedHands.Data.Entities
+  children:
+  - RaisedHands.Data.Entities.Email
+  - RaisedHands.Data.Entities.Group
+  - RaisedHands.Data.Entities.GroupExtensions
+  - RaisedHands.Data.Entities.Hand
+  - RaisedHands.Data.Entities.Question
+  - RaisedHands.Data.Entities.Role
+  - RaisedHands.Data.Entities.Room
+  - RaisedHands.Data.Entities.RoomExtensions
+  - RaisedHands.Data.Entities.User
+  - RaisedHands.Data.Entities.UserRole
+  - RaisedHands.Data.Entities.UserRoleGroup
+  langs:
+  - csharp
+  - vb
+  name: RaisedHands.Data.Entities
+  nameWithType: RaisedHands.Data.Entities
+  fullName: RaisedHands.Data.Entities
+  type: Namespace
+  assemblies:
+  - RaisedHands.Data
+references:
+- uid: RaisedHands.Data.Entities.Email
+  commentId: T:RaisedHands.Data.Entities.Email
+  href: RaisedHands.Data.Entities.Email.html
+  name: Email
+  nameWithType: Email
+  fullName: RaisedHands.Data.Entities.Email
+- uid: RaisedHands.Data.Entities.Group
+  commentId: T:RaisedHands.Data.Entities.Group
+  parent: RaisedHands.Data.Entities
+  href: RaisedHands.Data.Entities.Group.html
+  name: Group
+  nameWithType: Group
+  fullName: RaisedHands.Data.Entities.Group
+- uid: RaisedHands.Data.Entities.GroupExtensions
+  commentId: T:RaisedHands.Data.Entities.GroupExtensions
+  href: RaisedHands.Data.Entities.GroupExtensions.html
+  name: GroupExtensions
+  nameWithType: GroupExtensions
+  fullName: RaisedHands.Data.Entities.GroupExtensions
+- uid: RaisedHands.Data.Entities.Hand
+  commentId: T:RaisedHands.Data.Entities.Hand
+  href: RaisedHands.Data.Entities.Hand.html
+  name: Hand
+  nameWithType: Hand
+  fullName: RaisedHands.Data.Entities.Hand
+- uid: RaisedHands.Data.Entities.Question
+  commentId: T:RaisedHands.Data.Entities.Question
+  href: RaisedHands.Data.Entities.Question.html
+  name: Question
+  nameWithType: Question
+  fullName: RaisedHands.Data.Entities.Question
+- uid: RaisedHands.Data.Entities.Role
+  commentId: T:RaisedHands.Data.Entities.Role
+  parent: RaisedHands.Data.Entities
+  href: RaisedHands.Data.Entities.Role.html
+  name: Role
+  nameWithType: Role
+  fullName: RaisedHands.Data.Entities.Role
+- uid: RaisedHands.Data.Entities.Room
+  commentId: T:RaisedHands.Data.Entities.Room
+  parent: RaisedHands.Data.Entities
+  href: RaisedHands.Data.Entities.Room.html
+  name: Room
+  nameWithType: Room
+  fullName: RaisedHands.Data.Entities.Room
+- uid: RaisedHands.Data.Entities.RoomExtensions
+  commentId: T:RaisedHands.Data.Entities.RoomExtensions
+  href: RaisedHands.Data.Entities.RoomExtensions.html
+  name: RoomExtensions
+  nameWithType: RoomExtensions
+  fullName: RaisedHands.Data.Entities.RoomExtensions
+- uid: RaisedHands.Data.Entities.User
+  commentId: T:RaisedHands.Data.Entities.User
+  parent: RaisedHands.Data.Entities
+  href: RaisedHands.Data.Entities.User.html
+  name: User
+  nameWithType: User
+  fullName: RaisedHands.Data.Entities.User
+- uid: RaisedHands.Data.Entities.UserRole
+  commentId: T:RaisedHands.Data.Entities.UserRole
+  parent: RaisedHands.Data.Entities
+  href: RaisedHands.Data.Entities.UserRole.html
+  name: UserRole
+  nameWithType: UserRole
+  fullName: RaisedHands.Data.Entities.UserRole
+- uid: RaisedHands.Data.Entities.UserRoleGroup
+  commentId: T:RaisedHands.Data.Entities.UserRoleGroup
+  parent: RaisedHands.Data.Entities
+  href: RaisedHands.Data.Entities.UserRoleGroup.html
+  name: UserRoleGroup
+  nameWithType: UserRoleGroup
+  fullName: RaisedHands.Data.Entities.UserRoleGroup
+- uid: RaisedHands.Data.Entities
+  commentId: N:RaisedHands.Data.Entities
+  href: RaisedHands.html
+  name: RaisedHands.Data.Entities
+  nameWithType: RaisedHands.Data.Entities
+  fullName: RaisedHands.Data.Entities
+  spec.csharp:
+  - uid: RaisedHands
+    name: RaisedHands
+    href: RaisedHands.html
+  - name: .
+  - uid: RaisedHands.Data
+    name: Data
+    href: RaisedHands.Data.html
+  - name: .
+  - uid: RaisedHands.Data.Entities
+    name: Entities
+    href: RaisedHands.Data.Entities.html
+  spec.vb:
+  - uid: RaisedHands
+    name: RaisedHands
+    href: RaisedHands.html
+  - name: .
+  - uid: RaisedHands.Data
+    name: Data
+    href: RaisedHands.Data.html
+  - name: .
+  - uid: RaisedHands.Data.Entities
+    name: Entities
+    href: RaisedHands.Data.Entities.html

@@ -1,0 +1,69 @@
+### YamlMime:ManagedReference
+items:
+- uid: RaisedHands.Api.Models.Users
+  commentId: N:RaisedHands.Api.Models.Users
+  id: RaisedHands.Api.Models.Users
+  children:
+  - RaisedHands.Api.Models.Users.UserDetailModel
+  - RaisedHands.Api.Models.Users.UserDetailModelExtensions
+  langs:
+  - csharp
+  - vb
+  name: RaisedHands.Api.Models.Users
+  nameWithType: RaisedHands.Api.Models.Users
+  fullName: RaisedHands.Api.Models.Users
+  type: Namespace
+  assemblies:
+  - RaisedHands.Api
+references:
+- uid: RaisedHands.Api.Models.Users.UserDetailModel
+  commentId: T:RaisedHands.Api.Models.Users.UserDetailModel
+  parent: RaisedHands.Api.Models.Users
+  href: RaisedHands.Api.Models.Users.UserDetailModel.html
+  name: UserDetailModel
+  nameWithType: UserDetailModel
+  fullName: RaisedHands.Api.Models.Users.UserDetailModel
+- uid: RaisedHands.Api.Models.Users.UserDetailModelExtensions
+  commentId: T:RaisedHands.Api.Models.Users.UserDetailModelExtensions
+  href: RaisedHands.Api.Models.Users.UserDetailModelExtensions.html
+  name: UserDetailModelExtensions
+  nameWithType: UserDetailModelExtensions
+  fullName: RaisedHands.Api.Models.Users.UserDetailModelExtensions
+- uid: RaisedHands.Api.Models.Users
+  commentId: N:RaisedHands.Api.Models.Users
+  href: RaisedHands.html
+  name: RaisedHands.Api.Models.Users
+  nameWithType: RaisedHands.Api.Models.Users
+  fullName: RaisedHands.Api.Models.Users
+  spec.csharp:
+  - uid: RaisedHands
+    name: RaisedHands
+    href: RaisedHands.html
+  - name: .
+  - uid: RaisedHands.Api
+    name: Api
+    href: RaisedHands.Api.html
+  - name: .
+  - uid: RaisedHands.Api.Models
+    name: Models
+    href: RaisedHands.Api.Models.html
+  - name: .
+  - uid: RaisedHands.Api.Models.Users
+    name: Users
+    href: RaisedHands.Api.Models.Users.html
+  spec.vb:
+  - uid: RaisedHands
+    name: RaisedHands
+    href: RaisedHands.html
+  - name: .
+  - uid: RaisedHands.Api
+    name: Api
+    href: RaisedHands.Api.html
+  - name: .
+  - uid: RaisedHands.Api.Models
+    name: Models
+    href: RaisedHands.Api.Models.html
+  - name: .
+  - uid: RaisedHands.Api.Models.Users
+    name: Users
+    href: RaisedHands.Api.Models.Users.html

@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: RaisedHands.Api
+  commentId: N:RaisedHands.Api
+  id: RaisedHands.Api
+  children:
+  - RaisedHands.Api.Program
+  langs:
+  - csharp
+  - vb
+  name: RaisedHands.Api
+  nameWithType: RaisedHands.Api
+  fullName: RaisedHands.Api
+  type: Namespace
+  assemblies:
+  - RaisedHands.Api
+references:
+- uid: RaisedHands.Api.Program
+  commentId: T:RaisedHands.Api.Program
+  href: RaisedHands.Api.Program.html
+  name: Program
+  nameWithType: Program
+  fullName: RaisedHands.Api.Program

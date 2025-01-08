@@ -1,0 +1,46 @@
+### YamlMime:ManagedReference
+items:
+- uid: RaisedHands.Data
+  commentId: N:RaisedHands.Data
+  id: RaisedHands.Data
+  children:
+  - RaisedHands.Data.AppDbContext
+  langs:
+  - csharp
+  - vb
+  name: RaisedHands.Data
+  nameWithType: RaisedHands.Data
+  fullName: RaisedHands.Data
+  type: Namespace
+  assemblies:
+  - RaisedHands.Data
+references:
+- uid: RaisedHands.Data.AppDbContext
+  commentId: T:RaisedHands.Data.AppDbContext
+  parent: RaisedHands.Data
+  href: RaisedHands.Data.AppDbContext.html
+  name: AppDbContext
+  nameWithType: AppDbContext
+  fullName: RaisedHands.Data.AppDbContext
+- uid: RaisedHands.Data
+  commentId: N:RaisedHands.Data
+  href: RaisedHands.html
+  name: RaisedHands.Data
+  nameWithType: RaisedHands.Data
+  fullName: RaisedHands.Data
+  spec.csharp:
+  - uid: RaisedHands
+    name: RaisedHands
+    href: RaisedHands.html
+  - name: .
+  - uid: RaisedHands.Data
+    name: Data
+    href: RaisedHands.Data.html
+  spec.vb:
+  - uid: RaisedHands
+    name: RaisedHands
+    href: RaisedHands.html
+  - name: .
+  - uid: RaisedHands.Data
+    name: Data
+    href: RaisedHands.Data.html

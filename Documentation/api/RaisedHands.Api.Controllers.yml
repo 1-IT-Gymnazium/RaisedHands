@@ -1,0 +1,44 @@
+### YamlMime:ManagedReference
+items:
+- uid: RaisedHands.Api.Controllers
+  commentId: N:RaisedHands.Api.Controllers
+  id: RaisedHands.Api.Controllers
+  children:
+  - RaisedHands.Api.Controllers.AuthController
+  - RaisedHands.Api.Controllers.GroupController
+  - RaisedHands.Api.Controllers.QuestionController
+  - RaisedHands.Api.Controllers.RoomController
+  langs:
+  - csharp
+  - vb
+  name: RaisedHands.Api.Controllers
+  nameWithType: RaisedHands.Api.Controllers
+  fullName: RaisedHands.Api.Controllers
+  type: Namespace
+  assemblies:
+  - RaisedHands.Api
+references:
+- uid: RaisedHands.Api.Controllers.AuthController
+  commentId: T:RaisedHands.Api.Controllers.AuthController
+  href: RaisedHands.Api.Controllers.AuthController.html
+  name: AuthController
+  nameWithType: AuthController
+  fullName: RaisedHands.Api.Controllers.AuthController
+- uid: RaisedHands.Api.Controllers.GroupController
+  commentId: T:RaisedHands.Api.Controllers.GroupController
+  href: RaisedHands.Api.Controllers.GroupController.html
+  name: GroupController
+  nameWithType: GroupController
+  fullName: RaisedHands.Api.Controllers.GroupController
+- uid: RaisedHands.Api.Controllers.QuestionController
+  commentId: T:RaisedHands.Api.Controllers.QuestionController
+  href: RaisedHands.Api.Controllers.QuestionController.html
+  name: QuestionController
+  nameWithType: QuestionController
+  fullName: RaisedHands.Api.Controllers.QuestionController
+- uid: RaisedHands.Api.Controllers.RoomController
+  commentId: T:RaisedHands.Api.Controllers.RoomController
+  href: RaisedHands.Api.Controllers.RoomController.html
+  name: RoomController
+  nameWithType: RoomController
+  fullName: RaisedHands.Api.Controllers.RoomController

@@ -1,0 +1,2004 @@
+### YamlMime:ManagedReference
+items:
+- uid: RaisedHands.Data.Entities.User
+  commentId: T:RaisedHands.Data.Entities.User
+  id: User
+  parent: RaisedHands.Data.Entities
+  children:
+  - RaisedHands.Data.Entities.User.CreatedAt
+  - RaisedHands.Data.Entities.User.CreatedBy
+  - RaisedHands.Data.Entities.User.DeletedAt
+  - RaisedHands.Data.Entities.User.DeletedBy
+  - RaisedHands.Data.Entities.User.FirstName
+  - RaisedHands.Data.Entities.User.LastName
+  - RaisedHands.Data.Entities.User.ModifiedAt
+  - RaisedHands.Data.Entities.User.ModifiedBy
+  - RaisedHands.Data.Entities.User.Roles
+  langs:
+  - csharp
+  - vb
+  name: User
+  nameWithType: User
+  fullName: RaisedHands.Data.Entities.User
+  type: Class
+  source:
+    remote:
+      path: src/RaisedHands.Data/Entities/User.cs
+      branch: dev
+      repo: https://github.com/1-IT-Gymnazium/RaisedHands.git
+    id: User
+    path: ../src/RaisedHands.Data/Entities/User.cs
+    startLine: 14
+  assemblies:
+  - RaisedHands.Data
+  namespace: RaisedHands.Data.Entities
+  syntax:
+    content: >-
+      [Table("User")]
+
+      public class User : IdentityUser<Guid>, ITrackable
+    content.vb: >-
+      <Table("User")>
+
+      Public Class User Inherits IdentityUser(Of Guid) Implements ITrackable
+  inheritance:
+  - System.Object
+  - Microsoft.AspNetCore.Identity.IdentityUser{System.Guid}
+  implements:
+  - RaisedHands.Data.Interfaces.ITrackable
+  inheritedMembers:
+  - Microsoft.AspNetCore.Identity.IdentityUser{System.Guid}.ToString
+  - Microsoft.AspNetCore.Identity.IdentityUser{System.Guid}.Id
+  - Microsoft.AspNetCore.Identity.IdentityUser{System.Guid}.UserName
+  - Microsoft.AspNetCore.Identity.IdentityUser{System.Guid}.NormalizedUserName
+  - Microsoft.AspNetCore.Identity.IdentityUser{System.Guid}.Email
+  - Microsoft.AspNetCore.Identity.IdentityUser{System.Guid}.NormalizedEmail
+  - Microsoft.AspNetCore.Identity.IdentityUser{System.Guid}.EmailConfirmed
+  - Microsoft.AspNetCore.Identity.IdentityUser{System.Guid}.PasswordHash
+  - Microsoft.AspNetCore.Identity.IdentityUser{System.Guid}.SecurityStamp
+  - Microsoft.AspNetCore.Identity.IdentityUser{System.Guid}.ConcurrencyStamp
+  - Microsoft.AspNetCore.Identity.IdentityUser{System.Guid}.PhoneNumber
+  - Microsoft.AspNetCore.Identity.IdentityUser{System.Guid}.PhoneNumberConfirmed
+  - Microsoft.AspNetCore.Identity.IdentityUser{System.Guid}.TwoFactorEnabled
+  - Microsoft.AspNetCore.Identity.IdentityUser{System.Guid}.LockoutEnd
+  - Microsoft.AspNetCore.Identity.IdentityUser{System.Guid}.LockoutEnabled
+  - Microsoft.AspNetCore.Identity.IdentityUser{System.Guid}.AccessFailedCount
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  extensionMethods:
+  - RaisedHands.Data.Entities.User.RaisedHands.Data.Interfaces.ITrackableExtensions.SetCreateBySystem``1(NodaTime.Instant)
+  - RaisedHands.Data.Entities.User.RaisedHands.Data.Interfaces.ITrackableExtensions.SetCreateBy``1(System.String,NodaTime.Instant)
+  - RaisedHands.Data.Entities.User.RaisedHands.Data.Interfaces.ITrackableExtensions.SetDeleteBySystem``1(NodaTime.Instant)
+  - RaisedHands.Data.Entities.User.RaisedHands.Data.Interfaces.ITrackableExtensions.SetDeleteBy``1(System.String,NodaTime.Instant)
+  - RaisedHands.Data.Entities.User.RaisedHands.Data.Interfaces.ITrackableExtensions.SetModifyBySystem``1(NodaTime.Instant)
+  - RaisedHands.Data.Entities.User.RaisedHands.Data.Interfaces.ITrackableExtensions.SetModifyBy``1(System.String,NodaTime.Instant)
+  attributes:
+  - type: System.ComponentModel.DataAnnotations.Schema.TableAttribute
+    ctor: System.ComponentModel.DataAnnotations.Schema.TableAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: User
+- uid: RaisedHands.Data.Entities.User.FirstName
+  commentId: P:RaisedHands.Data.Entities.User.FirstName
+  id: FirstName
+  parent: RaisedHands.Data.Entities.User
+  langs:
+  - csharp
+  - vb
+  name: FirstName
+  nameWithType: User.FirstName
+  fullName: RaisedHands.Data.Entities.User.FirstName
+  type: Property
+  source:
+    remote:
+      path: src/RaisedHands.Data/Entities/User.cs
+      branch: dev
+      repo: https://github.com/1-IT-Gymnazium/RaisedHands.git
+    id: FirstName
+    path: ../src/RaisedHands.Data/Entities/User.cs
+    startLine: 18
+  assemblies:
+  - RaisedHands.Data
+  namespace: RaisedHands.Data.Entities
+  syntax:
+    content: public string FirstName { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property FirstName As String
+  overload: RaisedHands.Data.Entities.User.FirstName*
+- uid: RaisedHands.Data.Entities.User.LastName
+  commentId: P:RaisedHands.Data.Entities.User.LastName
+  id: LastName
+  parent: RaisedHands.Data.Entities.User
+  langs:
+  - csharp
+  - vb
+  name: LastName
+  nameWithType: User.LastName
+  fullName: RaisedHands.Data.Entities.User.LastName
+  type: Property
+  source:
+    remote:
+      path: src/RaisedHands.Data/Entities/User.cs
+      branch: dev
+      repo: https://github.com/1-IT-Gymnazium/RaisedHands.git
+    id: LastName
+    path: ../src/RaisedHands.Data/Entities/User.cs
+    startLine: 19
+  assemblies:
+  - RaisedHands.Data
+  namespace: RaisedHands.Data.Entities
+  syntax:
+    content: public string LastName { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property LastName As String
+  overload: RaisedHands.Data.Entities.User.LastName*
+- uid: RaisedHands.Data.Entities.User.Roles
+  commentId: P:RaisedHands.Data.Entities.User.Roles
+  id: Roles
+  parent: RaisedHands.Data.Entities.User
+  langs:
+  - csharp
+  - vb
+  name: Roles
+  nameWithType: User.Roles
+  fullName: RaisedHands.Data.Entities.User.Roles
+  type: Property
+  source:
+    remote:
+      path: src/RaisedHands.Data/Entities/User.cs
+      branch: dev
+      repo: https://github.com/1-IT-Gymnazium/RaisedHands.git
+    id: Roles
+    path: ../src/RaisedHands.Data/Entities/User.cs
+    startLine: 20
+  assemblies:
+  - RaisedHands.Data
+  namespace: RaisedHands.Data.Entities
+  syntax:
+    content: public ICollection<UserRole> Roles { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.ICollection{RaisedHands.Data.Entities.UserRole}
+    content.vb: Public Property Roles As ICollection(Of UserRole)
+  overload: RaisedHands.Data.Entities.User.Roles*
+- uid: RaisedHands.Data.Entities.User.CreatedAt
+  commentId: P:RaisedHands.Data.Entities.User.CreatedAt
+  id: CreatedAt
+  parent: RaisedHands.Data.Entities.User
+  langs:
+  - csharp
+  - vb
+  name: CreatedAt
+  nameWithType: User.CreatedAt
+  fullName: RaisedHands.Data.Entities.User.CreatedAt
+  type: Property
+  source:
+    remote:
+      path: src/RaisedHands.Data/Entities/User.cs
+      branch: dev
+      repo: https://github.com/1-IT-Gymnazium/RaisedHands.git
+    id: CreatedAt
+    path: ../src/RaisedHands.Data/Entities/User.cs
+    startLine: 21
+  assemblies:
+  - RaisedHands.Data
+  namespace: RaisedHands.Data.Entities
+  example: []
+  syntax:
+    content: public Instant CreatedAt { get; set; }
+    parameters: []
+    return:
+      type: NodaTime.Instant
+    content.vb: Public Property CreatedAt As Instant
+  overload: RaisedHands.Data.Entities.User.CreatedAt*
+  implements:
+  - RaisedHands.Data.Interfaces.ITrackable.CreatedAt
+- uid: RaisedHands.Data.Entities.User.CreatedBy
+  commentId: P:RaisedHands.Data.Entities.User.CreatedBy
+  id: CreatedBy
+  parent: RaisedHands.Data.Entities.User
+  langs:
+  - csharp
+  - vb
+  name: CreatedBy
+  nameWithType: User.CreatedBy
+  fullName: RaisedHands.Data.Entities.User.CreatedBy
+  type: Property
+  source:
+    remote:
+      path: src/RaisedHands.Data/Entities/User.cs
+      branch: dev
+      repo: https://github.com/1-IT-Gymnazium/RaisedHands.git
+    id: CreatedBy
+    path: ../src/RaisedHands.Data/Entities/User.cs
+    startLine: 22
+  assemblies:
+  - RaisedHands.Data
+  namespace: RaisedHands.Data.Entities
+  example: []
+  syntax:
+    content: public string CreatedBy { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property CreatedBy As String
+  overload: RaisedHands.Data.Entities.User.CreatedBy*
+  implements:
+  - RaisedHands.Data.Interfaces.ITrackable.CreatedBy
+- uid: RaisedHands.Data.Entities.User.ModifiedAt
+  commentId: P:RaisedHands.Data.Entities.User.ModifiedAt
+  id: ModifiedAt
+  parent: RaisedHands.Data.Entities.User
+  langs:
+  - csharp
+  - vb
+  name: ModifiedAt
+  nameWithType: User.ModifiedAt
+  fullName: RaisedHands.Data.Entities.User.ModifiedAt
+  type: Property
+  source:
+    remote:
+      path: src/RaisedHands.Data/Entities/User.cs
+      branch: dev
+      repo: https://github.com/1-IT-Gymnazium/RaisedHands.git
+    id: ModifiedAt
+    path: ../src/RaisedHands.Data/Entities/User.cs
+    startLine: 23
+  assemblies:
+  - RaisedHands.Data
+  namespace: RaisedHands.Data.Entities
+  example: []
+  syntax:
+    content: public Instant ModifiedAt { get; set; }
+    parameters: []
+    return:
+      type: NodaTime.Instant
+    content.vb: Public Property ModifiedAt As Instant
+  overload: RaisedHands.Data.Entities.User.ModifiedAt*
+  implements:
+  - RaisedHands.Data.Interfaces.ITrackable.ModifiedAt
+- uid: RaisedHands.Data.Entities.User.ModifiedBy
+  commentId: P:RaisedHands.Data.Entities.User.ModifiedBy
+  id: ModifiedBy
+  parent: RaisedHands.Data.Entities.User
+  langs:
+  - csharp
+  - vb
+  name: ModifiedBy
+  nameWithType: User.ModifiedBy
+  fullName: RaisedHands.Data.Entities.User.ModifiedBy
+  type: Property
+  source:
+    remote:
+      path: src/RaisedHands.Data/Entities/User.cs
+      branch: dev
+      repo: https://github.com/1-IT-Gymnazium/RaisedHands.git
+    id: ModifiedBy
+    path: ../src/RaisedHands.Data/Entities/User.cs
+    startLine: 24
+  assemblies:
+  - RaisedHands.Data
+  namespace: RaisedHands.Data.Entities
+  example: []
+  syntax:
+    content: public string ModifiedBy { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property ModifiedBy As String
+  overload: RaisedHands.Data.Entities.User.ModifiedBy*
+  implements:
+  - RaisedHands.Data.Interfaces.ITrackable.ModifiedBy
+- uid: RaisedHands.Data.Entities.User.DeletedAt
+  commentId: P:RaisedHands.Data.Entities.User.DeletedAt
+  id: DeletedAt
+  parent: RaisedHands.Data.Entities.User
+  langs:
+  - csharp
+  - vb
+  name: DeletedAt
+  nameWithType: User.DeletedAt
+  fullName: RaisedHands.Data.Entities.User.DeletedAt
+  type: Property
+  source:
+    remote:
+      path: src/RaisedHands.Data/Entities/User.cs
+      branch: dev
+      repo: https://github.com/1-IT-Gymnazium/RaisedHands.git
+    id: DeletedAt
+    path: ../src/RaisedHands.Data/Entities/User.cs
+    startLine: 25
+  assemblies:
+  - RaisedHands.Data
+  namespace: RaisedHands.Data.Entities
+  example: []
+  syntax:
+    content: public Instant? DeletedAt { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{NodaTime.Instant}
+    content.vb: Public Property DeletedAt As Instant?
+  overload: RaisedHands.Data.Entities.User.DeletedAt*
+  implements:
+  - RaisedHands.Data.Interfaces.ITrackable.DeletedAt
+- uid: RaisedHands.Data.Entities.User.DeletedBy
+  commentId: P:RaisedHands.Data.Entities.User.DeletedBy
+  id: DeletedBy
+  parent: RaisedHands.Data.Entities.User
+  langs:
+  - csharp
+  - vb
+  name: DeletedBy
+  nameWithType: User.DeletedBy
+  fullName: RaisedHands.Data.Entities.User.DeletedBy
+  type: Property
+  source:
+    remote:
+      path: src/RaisedHands.Data/Entities/User.cs
+      branch: dev
+      repo: https://github.com/1-IT-Gymnazium/RaisedHands.git
+    id: DeletedBy
+    path: ../src/RaisedHands.Data/Entities/User.cs
+    startLine: 26
+  assemblies:
+  - RaisedHands.Data
+  namespace: RaisedHands.Data.Entities
+  example: []
+  syntax:
+    content: public string? DeletedBy { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property DeletedBy As String
+  overload: RaisedHands.Data.Entities.User.DeletedBy*
+  implements:
+  - RaisedHands.Data.Interfaces.ITrackable.DeletedBy
+references:
+- uid: RaisedHands.Data.Entities
+  commentId: N:RaisedHands.Data.Entities
+  href: RaisedHands.html
+  name: RaisedHands.Data.Entities
+  nameWithType: RaisedHands.Data.Entities
+  fullName: RaisedHands.Data.Entities
+  spec.csharp:
+  - uid: RaisedHands
+    name: RaisedHands
+    href: RaisedHands.html
+  - name: .
+  - uid: RaisedHands.Data
+    name: Data
+    href: RaisedHands.Data.html
+  - name: .
+  - uid: RaisedHands.Data.Entities
+    name: Entities
+    href: RaisedHands.Data.Entities.html
+  spec.vb:
+  - uid: RaisedHands
+    name: RaisedHands
+    href: RaisedHands.html
+  - name: .
+  - uid: RaisedHands.Data
+    name: Data
+    href: RaisedHands.Data.html
+  - name: .
+  - uid: RaisedHands.Data.Entities
+    name: Entities
+    href: RaisedHands.Data.Entities.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Microsoft.AspNetCore.Identity.IdentityUser{System.Guid}
+  commentId: T:Microsoft.AspNetCore.Identity.IdentityUser{System.Guid}
+  parent: Microsoft.AspNetCore.Identity
+  definition: Microsoft.AspNetCore.Identity.IdentityUser`1
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityuser-1
+  name: IdentityUser<Guid>
+  nameWithType: IdentityUser<Guid>
+  fullName: Microsoft.AspNetCore.Identity.IdentityUser<System.Guid>
+  nameWithType.vb: IdentityUser(Of Guid)
+  fullName.vb: Microsoft.AspNetCore.Identity.IdentityUser(Of System.Guid)
+  name.vb: IdentityUser(Of Guid)
+  spec.csharp:
+  - uid: Microsoft.AspNetCore.Identity.IdentityUser`1
+    name: IdentityUser
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityuser-1
+  - name: <
+  - uid: System.Guid
+    name: Guid
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.guid
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.AspNetCore.Identity.IdentityUser`1
+    name: IdentityUser
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityuser-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Guid
+    name: Guid
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.guid
+  - name: )
+- uid: RaisedHands.Data.Interfaces.ITrackable
+  commentId: T:RaisedHands.Data.Interfaces.ITrackable
+  parent: RaisedHands.Data.Interfaces
+  href: RaisedHands.Data.Interfaces.ITrackable.html
+  name: ITrackable
+  nameWithType: ITrackable
+  fullName: RaisedHands.Data.Interfaces.ITrackable
+- uid: Microsoft.AspNetCore.Identity.IdentityUser{System.Guid}.ToString
+  commentId: M:Microsoft.AspNetCore.Identity.IdentityUser{System.Guid}.ToString
+  parent: Microsoft.AspNetCore.Identity.IdentityUser{System.Guid}
+  definition: Microsoft.AspNetCore.Identity.IdentityUser`1.ToString
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityuser-1.tostring
+  name: ToString()
+  nameWithType: IdentityUser<Guid>.ToString()
+  fullName: Microsoft.AspNetCore.Identity.IdentityUser<System.Guid>.ToString()
+  nameWithType.vb: IdentityUser(Of Guid).ToString()
+  fullName.vb: Microsoft.AspNetCore.Identity.IdentityUser(Of System.Guid).ToString()
+  spec.csharp:
+  - uid: Microsoft.AspNetCore.Identity.IdentityUser{System.Guid}.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityuser-1.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Microsoft.AspNetCore.Identity.IdentityUser{System.Guid}.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityuser-1.tostring
+  - name: (
+  - name: )
+- uid: Microsoft.AspNetCore.Identity.IdentityUser{System.Guid}.Id
+  commentId: P:Microsoft.AspNetCore.Identity.IdentityUser{System.Guid}.Id
+  parent: Microsoft.AspNetCore.Identity.IdentityUser{System.Guid}
+  definition: Microsoft.AspNetCore.Identity.IdentityUser`1.Id
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityuser-1.id
+  name: Id
+  nameWithType: IdentityUser<Guid>.Id
+  fullName: Microsoft.AspNetCore.Identity.IdentityUser<System.Guid>.Id
+  nameWithType.vb: IdentityUser(Of Guid).Id
+  fullName.vb: Microsoft.AspNetCore.Identity.IdentityUser(Of System.Guid).Id
+- uid: Microsoft.AspNetCore.Identity.IdentityUser{System.Guid}.UserName
+  commentId: P:Microsoft.AspNetCore.Identity.IdentityUser{System.Guid}.UserName
+  parent: Microsoft.AspNetCore.Identity.IdentityUser{System.Guid}
+  definition: Microsoft.AspNetCore.Identity.IdentityUser`1.UserName
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityuser-1.username
+  name: UserName
+  nameWithType: IdentityUser<Guid>.UserName
+  fullName: Microsoft.AspNetCore.Identity.IdentityUser<System.Guid>.UserName
+  nameWithType.vb: IdentityUser(Of Guid).UserName
+  fullName.vb: Microsoft.AspNetCore.Identity.IdentityUser(Of System.Guid).UserName
+- uid: Microsoft.AspNetCore.Identity.IdentityUser{System.Guid}.NormalizedUserName
+  commentId: P:Microsoft.AspNetCore.Identity.IdentityUser{System.Guid}.NormalizedUserName
+  parent: Microsoft.AspNetCore.Identity.IdentityUser{System.Guid}
+  definition: Microsoft.AspNetCore.Identity.IdentityUser`1.NormalizedUserName
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityuser-1.normalizedusername
+  name: NormalizedUserName
+  nameWithType: IdentityUser<Guid>.NormalizedUserName
+  fullName: Microsoft.AspNetCore.Identity.IdentityUser<System.Guid>.NormalizedUserName
+  nameWithType.vb: IdentityUser(Of Guid).NormalizedUserName
+  fullName.vb: Microsoft.AspNetCore.Identity.IdentityUser(Of System.Guid).NormalizedUserName
+- uid: Microsoft.AspNetCore.Identity.IdentityUser{System.Guid}.Email
+  commentId: P:Microsoft.AspNetCore.Identity.IdentityUser{System.Guid}.Email
+  parent: Microsoft.AspNetCore.Identity.IdentityUser{System.Guid}
+  definition: Microsoft.AspNetCore.Identity.IdentityUser`1.Email
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityuser-1.email
+  name: Email
+  nameWithType: IdentityUser<Guid>.Email
+  fullName: Microsoft.AspNetCore.Identity.IdentityUser<System.Guid>.Email
+  nameWithType.vb: IdentityUser(Of Guid).Email
+  fullName.vb: Microsoft.AspNetCore.Identity.IdentityUser(Of System.Guid).Email
+- uid: Microsoft.AspNetCore.Identity.IdentityUser{System.Guid}.NormalizedEmail
+  commentId: P:Microsoft.AspNetCore.Identity.IdentityUser{System.Guid}.NormalizedEmail
+  parent: Microsoft.AspNetCore.Identity.IdentityUser{System.Guid}
+  definition: Microsoft.AspNetCore.Identity.IdentityUser`1.NormalizedEmail
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityuser-1.normalizedemail
+  name: NormalizedEmail
+  nameWithType: IdentityUser<Guid>.NormalizedEmail
+  fullName: Microsoft.AspNetCore.Identity.IdentityUser<System.Guid>.NormalizedEmail
+  nameWithType.vb: IdentityUser(Of Guid).NormalizedEmail
+  fullName.vb: Microsoft.AspNetCore.Identity.IdentityUser(Of System.Guid).NormalizedEmail
+- uid: Microsoft.AspNetCore.Identity.IdentityUser{System.Guid}.EmailConfirmed
+  commentId: P:Microsoft.AspNetCore.Identity.IdentityUser{System.Guid}.EmailConfirmed
+  parent: Microsoft.AspNetCore.Identity.IdentityUser{System.Guid}
+  definition: Microsoft.AspNetCore.Identity.IdentityUser`1.EmailConfirmed
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityuser-1.emailconfirmed
+  name: EmailConfirmed
+  nameWithType: IdentityUser<Guid>.EmailConfirmed
+  fullName: Microsoft.AspNetCore.Identity.IdentityUser<System.Guid>.EmailConfirmed
+  nameWithType.vb: IdentityUser(Of Guid).EmailConfirmed
+  fullName.vb: Microsoft.AspNetCore.Identity.IdentityUser(Of System.Guid).EmailConfirmed
+- uid: Microsoft.AspNetCore.Identity.IdentityUser{System.Guid}.PasswordHash
+  commentId: P:Microsoft.AspNetCore.Identity.IdentityUser{System.Guid}.PasswordHash
+  parent: Microsoft.AspNetCore.Identity.IdentityUser{System.Guid}
+  definition: Microsoft.AspNetCore.Identity.IdentityUser`1.PasswordHash
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityuser-1.passwordhash
+  name: PasswordHash
+  nameWithType: IdentityUser<Guid>.PasswordHash
+  fullName: Microsoft.AspNetCore.Identity.IdentityUser<System.Guid>.PasswordHash
+  nameWithType.vb: IdentityUser(Of Guid).PasswordHash
+  fullName.vb: Microsoft.AspNetCore.Identity.IdentityUser(Of System.Guid).PasswordHash
+- uid: Microsoft.AspNetCore.Identity.IdentityUser{System.Guid}.SecurityStamp
+  commentId: P:Microsoft.AspNetCore.Identity.IdentityUser{System.Guid}.SecurityStamp
+  parent: Microsoft.AspNetCore.Identity.IdentityUser{System.Guid}
+  definition: Microsoft.AspNetCore.Identity.IdentityUser`1.SecurityStamp
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityuser-1.securitystamp
+  name: SecurityStamp
+  nameWithType: IdentityUser<Guid>.SecurityStamp
+  fullName: Microsoft.AspNetCore.Identity.IdentityUser<System.Guid>.SecurityStamp
+  nameWithType.vb: IdentityUser(Of Guid).SecurityStamp
+  fullName.vb: Microsoft.AspNetCore.Identity.IdentityUser(Of System.Guid).SecurityStamp
+- uid: Microsoft.AspNetCore.Identity.IdentityUser{System.Guid}.ConcurrencyStamp
+  commentId: P:Microsoft.AspNetCore.Identity.IdentityUser{System.Guid}.ConcurrencyStamp
+  parent: Microsoft.AspNetCore.Identity.IdentityUser{System.Guid}
+  definition: Microsoft.AspNetCore.Identity.IdentityUser`1.ConcurrencyStamp
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityuser-1.concurrencystamp
+  name: ConcurrencyStamp
+  nameWithType: IdentityUser<Guid>.ConcurrencyStamp
+  fullName: Microsoft.AspNetCore.Identity.IdentityUser<System.Guid>.ConcurrencyStamp
+  nameWithType.vb: IdentityUser(Of Guid).ConcurrencyStamp
+  fullName.vb: Microsoft.AspNetCore.Identity.IdentityUser(Of System.Guid).ConcurrencyStamp
+- uid: Microsoft.AspNetCore.Identity.IdentityUser{System.Guid}.PhoneNumber
+  commentId: P:Microsoft.AspNetCore.Identity.IdentityUser{System.Guid}.PhoneNumber
+  parent: Microsoft.AspNetCore.Identity.IdentityUser{System.Guid}
+  definition: Microsoft.AspNetCore.Identity.IdentityUser`1.PhoneNumber
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityuser-1.phonenumber
+  name: PhoneNumber
+  nameWithType: IdentityUser<Guid>.PhoneNumber
+  fullName: Microsoft.AspNetCore.Identity.IdentityUser<System.Guid>.PhoneNumber
+  nameWithType.vb: IdentityUser(Of Guid).PhoneNumber
+  fullName.vb: Microsoft.AspNetCore.Identity.IdentityUser(Of System.Guid).PhoneNumber
+- uid: Microsoft.AspNetCore.Identity.IdentityUser{System.Guid}.PhoneNumberConfirmed
+  commentId: P:Microsoft.AspNetCore.Identity.IdentityUser{System.Guid}.PhoneNumberConfirmed
+  parent: Microsoft.AspNetCore.Identity.IdentityUser{System.Guid}
+  definition: Microsoft.AspNetCore.Identity.IdentityUser`1.PhoneNumberConfirmed
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityuser-1.phonenumberconfirmed
+  name: PhoneNumberConfirmed
+  nameWithType: IdentityUser<Guid>.PhoneNumberConfirmed
+  fullName: Microsoft.AspNetCore.Identity.IdentityUser<System.Guid>.PhoneNumberConfirmed
+  nameWithType.vb: IdentityUser(Of Guid).PhoneNumberConfirmed
+  fullName.vb: Microsoft.AspNetCore.Identity.IdentityUser(Of System.Guid).PhoneNumberConfirmed
+- uid: Microsoft.AspNetCore.Identity.IdentityUser{System.Guid}.TwoFactorEnabled
+  commentId: P:Microsoft.AspNetCore.Identity.IdentityUser{System.Guid}.TwoFactorEnabled
+  parent: Microsoft.AspNetCore.Identity.IdentityUser{System.Guid}
+  definition: Microsoft.AspNetCore.Identity.IdentityUser`1.TwoFactorEnabled
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityuser-1.twofactorenabled
+  name: TwoFactorEnabled
+  nameWithType: IdentityUser<Guid>.TwoFactorEnabled
+  fullName: Microsoft.AspNetCore.Identity.IdentityUser<System.Guid>.TwoFactorEnabled
+  nameWithType.vb: IdentityUser(Of Guid).TwoFactorEnabled
+  fullName.vb: Microsoft.AspNetCore.Identity.IdentityUser(Of System.Guid).TwoFactorEnabled
+- uid: Microsoft.AspNetCore.Identity.IdentityUser{System.Guid}.LockoutEnd
+  commentId: P:Microsoft.AspNetCore.Identity.IdentityUser{System.Guid}.LockoutEnd
+  parent: Microsoft.AspNetCore.Identity.IdentityUser{System.Guid}
+  definition: Microsoft.AspNetCore.Identity.IdentityUser`1.LockoutEnd
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityuser-1.lockoutend
+  name: LockoutEnd
+  nameWithType: IdentityUser<Guid>.LockoutEnd
+  fullName: Microsoft.AspNetCore.Identity.IdentityUser<System.Guid>.LockoutEnd
+  nameWithType.vb: IdentityUser(Of Guid).LockoutEnd
+  fullName.vb: Microsoft.AspNetCore.Identity.IdentityUser(Of System.Guid).LockoutEnd
+- uid: Microsoft.AspNetCore.Identity.IdentityUser{System.Guid}.LockoutEnabled
+  commentId: P:Microsoft.AspNetCore.Identity.IdentityUser{System.Guid}.LockoutEnabled
+  parent: Microsoft.AspNetCore.Identity.IdentityUser{System.Guid}
+  definition: Microsoft.AspNetCore.Identity.IdentityUser`1.LockoutEnabled
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityuser-1.lockoutenabled
+  name: LockoutEnabled
+  nameWithType: IdentityUser<Guid>.LockoutEnabled
+  fullName: Microsoft.AspNetCore.Identity.IdentityUser<System.Guid>.LockoutEnabled
+  nameWithType.vb: IdentityUser(Of Guid).LockoutEnabled
+  fullName.vb: Microsoft.AspNetCore.Identity.IdentityUser(Of System.Guid).LockoutEnabled
+- uid: Microsoft.AspNetCore.Identity.IdentityUser{System.Guid}.AccessFailedCount
+  commentId: P:Microsoft.AspNetCore.Identity.IdentityUser{System.Guid}.AccessFailedCount
+  parent: Microsoft.AspNetCore.Identity.IdentityUser{System.Guid}
+  definition: Microsoft.AspNetCore.Identity.IdentityUser`1.AccessFailedCount
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityuser-1.accessfailedcount
+  name: AccessFailedCount
+  nameWithType: IdentityUser<Guid>.AccessFailedCount
+  fullName: Microsoft.AspNetCore.Identity.IdentityUser<System.Guid>.AccessFailedCount
+  nameWithType.vb: IdentityUser(Of Guid).AccessFailedCount
+  fullName.vb: Microsoft.AspNetCore.Identity.IdentityUser(Of System.Guid).AccessFailedCount
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: RaisedHands.Data.Entities.User.RaisedHands.Data.Interfaces.ITrackableExtensions.SetCreateBySystem``1(NodaTime.Instant)
+  commentId: M:RaisedHands.Data.Interfaces.ITrackableExtensions.SetCreateBySystem``1(``0,NodaTime.Instant)
+  parent: RaisedHands.Data.Interfaces.ITrackableExtensions
+  definition: RaisedHands.Data.Interfaces.ITrackableExtensions.SetCreateBySystem``1(``0,NodaTime.Instant)
+  href: RaisedHands.Data.Interfaces.ITrackableExtensions.html#RaisedHands_Data_Interfaces_ITrackableExtensions_SetCreateBySystem__1___0_NodaTime_Instant_
+  name: SetCreateBySystem<User>(User, Instant)
+  nameWithType: ITrackableExtensions.SetCreateBySystem<User>(User, Instant)
+  fullName: RaisedHands.Data.Interfaces.ITrackableExtensions.SetCreateBySystem<RaisedHands.Data.Entities.User>(RaisedHands.Data.Entities.User, NodaTime.Instant)
+  nameWithType.vb: ITrackableExtensions.SetCreateBySystem(Of User)(User, Instant)
+  fullName.vb: RaisedHands.Data.Interfaces.ITrackableExtensions.SetCreateBySystem(Of RaisedHands.Data.Entities.User)(RaisedHands.Data.Entities.User, NodaTime.Instant)
+  name.vb: SetCreateBySystem(Of User)(User, Instant)
+  spec.csharp:
+  - uid: RaisedHands.Data.Interfaces.ITrackableExtensions.SetCreateBySystem``1(RaisedHands.Data.Entities.User,NodaTime.Instant)
+    name: SetCreateBySystem
+    href: RaisedHands.Data.Interfaces.ITrackableExtensions.html#RaisedHands_Data_Interfaces_ITrackableExtensions_SetCreateBySystem__1___0_NodaTime_Instant_
+  - name: <
+  - uid: RaisedHands.Data.Entities.User
+    name: User
+    href: RaisedHands.Data.Entities.User.html
+  - name: '>'
+  - name: (
+  - uid: RaisedHands.Data.Entities.User
+    name: User
+    href: RaisedHands.Data.Entities.User.html
+  - name: ','
+  - name: " "
+  - uid: NodaTime.Instant
+    name: Instant
+    isExternal: true
+    href: https://github.com/jskeet/nodatime/blob/4d0e4c04dd5f09304a7e53a0675dce1597ea0143/src/NodaTime/Instant.cs
+  - name: )
+  spec.vb:
+  - uid: RaisedHands.Data.Interfaces.ITrackableExtensions.SetCreateBySystem``1(RaisedHands.Data.Entities.User,NodaTime.Instant)
+    name: SetCreateBySystem
+    href: RaisedHands.Data.Interfaces.ITrackableExtensions.html#RaisedHands_Data_Interfaces_ITrackableExtensions_SetCreateBySystem__1___0_NodaTime_Instant_
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RaisedHands.Data.Entities.User
+    name: User
+    href: RaisedHands.Data.Entities.User.html
+  - name: )
+  - name: (
+  - uid: RaisedHands.Data.Entities.User
+    name: User
+    href: RaisedHands.Data.Entities.User.html
+  - name: ','
+  - name: " "
+  - uid: NodaTime.Instant
+    name: Instant
+    isExternal: true
+    href: https://github.com/jskeet/nodatime/blob/4d0e4c04dd5f09304a7e53a0675dce1597ea0143/src/NodaTime/Instant.cs
+  - name: )
+- uid: RaisedHands.Data.Entities.User.RaisedHands.Data.Interfaces.ITrackableExtensions.SetCreateBy``1(System.String,NodaTime.Instant)
+  commentId: M:RaisedHands.Data.Interfaces.ITrackableExtensions.SetCreateBy``1(``0,System.String,NodaTime.Instant)
+  parent: RaisedHands.Data.Interfaces.ITrackableExtensions
+  definition: RaisedHands.Data.Interfaces.ITrackableExtensions.SetCreateBy``1(``0,System.String,NodaTime.Instant)
+  href: RaisedHands.Data.Interfaces.ITrackableExtensions.html#RaisedHands_Data_Interfaces_ITrackableExtensions_SetCreateBy__1___0_System_String_NodaTime_Instant_
+  name: SetCreateBy<User>(User, string, Instant)
+  nameWithType: ITrackableExtensions.SetCreateBy<User>(User, string, Instant)
+  fullName: RaisedHands.Data.Interfaces.ITrackableExtensions.SetCreateBy<RaisedHands.Data.Entities.User>(RaisedHands.Data.Entities.User, string, NodaTime.Instant)
+  nameWithType.vb: ITrackableExtensions.SetCreateBy(Of User)(User, String, Instant)
+  fullName.vb: RaisedHands.Data.Interfaces.ITrackableExtensions.SetCreateBy(Of RaisedHands.Data.Entities.User)(RaisedHands.Data.Entities.User, String, NodaTime.Instant)
+  name.vb: SetCreateBy(Of User)(User, String, Instant)
+  spec.csharp:
+  - uid: RaisedHands.Data.Interfaces.ITrackableExtensions.SetCreateBy``1(RaisedHands.Data.Entities.User,System.String,NodaTime.Instant)
+    name: SetCreateBy
+    href: RaisedHands.Data.Interfaces.ITrackableExtensions.html#RaisedHands_Data_Interfaces_ITrackableExtensions_SetCreateBy__1___0_System_String_NodaTime_Instant_
+  - name: <
+  - uid: RaisedHands.Data.Entities.User
+    name: User
+    href: RaisedHands.Data.Entities.User.html
+  - name: '>'
+  - name: (
+  - uid: RaisedHands.Data.Entities.User
+    name: User
+    href: RaisedHands.Data.Entities.User.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: NodaTime.Instant
+    name: Instant
+    isExternal: true
+    href: https://github.com/jskeet/nodatime/blob/4d0e4c04dd5f09304a7e53a0675dce1597ea0143/src/NodaTime/Instant.cs
+  - name: )
+  spec.vb:
+  - uid: RaisedHands.Data.Interfaces.ITrackableExtensions.SetCreateBy``1(RaisedHands.Data.Entities.User,System.String,NodaTime.Instant)
+    name: SetCreateBy
+    href: RaisedHands.Data.Interfaces.ITrackableExtensions.html#RaisedHands_Data_Interfaces_ITrackableExtensions_SetCreateBy__1___0_System_String_NodaTime_Instant_
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RaisedHands.Data.Entities.User
+    name: User
+    href: RaisedHands.Data.Entities.User.html
+  - name: )
+  - name: (
+  - uid: RaisedHands.Data.Entities.User
+    name: User
+    href: RaisedHands.Data.Entities.User.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: NodaTime.Instant
+    name: Instant
+    isExternal: true
+    href: https://github.com/jskeet/nodatime/blob/4d0e4c04dd5f09304a7e53a0675dce1597ea0143/src/NodaTime/Instant.cs
+  - name: )
+- uid: RaisedHands.Data.Entities.User.RaisedHands.Data.Interfaces.ITrackableExtensions.SetDeleteBySystem``1(NodaTime.Instant)
+  commentId: M:RaisedHands.Data.Interfaces.ITrackableExtensions.SetDeleteBySystem``1(``0,NodaTime.Instant)
+  parent: RaisedHands.Data.Interfaces.ITrackableExtensions
+  definition: RaisedHands.Data.Interfaces.ITrackableExtensions.SetDeleteBySystem``1(``0,NodaTime.Instant)
+  href: RaisedHands.Data.Interfaces.ITrackableExtensions.html#RaisedHands_Data_Interfaces_ITrackableExtensions_SetDeleteBySystem__1___0_NodaTime_Instant_
+  name: SetDeleteBySystem<User>(User, Instant)
+  nameWithType: ITrackableExtensions.SetDeleteBySystem<User>(User, Instant)
+  fullName: RaisedHands.Data.Interfaces.ITrackableExtensions.SetDeleteBySystem<RaisedHands.Data.Entities.User>(RaisedHands.Data.Entities.User, NodaTime.Instant)
+  nameWithType.vb: ITrackableExtensions.SetDeleteBySystem(Of User)(User, Instant)
+  fullName.vb: RaisedHands.Data.Interfaces.ITrackableExtensions.SetDeleteBySystem(Of RaisedHands.Data.Entities.User)(RaisedHands.Data.Entities.User, NodaTime.Instant)
+  name.vb: SetDeleteBySystem(Of User)(User, Instant)
+  spec.csharp:
+  - uid: RaisedHands.Data.Interfaces.ITrackableExtensions.SetDeleteBySystem``1(RaisedHands.Data.Entities.User,NodaTime.Instant)
+    name: SetDeleteBySystem
+    href: RaisedHands.Data.Interfaces.ITrackableExtensions.html#RaisedHands_Data_Interfaces_ITrackableExtensions_SetDeleteBySystem__1___0_NodaTime_Instant_
+  - name: <
+  - uid: RaisedHands.Data.Entities.User
+    name: User
+    href: RaisedHands.Data.Entities.User.html
+  - name: '>'
+  - name: (
+  - uid: RaisedHands.Data.Entities.User
+    name: User
+    href: RaisedHands.Data.Entities.User.html
+  - name: ','
+  - name: " "
+  - uid: NodaTime.Instant
+    name: Instant
+    isExternal: true
+    href: https://github.com/jskeet/nodatime/blob/4d0e4c04dd5f09304a7e53a0675dce1597ea0143/src/NodaTime/Instant.cs
+  - name: )
+  spec.vb:
+  - uid: RaisedHands.Data.Interfaces.ITrackableExtensions.SetDeleteBySystem``1(RaisedHands.Data.Entities.User,NodaTime.Instant)
+    name: SetDeleteBySystem
+    href: RaisedHands.Data.Interfaces.ITrackableExtensions.html#RaisedHands_Data_Interfaces_ITrackableExtensions_SetDeleteBySystem__1___0_NodaTime_Instant_
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RaisedHands.Data.Entities.User
+    name: User
+    href: RaisedHands.Data.Entities.User.html
+  - name: )
+  - name: (
+  - uid: RaisedHands.Data.Entities.User
+    name: User
+    href: RaisedHands.Data.Entities.User.html
+  - name: ','
+  - name: " "
+  - uid: NodaTime.Instant
+    name: Instant
+    isExternal: true
+    href: https://github.com/jskeet/nodatime/blob/4d0e4c04dd5f09304a7e53a0675dce1597ea0143/src/NodaTime/Instant.cs
+  - name: )
+- uid: RaisedHands.Data.Entities.User.RaisedHands.Data.Interfaces.ITrackableExtensions.SetDeleteBy``1(System.String,NodaTime.Instant)
+  commentId: M:RaisedHands.Data.Interfaces.ITrackableExtensions.SetDeleteBy``1(``0,System.String,NodaTime.Instant)
+  parent: RaisedHands.Data.Interfaces.ITrackableExtensions
+  definition: RaisedHands.Data.Interfaces.ITrackableExtensions.SetDeleteBy``1(``0,System.String,NodaTime.Instant)
+  href: RaisedHands.Data.Interfaces.ITrackableExtensions.html#RaisedHands_Data_Interfaces_ITrackableExtensions_SetDeleteBy__1___0_System_String_NodaTime_Instant_
+  name: SetDeleteBy<User>(User, string, Instant)
+  nameWithType: ITrackableExtensions.SetDeleteBy<User>(User, string, Instant)
+  fullName: RaisedHands.Data.Interfaces.ITrackableExtensions.SetDeleteBy<RaisedHands.Data.Entities.User>(RaisedHands.Data.Entities.User, string, NodaTime.Instant)
+  nameWithType.vb: ITrackableExtensions.SetDeleteBy(Of User)(User, String, Instant)
+  fullName.vb: RaisedHands.Data.Interfaces.ITrackableExtensions.SetDeleteBy(Of RaisedHands.Data.Entities.User)(RaisedHands.Data.Entities.User, String, NodaTime.Instant)
+  name.vb: SetDeleteBy(Of User)(User, String, Instant)
+  spec.csharp:
+  - uid: RaisedHands.Data.Interfaces.ITrackableExtensions.SetDeleteBy``1(RaisedHands.Data.Entities.User,System.String,NodaTime.Instant)
+    name: SetDeleteBy
+    href: RaisedHands.Data.Interfaces.ITrackableExtensions.html#RaisedHands_Data_Interfaces_ITrackableExtensions_SetDeleteBy__1___0_System_String_NodaTime_Instant_
+  - name: <
+  - uid: RaisedHands.Data.Entities.User
+    name: User
+    href: RaisedHands.Data.Entities.User.html
+  - name: '>'
+  - name: (
+  - uid: RaisedHands.Data.Entities.User
+    name: User
+    href: RaisedHands.Data.Entities.User.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: NodaTime.Instant
+    name: Instant
+    isExternal: true
+    href: https://github.com/jskeet/nodatime/blob/4d0e4c04dd5f09304a7e53a0675dce1597ea0143/src/NodaTime/Instant.cs
+  - name: )
+  spec.vb:
+  - uid: RaisedHands.Data.Interfaces.ITrackableExtensions.SetDeleteBy``1(RaisedHands.Data.Entities.User,System.String,NodaTime.Instant)
+    name: SetDeleteBy
+    href: RaisedHands.Data.Interfaces.ITrackableExtensions.html#RaisedHands_Data_Interfaces_ITrackableExtensions_SetDeleteBy__1___0_System_String_NodaTime_Instant_
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RaisedHands.Data.Entities.User
+    name: User
+    href: RaisedHands.Data.Entities.User.html
+  - name: )
+  - name: (
+  - uid: RaisedHands.Data.Entities.User
+    name: User
+    href: RaisedHands.Data.Entities.User.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: NodaTime.Instant
+    name: Instant
+    isExternal: true
+    href: https://github.com/jskeet/nodatime/blob/4d0e4c04dd5f09304a7e53a0675dce1597ea0143/src/NodaTime/Instant.cs
+  - name: )
+- uid: RaisedHands.Data.Entities.User.RaisedHands.Data.Interfaces.ITrackableExtensions.SetModifyBySystem``1(NodaTime.Instant)
+  commentId: M:RaisedHands.Data.Interfaces.ITrackableExtensions.SetModifyBySystem``1(``0,NodaTime.Instant)
+  parent: RaisedHands.Data.Interfaces.ITrackableExtensions
+  definition: RaisedHands.Data.Interfaces.ITrackableExtensions.SetModifyBySystem``1(``0,NodaTime.Instant)
+  href: RaisedHands.Data.Interfaces.ITrackableExtensions.html#RaisedHands_Data_Interfaces_ITrackableExtensions_SetModifyBySystem__1___0_NodaTime_Instant_
+  name: SetModifyBySystem<User>(User, Instant)
+  nameWithType: ITrackableExtensions.SetModifyBySystem<User>(User, Instant)
+  fullName: RaisedHands.Data.Interfaces.ITrackableExtensions.SetModifyBySystem<RaisedHands.Data.Entities.User>(RaisedHands.Data.Entities.User, NodaTime.Instant)
+  nameWithType.vb: ITrackableExtensions.SetModifyBySystem(Of User)(User, Instant)
+  fullName.vb: RaisedHands.Data.Interfaces.ITrackableExtensions.SetModifyBySystem(Of RaisedHands.Data.Entities.User)(RaisedHands.Data.Entities.User, NodaTime.Instant)
+  name.vb: SetModifyBySystem(Of User)(User, Instant)
+  spec.csharp:
+  - uid: RaisedHands.Data.Interfaces.ITrackableExtensions.SetModifyBySystem``1(RaisedHands.Data.Entities.User,NodaTime.Instant)
+    name: SetModifyBySystem
+    href: RaisedHands.Data.Interfaces.ITrackableExtensions.html#RaisedHands_Data_Interfaces_ITrackableExtensions_SetModifyBySystem__1___0_NodaTime_Instant_
+  - name: <
+  - uid: RaisedHands.Data.Entities.User
+    name: User
+    href: RaisedHands.Data.Entities.User.html
+  - name: '>'
+  - name: (
+  - uid: RaisedHands.Data.Entities.User
+    name: User
+    href: RaisedHands.Data.Entities.User.html
+  - name: ','
+  - name: " "
+  - uid: NodaTime.Instant
+    name: Instant
+    isExternal: true
+    href: https://github.com/jskeet/nodatime/blob/4d0e4c04dd5f09304a7e53a0675dce1597ea0143/src/NodaTime/Instant.cs
+  - name: )
+  spec.vb:
+  - uid: RaisedHands.Data.Interfaces.ITrackableExtensions.SetModifyBySystem``1(RaisedHands.Data.Entities.User,NodaTime.Instant)
+    name: SetModifyBySystem
+    href: RaisedHands.Data.Interfaces.ITrackableExtensions.html#RaisedHands_Data_Interfaces_ITrackableExtensions_SetModifyBySystem__1___0_NodaTime_Instant_
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RaisedHands.Data.Entities.User
+    name: User
+    href: RaisedHands.Data.Entities.User.html
+  - name: )
+  - name: (
+  - uid: RaisedHands.Data.Entities.User
+    name: User
+    href: RaisedHands.Data.Entities.User.html
+  - name: ','
+  - name: " "
+  - uid: NodaTime.Instant
+    name: Instant
+    isExternal: true
+    href: https://github.com/jskeet/nodatime/blob/4d0e4c04dd5f09304a7e53a0675dce1597ea0143/src/NodaTime/Instant.cs
+  - name: )
+- uid: RaisedHands.Data.Entities.User.RaisedHands.Data.Interfaces.ITrackableExtensions.SetModifyBy``1(System.String,NodaTime.Instant)
+  commentId: M:RaisedHands.Data.Interfaces.ITrackableExtensions.SetModifyBy``1(``0,System.String,NodaTime.Instant)
+  parent: RaisedHands.Data.Interfaces.ITrackableExtensions
+  definition: RaisedHands.Data.Interfaces.ITrackableExtensions.SetModifyBy``1(``0,System.String,NodaTime.Instant)
+  href: RaisedHands.Data.Interfaces.ITrackableExtensions.html#RaisedHands_Data_Interfaces_ITrackableExtensions_SetModifyBy__1___0_System_String_NodaTime_Instant_
+  name: SetModifyBy<User>(User, string, Instant)
+  nameWithType: ITrackableExtensions.SetModifyBy<User>(User, string, Instant)
+  fullName: RaisedHands.Data.Interfaces.ITrackableExtensions.SetModifyBy<RaisedHands.Data.Entities.User>(RaisedHands.Data.Entities.User, string, NodaTime.Instant)
+  nameWithType.vb: ITrackableExtensions.SetModifyBy(Of User)(User, String, Instant)
+  fullName.vb: RaisedHands.Data.Interfaces.ITrackableExtensions.SetModifyBy(Of RaisedHands.Data.Entities.User)(RaisedHands.Data.Entities.User, String, NodaTime.Instant)
+  name.vb: SetModifyBy(Of User)(User, String, Instant)
+  spec.csharp:
+  - uid: RaisedHands.Data.Interfaces.ITrackableExtensions.SetModifyBy``1(RaisedHands.Data.Entities.User,System.String,NodaTime.Instant)
+    name: SetModifyBy
+    href: RaisedHands.Data.Interfaces.ITrackableExtensions.html#RaisedHands_Data_Interfaces_ITrackableExtensions_SetModifyBy__1___0_System_String_NodaTime_Instant_
+  - name: <
+  - uid: RaisedHands.Data.Entities.User
+    name: User
+    href: RaisedHands.Data.Entities.User.html
+  - name: '>'
+  - name: (
+  - uid: RaisedHands.Data.Entities.User
+    name: User
+    href: RaisedHands.Data.Entities.User.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: NodaTime.Instant
+    name: Instant
+    isExternal: true
+    href: https://github.com/jskeet/nodatime/blob/4d0e4c04dd5f09304a7e53a0675dce1597ea0143/src/NodaTime/Instant.cs
+  - name: )
+  spec.vb:
+  - uid: RaisedHands.Data.Interfaces.ITrackableExtensions.SetModifyBy``1(RaisedHands.Data.Entities.User,System.String,NodaTime.Instant)
+    name: SetModifyBy
+    href: RaisedHands.Data.Interfaces.ITrackableExtensions.html#RaisedHands_Data_Interfaces_ITrackableExtensions_SetModifyBy__1___0_System_String_NodaTime_Instant_
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RaisedHands.Data.Entities.User
+    name: User
+    href: RaisedHands.Data.Entities.User.html
+  - name: )
+  - name: (
+  - uid: RaisedHands.Data.Entities.User
+    name: User
+    href: RaisedHands.Data.Entities.User.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: NodaTime.Instant
+    name: Instant
+    isExternal: true
+    href: https://github.com/jskeet/nodatime/blob/4d0e4c04dd5f09304a7e53a0675dce1597ea0143/src/NodaTime/Instant.cs
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Microsoft.AspNetCore.Identity.IdentityUser`1
+  commentId: T:Microsoft.AspNetCore.Identity.IdentityUser`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityuser-1
+  name: IdentityUser<TKey>
+  nameWithType: IdentityUser<TKey>
+  fullName: Microsoft.AspNetCore.Identity.IdentityUser<TKey>
+  nameWithType.vb: IdentityUser(Of TKey)
+  fullName.vb: Microsoft.AspNetCore.Identity.IdentityUser(Of TKey)
+  name.vb: IdentityUser(Of TKey)
+  spec.csharp:
+  - uid: Microsoft.AspNetCore.Identity.IdentityUser`1
+    name: IdentityUser
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityuser-1
+  - name: <
+  - name: TKey
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.AspNetCore.Identity.IdentityUser`1
+    name: IdentityUser
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityuser-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TKey
+  - name: )
+- uid: Microsoft.AspNetCore.Identity
+  commentId: N:Microsoft.AspNetCore.Identity
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft
+  name: Microsoft.AspNetCore.Identity
+  nameWithType: Microsoft.AspNetCore.Identity
+  fullName: Microsoft.AspNetCore.Identity
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.AspNetCore
+    name: AspNetCore
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore
+  - name: .
+  - uid: Microsoft.AspNetCore.Identity
+    name: Identity
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.AspNetCore
+    name: AspNetCore
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore
+  - name: .
+  - uid: Microsoft.AspNetCore.Identity
+    name: Identity
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity
+- uid: RaisedHands.Data.Interfaces
+  commentId: N:RaisedHands.Data.Interfaces
+  href: RaisedHands.html
+  name: RaisedHands.Data.Interfaces
+  nameWithType: RaisedHands.Data.Interfaces
+  fullName: RaisedHands.Data.Interfaces
+  spec.csharp:
+  - uid: RaisedHands
+    name: RaisedHands
+    href: RaisedHands.html
+  - name: .
+  - uid: RaisedHands.Data
+    name: Data
+    href: RaisedHands.Data.html
+  - name: .
+  - uid: RaisedHands.Data.Interfaces
+    name: Interfaces
+    href: RaisedHands.Data.Interfaces.html
+  spec.vb:
+  - uid: RaisedHands
+    name: RaisedHands
+    href: RaisedHands.html
+  - name: .
+  - uid: RaisedHands.Data
+    name: Data
+    href: RaisedHands.Data.html
+  - name: .
+  - uid: RaisedHands.Data.Interfaces
+    name: Interfaces
+    href: RaisedHands.Data.Interfaces.html
+- uid: Microsoft.AspNetCore.Identity.IdentityUser`1.ToString
+  commentId: M:Microsoft.AspNetCore.Identity.IdentityUser`1.ToString
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityuser-1.tostring
+  name: ToString()
+  nameWithType: IdentityUser<TKey>.ToString()
+  fullName: Microsoft.AspNetCore.Identity.IdentityUser<TKey>.ToString()
+  nameWithType.vb: IdentityUser(Of TKey).ToString()
+  fullName.vb: Microsoft.AspNetCore.Identity.IdentityUser(Of TKey).ToString()
+  spec.csharp:
+  - uid: Microsoft.AspNetCore.Identity.IdentityUser`1.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityuser-1.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Microsoft.AspNetCore.Identity.IdentityUser`1.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityuser-1.tostring
+  - name: (
+  - name: )
+- uid: Microsoft.AspNetCore.Identity.IdentityUser`1.Id
+  commentId: P:Microsoft.AspNetCore.Identity.IdentityUser`1.Id
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityuser-1.id
+  name: Id
+  nameWithType: IdentityUser<TKey>.Id
+  fullName: Microsoft.AspNetCore.Identity.IdentityUser<TKey>.Id
+  nameWithType.vb: IdentityUser(Of TKey).Id
+  fullName.vb: Microsoft.AspNetCore.Identity.IdentityUser(Of TKey).Id
+- uid: Microsoft.AspNetCore.Identity.IdentityUser`1.UserName
+  commentId: P:Microsoft.AspNetCore.Identity.IdentityUser`1.UserName
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityuser-1.username
+  name: UserName
+  nameWithType: IdentityUser<TKey>.UserName
+  fullName: Microsoft.AspNetCore.Identity.IdentityUser<TKey>.UserName
+  nameWithType.vb: IdentityUser(Of TKey).UserName
+  fullName.vb: Microsoft.AspNetCore.Identity.IdentityUser(Of TKey).UserName
+- uid: Microsoft.AspNetCore.Identity.IdentityUser`1.NormalizedUserName
+  commentId: P:Microsoft.AspNetCore.Identity.IdentityUser`1.NormalizedUserName
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityuser-1.normalizedusername
+  name: NormalizedUserName
+  nameWithType: IdentityUser<TKey>.NormalizedUserName
+  fullName: Microsoft.AspNetCore.Identity.IdentityUser<TKey>.NormalizedUserName
+  nameWithType.vb: IdentityUser(Of TKey).NormalizedUserName
+  fullName.vb: Microsoft.AspNetCore.Identity.IdentityUser(Of TKey).NormalizedUserName
+- uid: Microsoft.AspNetCore.Identity.IdentityUser`1.Email
+  commentId: P:Microsoft.AspNetCore.Identity.IdentityUser`1.Email
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityuser-1.email
+  name: Email
+  nameWithType: IdentityUser<TKey>.Email
+  fullName: Microsoft.AspNetCore.Identity.IdentityUser<TKey>.Email
+  nameWithType.vb: IdentityUser(Of TKey).Email
+  fullName.vb: Microsoft.AspNetCore.Identity.IdentityUser(Of TKey).Email
+- uid: Microsoft.AspNetCore.Identity.IdentityUser`1.NormalizedEmail
+  commentId: P:Microsoft.AspNetCore.Identity.IdentityUser`1.NormalizedEmail
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityuser-1.normalizedemail
+  name: NormalizedEmail
+  nameWithType: IdentityUser<TKey>.NormalizedEmail
+  fullName: Microsoft.AspNetCore.Identity.IdentityUser<TKey>.NormalizedEmail
+  nameWithType.vb: IdentityUser(Of TKey).NormalizedEmail
+  fullName.vb: Microsoft.AspNetCore.Identity.IdentityUser(Of TKey).NormalizedEmail
+- uid: Microsoft.AspNetCore.Identity.IdentityUser`1.EmailConfirmed
+  commentId: P:Microsoft.AspNetCore.Identity.IdentityUser`1.EmailConfirmed
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityuser-1.emailconfirmed
+  name: EmailConfirmed
+  nameWithType: IdentityUser<TKey>.EmailConfirmed
+  fullName: Microsoft.AspNetCore.Identity.IdentityUser<TKey>.EmailConfirmed
+  nameWithType.vb: IdentityUser(Of TKey).EmailConfirmed
+  fullName.vb: Microsoft.AspNetCore.Identity.IdentityUser(Of TKey).EmailConfirmed
+- uid: Microsoft.AspNetCore.Identity.IdentityUser`1.PasswordHash
+  commentId: P:Microsoft.AspNetCore.Identity.IdentityUser`1.PasswordHash
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityuser-1.passwordhash
+  name: PasswordHash
+  nameWithType: IdentityUser<TKey>.PasswordHash
+  fullName: Microsoft.AspNetCore.Identity.IdentityUser<TKey>.PasswordHash
+  nameWithType.vb: IdentityUser(Of TKey).PasswordHash
+  fullName.vb: Microsoft.AspNetCore.Identity.IdentityUser(Of TKey).PasswordHash
+- uid: Microsoft.AspNetCore.Identity.IdentityUser`1.SecurityStamp
+  commentId: P:Microsoft.AspNetCore.Identity.IdentityUser`1.SecurityStamp
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityuser-1.securitystamp
+  name: SecurityStamp
+  nameWithType: IdentityUser<TKey>.SecurityStamp
+  fullName: Microsoft.AspNetCore.Identity.IdentityUser<TKey>.SecurityStamp
+  nameWithType.vb: IdentityUser(Of TKey).SecurityStamp
+  fullName.vb: Microsoft.AspNetCore.Identity.IdentityUser(Of TKey).SecurityStamp
+- uid: Microsoft.AspNetCore.Identity.IdentityUser`1.ConcurrencyStamp
+  commentId: P:Microsoft.AspNetCore.Identity.IdentityUser`1.ConcurrencyStamp
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityuser-1.concurrencystamp
+  name: ConcurrencyStamp
+  nameWithType: IdentityUser<TKey>.ConcurrencyStamp
+  fullName: Microsoft.AspNetCore.Identity.IdentityUser<TKey>.ConcurrencyStamp
+  nameWithType.vb: IdentityUser(Of TKey).ConcurrencyStamp
+  fullName.vb: Microsoft.AspNetCore.Identity.IdentityUser(Of TKey).ConcurrencyStamp
+- uid: Microsoft.AspNetCore.Identity.IdentityUser`1.PhoneNumber
+  commentId: P:Microsoft.AspNetCore.Identity.IdentityUser`1.PhoneNumber
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityuser-1.phonenumber
+  name: PhoneNumber
+  nameWithType: IdentityUser<TKey>.PhoneNumber
+  fullName: Microsoft.AspNetCore.Identity.IdentityUser<TKey>.PhoneNumber
+  nameWithType.vb: IdentityUser(Of TKey).PhoneNumber
+  fullName.vb: Microsoft.AspNetCore.Identity.IdentityUser(Of TKey).PhoneNumber
+- uid: Microsoft.AspNetCore.Identity.IdentityUser`1.PhoneNumberConfirmed
+  commentId: P:Microsoft.AspNetCore.Identity.IdentityUser`1.PhoneNumberConfirmed
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityuser-1.phonenumberconfirmed
+  name: PhoneNumberConfirmed
+  nameWithType: IdentityUser<TKey>.PhoneNumberConfirmed
+  fullName: Microsoft.AspNetCore.Identity.IdentityUser<TKey>.PhoneNumberConfirmed
+  nameWithType.vb: IdentityUser(Of TKey).PhoneNumberConfirmed
+  fullName.vb: Microsoft.AspNetCore.Identity.IdentityUser(Of TKey).PhoneNumberConfirmed
+- uid: Microsoft.AspNetCore.Identity.IdentityUser`1.TwoFactorEnabled
+  commentId: P:Microsoft.AspNetCore.Identity.IdentityUser`1.TwoFactorEnabled
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityuser-1.twofactorenabled
+  name: TwoFactorEnabled
+  nameWithType: IdentityUser<TKey>.TwoFactorEnabled
+  fullName: Microsoft.AspNetCore.Identity.IdentityUser<TKey>.TwoFactorEnabled
+  nameWithType.vb: IdentityUser(Of TKey).TwoFactorEnabled
+  fullName.vb: Microsoft.AspNetCore.Identity.IdentityUser(Of TKey).TwoFactorEnabled
+- uid: Microsoft.AspNetCore.Identity.IdentityUser`1.LockoutEnd
+  commentId: P:Microsoft.AspNetCore.Identity.IdentityUser`1.LockoutEnd
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityuser-1.lockoutend
+  name: LockoutEnd
+  nameWithType: IdentityUser<TKey>.LockoutEnd
+  fullName: Microsoft.AspNetCore.Identity.IdentityUser<TKey>.LockoutEnd
+  nameWithType.vb: IdentityUser(Of TKey).LockoutEnd
+  fullName.vb: Microsoft.AspNetCore.Identity.IdentityUser(Of TKey).LockoutEnd
+- uid: Microsoft.AspNetCore.Identity.IdentityUser`1.LockoutEnabled
+  commentId: P:Microsoft.AspNetCore.Identity.IdentityUser`1.LockoutEnabled
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityuser-1.lockoutenabled
+  name: LockoutEnabled
+  nameWithType: IdentityUser<TKey>.LockoutEnabled
+  fullName: Microsoft.AspNetCore.Identity.IdentityUser<TKey>.LockoutEnabled
+  nameWithType.vb: IdentityUser(Of TKey).LockoutEnabled
+  fullName.vb: Microsoft.AspNetCore.Identity.IdentityUser(Of TKey).LockoutEnabled
+- uid: Microsoft.AspNetCore.Identity.IdentityUser`1.AccessFailedCount
+  commentId: P:Microsoft.AspNetCore.Identity.IdentityUser`1.AccessFailedCount
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityuser-1.accessfailedcount
+  name: AccessFailedCount
+  nameWithType: IdentityUser<TKey>.AccessFailedCount
+  fullName: Microsoft.AspNetCore.Identity.IdentityUser<TKey>.AccessFailedCount
+  nameWithType.vb: IdentityUser(Of TKey).AccessFailedCount
+  fullName.vb: Microsoft.AspNetCore.Identity.IdentityUser(Of TKey).AccessFailedCount
+- uid: RaisedHands.Data.Interfaces.ITrackableExtensions.SetCreateBySystem``1(``0,NodaTime.Instant)
+  commentId: M:RaisedHands.Data.Interfaces.ITrackableExtensions.SetCreateBySystem``1(``0,NodaTime.Instant)
+  isExternal: true
+  href: RaisedHands.Data.Interfaces.ITrackableExtensions.html#RaisedHands_Data_Interfaces_ITrackableExtensions_SetCreateBySystem__1___0_NodaTime_Instant_
+  name: SetCreateBySystem<T>(T, Instant)
+  nameWithType: ITrackableExtensions.SetCreateBySystem<T>(T, Instant)
+  fullName: RaisedHands.Data.Interfaces.ITrackableExtensions.SetCreateBySystem<T>(T, NodaTime.Instant)
+  nameWithType.vb: ITrackableExtensions.SetCreateBySystem(Of T)(T, Instant)
+  fullName.vb: RaisedHands.Data.Interfaces.ITrackableExtensions.SetCreateBySystem(Of T)(T, NodaTime.Instant)
+  name.vb: SetCreateBySystem(Of T)(T, Instant)
+  spec.csharp:
+  - uid: RaisedHands.Data.Interfaces.ITrackableExtensions.SetCreateBySystem``1(``0,NodaTime.Instant)
+    name: SetCreateBySystem
+    href: RaisedHands.Data.Interfaces.ITrackableExtensions.html#RaisedHands_Data_Interfaces_ITrackableExtensions_SetCreateBySystem__1___0_NodaTime_Instant_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: NodaTime.Instant
+    name: Instant
+    isExternal: true
+    href: https://github.com/jskeet/nodatime/blob/4d0e4c04dd5f09304a7e53a0675dce1597ea0143/src/NodaTime/Instant.cs
+  - name: )
+  spec.vb:
+  - uid: RaisedHands.Data.Interfaces.ITrackableExtensions.SetCreateBySystem``1(``0,NodaTime.Instant)
+    name: SetCreateBySystem
+    href: RaisedHands.Data.Interfaces.ITrackableExtensions.html#RaisedHands_Data_Interfaces_ITrackableExtensions_SetCreateBySystem__1___0_NodaTime_Instant_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: NodaTime.Instant
+    name: Instant
+    isExternal: true
+    href: https://github.com/jskeet/nodatime/blob/4d0e4c04dd5f09304a7e53a0675dce1597ea0143/src/NodaTime/Instant.cs
+  - name: )
+- uid: RaisedHands.Data.Interfaces.ITrackableExtensions
+  commentId: T:RaisedHands.Data.Interfaces.ITrackableExtensions
+  parent: RaisedHands.Data.Interfaces
+  href: RaisedHands.Data.Interfaces.ITrackableExtensions.html
+  name: ITrackableExtensions
+  nameWithType: ITrackableExtensions
+  fullName: RaisedHands.Data.Interfaces.ITrackableExtensions
+- uid: RaisedHands.Data.Interfaces.ITrackableExtensions.SetCreateBy``1(``0,System.String,NodaTime.Instant)
+  commentId: M:RaisedHands.Data.Interfaces.ITrackableExtensions.SetCreateBy``1(``0,System.String,NodaTime.Instant)
+  isExternal: true
+  href: RaisedHands.Data.Interfaces.ITrackableExtensions.html#RaisedHands_Data_Interfaces_ITrackableExtensions_SetCreateBy__1___0_System_String_NodaTime_Instant_
+  name: SetCreateBy<T>(T, string, Instant)
+  nameWithType: ITrackableExtensions.SetCreateBy<T>(T, string, Instant)
+  fullName: RaisedHands.Data.Interfaces.ITrackableExtensions.SetCreateBy<T>(T, string, NodaTime.Instant)
+  nameWithType.vb: ITrackableExtensions.SetCreateBy(Of T)(T, String, Instant)
+  fullName.vb: RaisedHands.Data.Interfaces.ITrackableExtensions.SetCreateBy(Of T)(T, String, NodaTime.Instant)
+  name.vb: SetCreateBy(Of T)(T, String, Instant)
+  spec.csharp:
+  - uid: RaisedHands.Data.Interfaces.ITrackableExtensions.SetCreateBy``1(``0,System.String,NodaTime.Instant)
+    name: SetCreateBy
+    href: RaisedHands.Data.Interfaces.ITrackableExtensions.html#RaisedHands_Data_Interfaces_ITrackableExtensions_SetCreateBy__1___0_System_String_NodaTime_Instant_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: NodaTime.Instant
+    name: Instant
+    isExternal: true
+    href: https://github.com/jskeet/nodatime/blob/4d0e4c04dd5f09304a7e53a0675dce1597ea0143/src/NodaTime/Instant.cs
+  - name: )
+  spec.vb:
+  - uid: RaisedHands.Data.Interfaces.ITrackableExtensions.SetCreateBy``1(``0,System.String,NodaTime.Instant)
+    name: SetCreateBy
+    href: RaisedHands.Data.Interfaces.ITrackableExtensions.html#RaisedHands_Data_Interfaces_ITrackableExtensions_SetCreateBy__1___0_System_String_NodaTime_Instant_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: NodaTime.Instant
+    name: Instant
+    isExternal: true
+    href: https://github.com/jskeet/nodatime/blob/4d0e4c04dd5f09304a7e53a0675dce1597ea0143/src/NodaTime/Instant.cs
+  - name: )
+- uid: RaisedHands.Data.Interfaces.ITrackableExtensions.SetDeleteBySystem``1(``0,NodaTime.Instant)
+  commentId: M:RaisedHands.Data.Interfaces.ITrackableExtensions.SetDeleteBySystem``1(``0,NodaTime.Instant)
+  isExternal: true
+  href: RaisedHands.Data.Interfaces.ITrackableExtensions.html#RaisedHands_Data_Interfaces_ITrackableExtensions_SetDeleteBySystem__1___0_NodaTime_Instant_
+  name: SetDeleteBySystem<T>(T, Instant)
+  nameWithType: ITrackableExtensions.SetDeleteBySystem<T>(T, Instant)
+  fullName: RaisedHands.Data.Interfaces.ITrackableExtensions.SetDeleteBySystem<T>(T, NodaTime.Instant)
+  nameWithType.vb: ITrackableExtensions.SetDeleteBySystem(Of T)(T, Instant)
+  fullName.vb: RaisedHands.Data.Interfaces.ITrackableExtensions.SetDeleteBySystem(Of T)(T, NodaTime.Instant)
+  name.vb: SetDeleteBySystem(Of T)(T, Instant)
+  spec.csharp:
+  - uid: RaisedHands.Data.Interfaces.ITrackableExtensions.SetDeleteBySystem``1(``0,NodaTime.Instant)
+    name: SetDeleteBySystem
+    href: RaisedHands.Data.Interfaces.ITrackableExtensions.html#RaisedHands_Data_Interfaces_ITrackableExtensions_SetDeleteBySystem__1___0_NodaTime_Instant_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: NodaTime.Instant
+    name: Instant
+    isExternal: true
+    href: https://github.com/jskeet/nodatime/blob/4d0e4c04dd5f09304a7e53a0675dce1597ea0143/src/NodaTime/Instant.cs
+  - name: )
+  spec.vb:
+  - uid: RaisedHands.Data.Interfaces.ITrackableExtensions.SetDeleteBySystem``1(``0,NodaTime.Instant)
+    name: SetDeleteBySystem
+    href: RaisedHands.Data.Interfaces.ITrackableExtensions.html#RaisedHands_Data_Interfaces_ITrackableExtensions_SetDeleteBySystem__1___0_NodaTime_Instant_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: NodaTime.Instant
+    name: Instant
+    isExternal: true
+    href: https://github.com/jskeet/nodatime/blob/4d0e4c04dd5f09304a7e53a0675dce1597ea0143/src/NodaTime/Instant.cs
+  - name: )
+- uid: RaisedHands.Data.Interfaces.ITrackableExtensions.SetDeleteBy``1(``0,System.String,NodaTime.Instant)
+  commentId: M:RaisedHands.Data.Interfaces.ITrackableExtensions.SetDeleteBy``1(``0,System.String,NodaTime.Instant)
+  isExternal: true
+  href: RaisedHands.Data.Interfaces.ITrackableExtensions.html#RaisedHands_Data_Interfaces_ITrackableExtensions_SetDeleteBy__1___0_System_String_NodaTime_Instant_
+  name: SetDeleteBy<T>(T, string, Instant)
+  nameWithType: ITrackableExtensions.SetDeleteBy<T>(T, string, Instant)
+  fullName: RaisedHands.Data.Interfaces.ITrackableExtensions.SetDeleteBy<T>(T, string, NodaTime.Instant)
+  nameWithType.vb: ITrackableExtensions.SetDeleteBy(Of T)(T, String, Instant)
+  fullName.vb: RaisedHands.Data.Interfaces.ITrackableExtensions.SetDeleteBy(Of T)(T, String, NodaTime.Instant)
+  name.vb: SetDeleteBy(Of T)(T, String, Instant)
+  spec.csharp:
+  - uid: RaisedHands.Data.Interfaces.ITrackableExtensions.SetDeleteBy``1(``0,System.String,NodaTime.Instant)
+    name: SetDeleteBy
+    href: RaisedHands.Data.Interfaces.ITrackableExtensions.html#RaisedHands_Data_Interfaces_ITrackableExtensions_SetDeleteBy__1___0_System_String_NodaTime_Instant_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: NodaTime.Instant
+    name: Instant
+    isExternal: true
+    href: https://github.com/jskeet/nodatime/blob/4d0e4c04dd5f09304a7e53a0675dce1597ea0143/src/NodaTime/Instant.cs
+  - name: )
+  spec.vb:
+  - uid: RaisedHands.Data.Interfaces.ITrackableExtensions.SetDeleteBy``1(``0,System.String,NodaTime.Instant)
+    name: SetDeleteBy
+    href: RaisedHands.Data.Interfaces.ITrackableExtensions.html#RaisedHands_Data_Interfaces_ITrackableExtensions_SetDeleteBy__1___0_System_String_NodaTime_Instant_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: NodaTime.Instant
+    name: Instant
+    isExternal: true
+    href: https://github.com/jskeet/nodatime/blob/4d0e4c04dd5f09304a7e53a0675dce1597ea0143/src/NodaTime/Instant.cs
+  - name: )
+- uid: RaisedHands.Data.Interfaces.ITrackableExtensions.SetModifyBySystem``1(``0,NodaTime.Instant)
+  commentId: M:RaisedHands.Data.Interfaces.ITrackableExtensions.SetModifyBySystem``1(``0,NodaTime.Instant)
+  isExternal: true
+  href: RaisedHands.Data.Interfaces.ITrackableExtensions.html#RaisedHands_Data_Interfaces_ITrackableExtensions_SetModifyBySystem__1___0_NodaTime_Instant_
+  name: SetModifyBySystem<T>(T, Instant)
+  nameWithType: ITrackableExtensions.SetModifyBySystem<T>(T, Instant)
+  fullName: RaisedHands.Data.Interfaces.ITrackableExtensions.SetModifyBySystem<T>(T, NodaTime.Instant)
+  nameWithType.vb: ITrackableExtensions.SetModifyBySystem(Of T)(T, Instant)
+  fullName.vb: RaisedHands.Data.Interfaces.ITrackableExtensions.SetModifyBySystem(Of T)(T, NodaTime.Instant)
+  name.vb: SetModifyBySystem(Of T)(T, Instant)
+  spec.csharp:
+  - uid: RaisedHands.Data.Interfaces.ITrackableExtensions.SetModifyBySystem``1(``0,NodaTime.Instant)
+    name: SetModifyBySystem
+    href: RaisedHands.Data.Interfaces.ITrackableExtensions.html#RaisedHands_Data_Interfaces_ITrackableExtensions_SetModifyBySystem__1___0_NodaTime_Instant_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: NodaTime.Instant
+    name: Instant
+    isExternal: true
+    href: https://github.com/jskeet/nodatime/blob/4d0e4c04dd5f09304a7e53a0675dce1597ea0143/src/NodaTime/Instant.cs
+  - name: )
+  spec.vb:
+  - uid: RaisedHands.Data.Interfaces.ITrackableExtensions.SetModifyBySystem``1(``0,NodaTime.Instant)
+    name: SetModifyBySystem
+    href: RaisedHands.Data.Interfaces.ITrackableExtensions.html#RaisedHands_Data_Interfaces_ITrackableExtensions_SetModifyBySystem__1___0_NodaTime_Instant_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: NodaTime.Instant
+    name: Instant
+    isExternal: true
+    href: https://github.com/jskeet/nodatime/blob/4d0e4c04dd5f09304a7e53a0675dce1597ea0143/src/NodaTime/Instant.cs
+  - name: )
+- uid: RaisedHands.Data.Interfaces.ITrackableExtensions.SetModifyBy``1(``0,System.String,NodaTime.Instant)
+  commentId: M:RaisedHands.Data.Interfaces.ITrackableExtensions.SetModifyBy``1(``0,System.String,NodaTime.Instant)
+  isExternal: true
+  href: RaisedHands.Data.Interfaces.ITrackableExtensions.html#RaisedHands_Data_Interfaces_ITrackableExtensions_SetModifyBy__1___0_System_String_NodaTime_Instant_
+  name: SetModifyBy<T>(T, string, Instant)
+  nameWithType: ITrackableExtensions.SetModifyBy<T>(T, string, Instant)
+  fullName: RaisedHands.Data.Interfaces.ITrackableExtensions.SetModifyBy<T>(T, string, NodaTime.Instant)
+  nameWithType.vb: ITrackableExtensions.SetModifyBy(Of T)(T, String, Instant)
+  fullName.vb: RaisedHands.Data.Interfaces.ITrackableExtensions.SetModifyBy(Of T)(T, String, NodaTime.Instant)
+  name.vb: SetModifyBy(Of T)(T, String, Instant)
+  spec.csharp:
+  - uid: RaisedHands.Data.Interfaces.ITrackableExtensions.SetModifyBy``1(``0,System.String,NodaTime.Instant)
+    name: SetModifyBy
+    href: RaisedHands.Data.Interfaces.ITrackableExtensions.html#RaisedHands_Data_Interfaces_ITrackableExtensions_SetModifyBy__1___0_System_String_NodaTime_Instant_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: NodaTime.Instant
+    name: Instant
+    isExternal: true
+    href: https://github.com/jskeet/nodatime/blob/4d0e4c04dd5f09304a7e53a0675dce1597ea0143/src/NodaTime/Instant.cs
+  - name: )
+  spec.vb:
+  - uid: RaisedHands.Data.Interfaces.ITrackableExtensions.SetModifyBy``1(``0,System.String,NodaTime.Instant)
+    name: SetModifyBy
+    href: RaisedHands.Data.Interfaces.ITrackableExtensions.html#RaisedHands_Data_Interfaces_ITrackableExtensions_SetModifyBy__1___0_System_String_NodaTime_Instant_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: NodaTime.Instant
+    name: Instant
+    isExternal: true
+    href: https://github.com/jskeet/nodatime/blob/4d0e4c04dd5f09304a7e53a0675dce1597ea0143/src/NodaTime/Instant.cs
+  - name: )
+- uid: RaisedHands.Data.Entities.User.FirstName*
+  commentId: Overload:RaisedHands.Data.Entities.User.FirstName
+  href: RaisedHands.Data.Entities.User.html#RaisedHands_Data_Entities_User_FirstName
+  name: FirstName
+  nameWithType: User.FirstName
+  fullName: RaisedHands.Data.Entities.User.FirstName
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: RaisedHands.Data.Entities.User.LastName*
+  commentId: Overload:RaisedHands.Data.Entities.User.LastName
+  href: RaisedHands.Data.Entities.User.html#RaisedHands_Data_Entities_User_LastName
+  name: LastName
+  nameWithType: User.LastName
+  fullName: RaisedHands.Data.Entities.User.LastName
+- uid: RaisedHands.Data.Entities.User.Roles*
+  commentId: Overload:RaisedHands.Data.Entities.User.Roles
+  href: RaisedHands.Data.Entities.User.html#RaisedHands_Data_Entities_User_Roles
+  name: Roles
+  nameWithType: User.Roles
+  fullName: RaisedHands.Data.Entities.User.Roles
+- uid: System.Collections.Generic.ICollection{RaisedHands.Data.Entities.UserRole}
+  commentId: T:System.Collections.Generic.ICollection{RaisedHands.Data.Entities.UserRole}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.ICollection`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  name: ICollection<UserRole>
+  nameWithType: ICollection<UserRole>
+  fullName: System.Collections.Generic.ICollection<RaisedHands.Data.Entities.UserRole>
+  nameWithType.vb: ICollection(Of UserRole)
+  fullName.vb: System.Collections.Generic.ICollection(Of RaisedHands.Data.Entities.UserRole)
+  name.vb: ICollection(Of UserRole)
+  spec.csharp:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: <
+  - uid: RaisedHands.Data.Entities.UserRole
+    name: UserRole
+    href: RaisedHands.Data.Entities.UserRole.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RaisedHands.Data.Entities.UserRole
+    name: UserRole
+    href: RaisedHands.Data.Entities.UserRole.html
+  - name: )
+- uid: System.Collections.Generic.ICollection`1
+  commentId: T:System.Collections.Generic.ICollection`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  name: ICollection<T>
+  nameWithType: ICollection<T>
+  fullName: System.Collections.Generic.ICollection<T>
+  nameWithType.vb: ICollection(Of T)
+  fullName.vb: System.Collections.Generic.ICollection(Of T)
+  name.vb: ICollection(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: RaisedHands.Data.Entities.User.CreatedAt*
+  commentId: Overload:RaisedHands.Data.Entities.User.CreatedAt
+  href: RaisedHands.Data.Entities.User.html#RaisedHands_Data_Entities_User_CreatedAt
+  name: CreatedAt
+  nameWithType: User.CreatedAt
+  fullName: RaisedHands.Data.Entities.User.CreatedAt
+- uid: RaisedHands.Data.Interfaces.ITrackable.CreatedAt
+  commentId: P:RaisedHands.Data.Interfaces.ITrackable.CreatedAt
+  parent: RaisedHands.Data.Interfaces.ITrackable
+  href: RaisedHands.Data.Interfaces.ITrackable.html#RaisedHands_Data_Interfaces_ITrackable_CreatedAt
+  name: CreatedAt
+  nameWithType: ITrackable.CreatedAt
+  fullName: RaisedHands.Data.Interfaces.ITrackable.CreatedAt
+- uid: NodaTime.Instant
+  commentId: T:NodaTime.Instant
+  parent: NodaTime
+  isExternal: true
+  href: https://github.com/jskeet/nodatime/blob/4d0e4c04dd5f09304a7e53a0675dce1597ea0143/src/NodaTime/Instant.cs
+  name: Instant
+  nameWithType: Instant
+  fullName: NodaTime.Instant
+- uid: NodaTime
+  commentId: N:NodaTime
+  isExternal: true
+  name: NodaTime
+  nameWithType: NodaTime
+  fullName: NodaTime
+- uid: RaisedHands.Data.Entities.User.CreatedBy*
+  commentId: Overload:RaisedHands.Data.Entities.User.CreatedBy
+  href: RaisedHands.Data.Entities.User.html#RaisedHands_Data_Entities_User_CreatedBy
+  name: CreatedBy
+  nameWithType: User.CreatedBy
+  fullName: RaisedHands.Data.Entities.User.CreatedBy
+- uid: RaisedHands.Data.Interfaces.ITrackable.CreatedBy
+  commentId: P:RaisedHands.Data.Interfaces.ITrackable.CreatedBy
+  parent: RaisedHands.Data.Interfaces.ITrackable
+  href: RaisedHands.Data.Interfaces.ITrackable.html#RaisedHands_Data_Interfaces_ITrackable_CreatedBy
+  name: CreatedBy
+  nameWithType: ITrackable.CreatedBy
+  fullName: RaisedHands.Data.Interfaces.ITrackable.CreatedBy
+- uid: RaisedHands.Data.Entities.User.ModifiedAt*
+  commentId: Overload:RaisedHands.Data.Entities.User.ModifiedAt
+  href: RaisedHands.Data.Entities.User.html#RaisedHands_Data_Entities_User_ModifiedAt
+  name: ModifiedAt
+  nameWithType: User.ModifiedAt
+  fullName: RaisedHands.Data.Entities.User.ModifiedAt
+- uid: RaisedHands.Data.Interfaces.ITrackable.ModifiedAt
+  commentId: P:RaisedHands.Data.Interfaces.ITrackable.ModifiedAt
+  parent: RaisedHands.Data.Interfaces.ITrackable
+  href: RaisedHands.Data.Interfaces.ITrackable.html#RaisedHands_Data_Interfaces_ITrackable_ModifiedAt
+  name: ModifiedAt
+  nameWithType: ITrackable.ModifiedAt
+  fullName: RaisedHands.Data.Interfaces.ITrackable.ModifiedAt
+- uid: RaisedHands.Data.Entities.User.ModifiedBy*
+  commentId: Overload:RaisedHands.Data.Entities.User.ModifiedBy
+  href: RaisedHands.Data.Entities.User.html#RaisedHands_Data_Entities_User_ModifiedBy
+  name: ModifiedBy
+  nameWithType: User.ModifiedBy
+  fullName: RaisedHands.Data.Entities.User.ModifiedBy
+- uid: RaisedHands.Data.Interfaces.ITrackable.ModifiedBy
+  commentId: P:RaisedHands.Data.Interfaces.ITrackable.ModifiedBy
+  parent: RaisedHands.Data.Interfaces.ITrackable
+  href: RaisedHands.Data.Interfaces.ITrackable.html#RaisedHands_Data_Interfaces_ITrackable_ModifiedBy
+  name: ModifiedBy
+  nameWithType: ITrackable.ModifiedBy
+  fullName: RaisedHands.Data.Interfaces.ITrackable.ModifiedBy
+- uid: RaisedHands.Data.Entities.User.DeletedAt*
+  commentId: Overload:RaisedHands.Data.Entities.User.DeletedAt
+  href: RaisedHands.Data.Entities.User.html#RaisedHands_Data_Entities_User_DeletedAt
+  name: DeletedAt
+  nameWithType: User.DeletedAt
+  fullName: RaisedHands.Data.Entities.User.DeletedAt
+- uid: RaisedHands.Data.Interfaces.ITrackable.DeletedAt
+  commentId: P:RaisedHands.Data.Interfaces.ITrackable.DeletedAt
+  parent: RaisedHands.Data.Interfaces.ITrackable
+  href: RaisedHands.Data.Interfaces.ITrackable.html#RaisedHands_Data_Interfaces_ITrackable_DeletedAt
+  name: DeletedAt
+  nameWithType: ITrackable.DeletedAt
+  fullName: RaisedHands.Data.Interfaces.ITrackable.DeletedAt
+- uid: System.Nullable{NodaTime.Instant}
+  commentId: T:System.Nullable{NodaTime.Instant}
+  parent: System
+  definition: System.Nullable`1
+  href: https://github.com/jskeet/nodatime/blob/4d0e4c04dd5f09304a7e53a0675dce1597ea0143/src/NodaTime/Instant.cs
+  name: Instant?
+  nameWithType: Instant?
+  fullName: NodaTime.Instant?
+  spec.csharp:
+  - uid: NodaTime.Instant
+    name: Instant
+    isExternal: true
+    href: https://github.com/jskeet/nodatime/blob/4d0e4c04dd5f09304a7e53a0675dce1597ea0143/src/NodaTime/Instant.cs
+  - name: '?'
+  spec.vb:
+  - uid: NodaTime.Instant
+    name: Instant
+    isExternal: true
+    href: https://github.com/jskeet/nodatime/blob/4d0e4c04dd5f09304a7e53a0675dce1597ea0143/src/NodaTime/Instant.cs
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: RaisedHands.Data.Entities.User.DeletedBy*
+  commentId: Overload:RaisedHands.Data.Entities.User.DeletedBy
+  href: RaisedHands.Data.Entities.User.html#RaisedHands_Data_Entities_User_DeletedBy
+  name: DeletedBy
+  nameWithType: User.DeletedBy
+  fullName: RaisedHands.Data.Entities.User.DeletedBy
+- uid: RaisedHands.Data.Interfaces.ITrackable.DeletedBy
+  commentId: P:RaisedHands.Data.Interfaces.ITrackable.DeletedBy
+  parent: RaisedHands.Data.Interfaces.ITrackable
+  href: RaisedHands.Data.Interfaces.ITrackable.html#RaisedHands_Data_Interfaces_ITrackable_DeletedBy
+  name: DeletedBy
+  nameWithType: ITrackable.DeletedBy
+  fullName: RaisedHands.Data.Interfaces.ITrackable.DeletedBy

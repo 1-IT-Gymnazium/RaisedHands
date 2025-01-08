@@ -1,0 +1,721 @@
+### YamlMime:ManagedReference
+items:
+- uid: RaisedHands.Data.Entities.UserRole
+  commentId: T:RaisedHands.Data.Entities.UserRole
+  id: UserRole
+  parent: RaisedHands.Data.Entities
+  children:
+  - RaisedHands.Data.Entities.UserRole.Id
+  - RaisedHands.Data.Entities.UserRole.Role
+  - RaisedHands.Data.Entities.UserRole.User
+  - RaisedHands.Data.Entities.UserRole.UserGroups
+  langs:
+  - csharp
+  - vb
+  name: UserRole
+  nameWithType: UserRole
+  fullName: RaisedHands.Data.Entities.UserRole
+  type: Class
+  source:
+    remote:
+      path: src/RaisedHands.Data/Entities/UserRole.cs
+      branch: dev
+      repo: https://github.com/1-IT-Gymnazium/RaisedHands.git
+    id: UserRole
+    path: ../src/RaisedHands.Data/Entities/UserRole.cs
+    startLine: 10
+  assemblies:
+  - RaisedHands.Data
+  namespace: RaisedHands.Data.Entities
+  syntax:
+    content: 'public class UserRole : IdentityUserRole<Guid>'
+    content.vb: Public Class UserRole Inherits IdentityUserRole(Of Guid)
+  inheritance:
+  - System.Object
+  - Microsoft.AspNetCore.Identity.IdentityUserRole{System.Guid}
+  inheritedMembers:
+  - Microsoft.AspNetCore.Identity.IdentityUserRole{System.Guid}.UserId
+  - Microsoft.AspNetCore.Identity.IdentityUserRole{System.Guid}.RoleId
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: RaisedHands.Data.Entities.UserRole.Id
+  commentId: P:RaisedHands.Data.Entities.UserRole.Id
+  id: Id
+  parent: RaisedHands.Data.Entities.UserRole
+  langs:
+  - csharp
+  - vb
+  name: Id
+  nameWithType: UserRole.Id
+  fullName: RaisedHands.Data.Entities.UserRole.Id
+  type: Property
+  source:
+    remote:
+      path: src/RaisedHands.Data/Entities/UserRole.cs
+      branch: dev
+      repo: https://github.com/1-IT-Gymnazium/RaisedHands.git
+    id: Id
+    path: ../src/RaisedHands.Data/Entities/UserRole.cs
+    startLine: 12
+  assemblies:
+  - RaisedHands.Data
+  namespace: RaisedHands.Data.Entities
+  syntax:
+    content: >-
+      [Key]
+
+      public Guid Id { get; set; }
+    parameters: []
+    return:
+      type: System.Guid
+    content.vb: >-
+      <Key>
+
+      Public Property Id As Guid
+  overload: RaisedHands.Data.Entities.UserRole.Id*
+  attributes:
+  - type: System.ComponentModel.DataAnnotations.KeyAttribute
+    ctor: System.ComponentModel.DataAnnotations.KeyAttribute.#ctor
+    arguments: []
+- uid: RaisedHands.Data.Entities.UserRole.User
+  commentId: P:RaisedHands.Data.Entities.UserRole.User
+  id: User
+  parent: RaisedHands.Data.Entities.UserRole
+  langs:
+  - csharp
+  - vb
+  name: User
+  nameWithType: UserRole.User
+  fullName: RaisedHands.Data.Entities.UserRole.User
+  type: Property
+  source:
+    remote:
+      path: src/RaisedHands.Data/Entities/UserRole.cs
+      branch: dev
+      repo: https://github.com/1-IT-Gymnazium/RaisedHands.git
+    id: User
+    path: ../src/RaisedHands.Data/Entities/UserRole.cs
+    startLine: 15
+  assemblies:
+  - RaisedHands.Data
+  namespace: RaisedHands.Data.Entities
+  syntax:
+    content: public User User { get; set; }
+    parameters: []
+    return:
+      type: RaisedHands.Data.Entities.User
+    content.vb: Public Property User As User
+  overload: RaisedHands.Data.Entities.UserRole.User*
+- uid: RaisedHands.Data.Entities.UserRole.Role
+  commentId: P:RaisedHands.Data.Entities.UserRole.Role
+  id: Role
+  parent: RaisedHands.Data.Entities.UserRole
+  langs:
+  - csharp
+  - vb
+  name: Role
+  nameWithType: UserRole.Role
+  fullName: RaisedHands.Data.Entities.UserRole.Role
+  type: Property
+  source:
+    remote:
+      path: src/RaisedHands.Data/Entities/UserRole.cs
+      branch: dev
+      repo: https://github.com/1-IT-Gymnazium/RaisedHands.git
+    id: Role
+    path: ../src/RaisedHands.Data/Entities/UserRole.cs
+    startLine: 17
+  assemblies:
+  - RaisedHands.Data
+  namespace: RaisedHands.Data.Entities
+  syntax:
+    content: public Role Role { get; set; }
+    parameters: []
+    return:
+      type: RaisedHands.Data.Entities.Role
+    content.vb: Public Property Role As Role
+  overload: RaisedHands.Data.Entities.UserRole.Role*
+- uid: RaisedHands.Data.Entities.UserRole.UserGroups
+  commentId: P:RaisedHands.Data.Entities.UserRole.UserGroups
+  id: UserGroups
+  parent: RaisedHands.Data.Entities.UserRole
+  langs:
+  - csharp
+  - vb
+  name: UserGroups
+  nameWithType: UserRole.UserGroups
+  fullName: RaisedHands.Data.Entities.UserRole.UserGroups
+  type: Property
+  source:
+    remote:
+      path: src/RaisedHands.Data/Entities/UserRole.cs
+      branch: dev
+      repo: https://github.com/1-IT-Gymnazium/RaisedHands.git
+    id: UserGroups
+    path: ../src/RaisedHands.Data/Entities/UserRole.cs
+    startLine: 19
+  assemblies:
+  - RaisedHands.Data
+  namespace: RaisedHands.Data.Entities
+  syntax:
+    content: public ICollection<UserRoleGroup> UserGroups { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.ICollection{RaisedHands.Data.Entities.UserRoleGroup}
+    content.vb: Public Property UserGroups As ICollection(Of UserRoleGroup)
+  overload: RaisedHands.Data.Entities.UserRole.UserGroups*
+references:
+- uid: RaisedHands.Data.Entities
+  commentId: N:RaisedHands.Data.Entities
+  href: RaisedHands.html
+  name: RaisedHands.Data.Entities
+  nameWithType: RaisedHands.Data.Entities
+  fullName: RaisedHands.Data.Entities
+  spec.csharp:
+  - uid: RaisedHands
+    name: RaisedHands
+    href: RaisedHands.html
+  - name: .
+  - uid: RaisedHands.Data
+    name: Data
+    href: RaisedHands.Data.html
+  - name: .
+  - uid: RaisedHands.Data.Entities
+    name: Entities
+    href: RaisedHands.Data.Entities.html
+  spec.vb:
+  - uid: RaisedHands
+    name: RaisedHands
+    href: RaisedHands.html
+  - name: .
+  - uid: RaisedHands.Data
+    name: Data
+    href: RaisedHands.Data.html
+  - name: .
+  - uid: RaisedHands.Data.Entities
+    name: Entities
+    href: RaisedHands.Data.Entities.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Microsoft.AspNetCore.Identity.IdentityUserRole{System.Guid}
+  commentId: T:Microsoft.AspNetCore.Identity.IdentityUserRole{System.Guid}
+  parent: Microsoft.AspNetCore.Identity
+  definition: Microsoft.AspNetCore.Identity.IdentityUserRole`1
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityuserrole-1
+  name: IdentityUserRole<Guid>
+  nameWithType: IdentityUserRole<Guid>
+  fullName: Microsoft.AspNetCore.Identity.IdentityUserRole<System.Guid>
+  nameWithType.vb: IdentityUserRole(Of Guid)
+  fullName.vb: Microsoft.AspNetCore.Identity.IdentityUserRole(Of System.Guid)
+  name.vb: IdentityUserRole(Of Guid)
+  spec.csharp:
+  - uid: Microsoft.AspNetCore.Identity.IdentityUserRole`1
+    name: IdentityUserRole
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityuserrole-1
+  - name: <
+  - uid: System.Guid
+    name: Guid
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.guid
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.AspNetCore.Identity.IdentityUserRole`1
+    name: IdentityUserRole
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityuserrole-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Guid
+    name: Guid
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.guid
+  - name: )
+- uid: Microsoft.AspNetCore.Identity.IdentityUserRole{System.Guid}.UserId
+  commentId: P:Microsoft.AspNetCore.Identity.IdentityUserRole{System.Guid}.UserId
+  parent: Microsoft.AspNetCore.Identity.IdentityUserRole{System.Guid}
+  definition: Microsoft.AspNetCore.Identity.IdentityUserRole`1.UserId
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityuserrole-1.userid
+  name: UserId
+  nameWithType: IdentityUserRole<Guid>.UserId
+  fullName: Microsoft.AspNetCore.Identity.IdentityUserRole<System.Guid>.UserId
+  nameWithType.vb: IdentityUserRole(Of Guid).UserId
+  fullName.vb: Microsoft.AspNetCore.Identity.IdentityUserRole(Of System.Guid).UserId
+- uid: Microsoft.AspNetCore.Identity.IdentityUserRole{System.Guid}.RoleId
+  commentId: P:Microsoft.AspNetCore.Identity.IdentityUserRole{System.Guid}.RoleId
+  parent: Microsoft.AspNetCore.Identity.IdentityUserRole{System.Guid}
+  definition: Microsoft.AspNetCore.Identity.IdentityUserRole`1.RoleId
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityuserrole-1.roleid
+  name: RoleId
+  nameWithType: IdentityUserRole<Guid>.RoleId
+  fullName: Microsoft.AspNetCore.Identity.IdentityUserRole<System.Guid>.RoleId
+  nameWithType.vb: IdentityUserRole(Of Guid).RoleId
+  fullName.vb: Microsoft.AspNetCore.Identity.IdentityUserRole(Of System.Guid).RoleId
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Microsoft.AspNetCore.Identity.IdentityUserRole`1
+  commentId: T:Microsoft.AspNetCore.Identity.IdentityUserRole`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityuserrole-1
+  name: IdentityUserRole<TKey>
+  nameWithType: IdentityUserRole<TKey>
+  fullName: Microsoft.AspNetCore.Identity.IdentityUserRole<TKey>
+  nameWithType.vb: IdentityUserRole(Of TKey)
+  fullName.vb: Microsoft.AspNetCore.Identity.IdentityUserRole(Of TKey)
+  name.vb: IdentityUserRole(Of TKey)
+  spec.csharp:
+  - uid: Microsoft.AspNetCore.Identity.IdentityUserRole`1
+    name: IdentityUserRole
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityuserrole-1
+  - name: <
+  - name: TKey
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.AspNetCore.Identity.IdentityUserRole`1
+    name: IdentityUserRole
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityuserrole-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TKey
+  - name: )
+- uid: Microsoft.AspNetCore.Identity
+  commentId: N:Microsoft.AspNetCore.Identity
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft
+  name: Microsoft.AspNetCore.Identity
+  nameWithType: Microsoft.AspNetCore.Identity
+  fullName: Microsoft.AspNetCore.Identity
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.AspNetCore
+    name: AspNetCore
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore
+  - name: .
+  - uid: Microsoft.AspNetCore.Identity
+    name: Identity
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.AspNetCore
+    name: AspNetCore
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore
+  - name: .
+  - uid: Microsoft.AspNetCore.Identity
+    name: Identity
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity
+- uid: Microsoft.AspNetCore.Identity.IdentityUserRole`1.UserId
+  commentId: P:Microsoft.AspNetCore.Identity.IdentityUserRole`1.UserId
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityuserrole-1.userid
+  name: UserId
+  nameWithType: IdentityUserRole<TKey>.UserId
+  fullName: Microsoft.AspNetCore.Identity.IdentityUserRole<TKey>.UserId
+  nameWithType.vb: IdentityUserRole(Of TKey).UserId
+  fullName.vb: Microsoft.AspNetCore.Identity.IdentityUserRole(Of TKey).UserId
+- uid: Microsoft.AspNetCore.Identity.IdentityUserRole`1.RoleId
+  commentId: P:Microsoft.AspNetCore.Identity.IdentityUserRole`1.RoleId
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityuserrole-1.roleid
+  name: RoleId
+  nameWithType: IdentityUserRole<TKey>.RoleId
+  fullName: Microsoft.AspNetCore.Identity.IdentityUserRole<TKey>.RoleId
+  nameWithType.vb: IdentityUserRole(Of TKey).RoleId
+  fullName.vb: Microsoft.AspNetCore.Identity.IdentityUserRole(Of TKey).RoleId
+- uid: RaisedHands.Data.Entities.UserRole.Id*
+  commentId: Overload:RaisedHands.Data.Entities.UserRole.Id
+  href: RaisedHands.Data.Entities.UserRole.html#RaisedHands_Data_Entities_UserRole_Id
+  name: Id
+  nameWithType: UserRole.Id
+  fullName: RaisedHands.Data.Entities.UserRole.Id
+- uid: System.Guid
+  commentId: T:System.Guid
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.guid
+  name: Guid
+  nameWithType: Guid
+  fullName: System.Guid
+- uid: RaisedHands.Data.Entities.UserRole.User*
+  commentId: Overload:RaisedHands.Data.Entities.UserRole.User
+  href: RaisedHands.Data.Entities.UserRole.html#RaisedHands_Data_Entities_UserRole_User
+  name: User
+  nameWithType: UserRole.User
+  fullName: RaisedHands.Data.Entities.UserRole.User
+- uid: RaisedHands.Data.Entities.User
+  commentId: T:RaisedHands.Data.Entities.User
+  parent: RaisedHands.Data.Entities
+  href: RaisedHands.Data.Entities.User.html
+  name: User
+  nameWithType: User
+  fullName: RaisedHands.Data.Entities.User
+- uid: RaisedHands.Data.Entities.UserRole.Role*
+  commentId: Overload:RaisedHands.Data.Entities.UserRole.Role
+  href: RaisedHands.Data.Entities.UserRole.html#RaisedHands_Data_Entities_UserRole_Role
+  name: Role
+  nameWithType: UserRole.Role
+  fullName: RaisedHands.Data.Entities.UserRole.Role
+- uid: RaisedHands.Data.Entities.Role
+  commentId: T:RaisedHands.Data.Entities.Role
+  parent: RaisedHands.Data.Entities
+  href: RaisedHands.Data.Entities.Role.html
+  name: Role
+  nameWithType: Role
+  fullName: RaisedHands.Data.Entities.Role
+- uid: RaisedHands.Data.Entities.UserRole.UserGroups*
+  commentId: Overload:RaisedHands.Data.Entities.UserRole.UserGroups
+  href: RaisedHands.Data.Entities.UserRole.html#RaisedHands_Data_Entities_UserRole_UserGroups
+  name: UserGroups
+  nameWithType: UserRole.UserGroups
+  fullName: RaisedHands.Data.Entities.UserRole.UserGroups
+- uid: System.Collections.Generic.ICollection{RaisedHands.Data.Entities.UserRoleGroup}
+  commentId: T:System.Collections.Generic.ICollection{RaisedHands.Data.Entities.UserRoleGroup}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.ICollection`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  name: ICollection<UserRoleGroup>
+  nameWithType: ICollection<UserRoleGroup>
+  fullName: System.Collections.Generic.ICollection<RaisedHands.Data.Entities.UserRoleGroup>
+  nameWithType.vb: ICollection(Of UserRoleGroup)
+  fullName.vb: System.Collections.Generic.ICollection(Of RaisedHands.Data.Entities.UserRoleGroup)
+  name.vb: ICollection(Of UserRoleGroup)
+  spec.csharp:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: <
+  - uid: RaisedHands.Data.Entities.UserRoleGroup
+    name: UserRoleGroup
+    href: RaisedHands.Data.Entities.UserRoleGroup.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RaisedHands.Data.Entities.UserRoleGroup
+    name: UserRoleGroup
+    href: RaisedHands.Data.Entities.UserRoleGroup.html
+  - name: )
+- uid: System.Collections.Generic.ICollection`1
+  commentId: T:System.Collections.Generic.ICollection`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  name: ICollection<T>
+  nameWithType: ICollection<T>
+  fullName: System.Collections.Generic.ICollection<T>
+  nameWithType.vb: ICollection(Of T)
+  fullName.vb: System.Collections.Generic.ICollection(Of T)
+  name.vb: ICollection(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic

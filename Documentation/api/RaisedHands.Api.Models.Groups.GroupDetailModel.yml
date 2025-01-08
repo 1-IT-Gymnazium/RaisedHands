@@ -1,0 +1,648 @@
+### YamlMime:ManagedReference
+items:
+- uid: RaisedHands.Api.Models.Groups.GroupDetailModel
+  commentId: T:RaisedHands.Api.Models.Groups.GroupDetailModel
+  id: GroupDetailModel
+  parent: RaisedHands.Api.Models.Groups
+  children:
+  - RaisedHands.Api.Models.Groups.GroupDetailModel.Code
+  - RaisedHands.Api.Models.Groups.GroupDetailModel.Id
+  - RaisedHands.Api.Models.Groups.GroupDetailModel.Name
+  - RaisedHands.Api.Models.Groups.GroupDetailModel.Owner
+  - RaisedHands.Api.Models.Groups.GroupDetailModel.Rooms
+  langs:
+  - csharp
+  - vb
+  name: GroupDetailModel
+  nameWithType: GroupDetailModel
+  fullName: RaisedHands.Api.Models.Groups.GroupDetailModel
+  type: Class
+  source:
+    remote:
+      path: src/RaisedHands/Models/Groups/GroupDetailModel.cs
+      branch: dev
+      repo: https://github.com/1-IT-Gymnazium/RaisedHands.git
+    id: GroupDetailModel
+    path: ../src/RaisedHands/Models/Groups/GroupDetailModel.cs
+    startLine: 6
+  assemblies:
+  - RaisedHands.Api
+  namespace: RaisedHands.Api.Models.Groups
+  syntax:
+    content: public class GroupDetailModel
+    content.vb: Public Class GroupDetailModel
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: RaisedHands.Api.Models.Groups.GroupDetailModel.Id
+  commentId: P:RaisedHands.Api.Models.Groups.GroupDetailModel.Id
+  id: Id
+  parent: RaisedHands.Api.Models.Groups.GroupDetailModel
+  langs:
+  - csharp
+  - vb
+  name: Id
+  nameWithType: GroupDetailModel.Id
+  fullName: RaisedHands.Api.Models.Groups.GroupDetailModel.Id
+  type: Property
+  source:
+    remote:
+      path: src/RaisedHands/Models/Groups/GroupDetailModel.cs
+      branch: dev
+      repo: https://github.com/1-IT-Gymnazium/RaisedHands.git
+    id: Id
+    path: ../src/RaisedHands/Models/Groups/GroupDetailModel.cs
+    startLine: 8
+  assemblies:
+  - RaisedHands.Api
+  namespace: RaisedHands.Api.Models.Groups
+  syntax:
+    content: public Guid Id { get; set; }
+    parameters: []
+    return:
+      type: System.Guid
+    content.vb: Public Property Id As Guid
+  overload: RaisedHands.Api.Models.Groups.GroupDetailModel.Id*
+- uid: RaisedHands.Api.Models.Groups.GroupDetailModel.Name
+  commentId: P:RaisedHands.Api.Models.Groups.GroupDetailModel.Name
+  id: Name
+  parent: RaisedHands.Api.Models.Groups.GroupDetailModel
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: GroupDetailModel.Name
+  fullName: RaisedHands.Api.Models.Groups.GroupDetailModel.Name
+  type: Property
+  source:
+    remote:
+      path: src/RaisedHands/Models/Groups/GroupDetailModel.cs
+      branch: dev
+      repo: https://github.com/1-IT-Gymnazium/RaisedHands.git
+    id: Name
+    path: ../src/RaisedHands/Models/Groups/GroupDetailModel.cs
+    startLine: 9
+  assemblies:
+  - RaisedHands.Api
+  namespace: RaisedHands.Api.Models.Groups
+  syntax:
+    content: public string Name { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Name As String
+  overload: RaisedHands.Api.Models.Groups.GroupDetailModel.Name*
+- uid: RaisedHands.Api.Models.Groups.GroupDetailModel.Code
+  commentId: P:RaisedHands.Api.Models.Groups.GroupDetailModel.Code
+  id: Code
+  parent: RaisedHands.Api.Models.Groups.GroupDetailModel
+  langs:
+  - csharp
+  - vb
+  name: Code
+  nameWithType: GroupDetailModel.Code
+  fullName: RaisedHands.Api.Models.Groups.GroupDetailModel.Code
+  type: Property
+  source:
+    remote:
+      path: src/RaisedHands/Models/Groups/GroupDetailModel.cs
+      branch: dev
+      repo: https://github.com/1-IT-Gymnazium/RaisedHands.git
+    id: Code
+    path: ../src/RaisedHands/Models/Groups/GroupDetailModel.cs
+    startLine: 11
+  assemblies:
+  - RaisedHands.Api
+  namespace: RaisedHands.Api.Models.Groups
+  syntax:
+    content: public string Code { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Code As String
+  overload: RaisedHands.Api.Models.Groups.GroupDetailModel.Code*
+- uid: RaisedHands.Api.Models.Groups.GroupDetailModel.Owner
+  commentId: P:RaisedHands.Api.Models.Groups.GroupDetailModel.Owner
+  id: Owner
+  parent: RaisedHands.Api.Models.Groups.GroupDetailModel
+  langs:
+  - csharp
+  - vb
+  name: Owner
+  nameWithType: GroupDetailModel.Owner
+  fullName: RaisedHands.Api.Models.Groups.GroupDetailModel.Owner
+  type: Property
+  source:
+    remote:
+      path: src/RaisedHands/Models/Groups/GroupDetailModel.cs
+      branch: dev
+      repo: https://github.com/1-IT-Gymnazium/RaisedHands.git
+    id: Owner
+    path: ../src/RaisedHands/Models/Groups/GroupDetailModel.cs
+    startLine: 13
+  assemblies:
+  - RaisedHands.Api
+  namespace: RaisedHands.Api.Models.Groups
+  syntax:
+    content: public UserDetailModel Owner { get; set; }
+    parameters: []
+    return:
+      type: RaisedHands.Api.Models.Users.UserDetailModel
+    content.vb: Public Property Owner As UserDetailModel
+  overload: RaisedHands.Api.Models.Groups.GroupDetailModel.Owner*
+- uid: RaisedHands.Api.Models.Groups.GroupDetailModel.Rooms
+  commentId: F:RaisedHands.Api.Models.Groups.GroupDetailModel.Rooms
+  id: Rooms
+  parent: RaisedHands.Api.Models.Groups.GroupDetailModel
+  langs:
+  - csharp
+  - vb
+  name: Rooms
+  nameWithType: GroupDetailModel.Rooms
+  fullName: RaisedHands.Api.Models.Groups.GroupDetailModel.Rooms
+  type: Field
+  source:
+    remote:
+      path: src/RaisedHands/Models/Groups/GroupDetailModel.cs
+      branch: dev
+      repo: https://github.com/1-IT-Gymnazium/RaisedHands.git
+    id: Rooms
+    path: ../src/RaisedHands/Models/Groups/GroupDetailModel.cs
+    startLine: 15
+  assemblies:
+  - RaisedHands.Api
+  namespace: RaisedHands.Api.Models.Groups
+  syntax:
+    content: public List<RoomDetailModel>? Rooms
+    return:
+      type: System.Collections.Generic.List{RaisedHands.Api.Models.Rooms.RoomDetailModel}
+    content.vb: Public Rooms As List(Of RoomDetailModel)
+references:
+- uid: RaisedHands.Api.Models.Groups
+  commentId: N:RaisedHands.Api.Models.Groups
+  href: RaisedHands.html
+  name: RaisedHands.Api.Models.Groups
+  nameWithType: RaisedHands.Api.Models.Groups
+  fullName: RaisedHands.Api.Models.Groups
+  spec.csharp:
+  - uid: RaisedHands
+    name: RaisedHands
+    href: RaisedHands.html
+  - name: .
+  - uid: RaisedHands.Api
+    name: Api
+    href: RaisedHands.Api.html
+  - name: .
+  - uid: RaisedHands.Api.Models
+    name: Models
+    href: RaisedHands.Api.Models.html
+  - name: .
+  - uid: RaisedHands.Api.Models.Groups
+    name: Groups
+    href: RaisedHands.Api.Models.Groups.html
+  spec.vb:
+  - uid: RaisedHands
+    name: RaisedHands
+    href: RaisedHands.html
+  - name: .
+  - uid: RaisedHands.Api
+    name: Api
+    href: RaisedHands.Api.html
+  - name: .
+  - uid: RaisedHands.Api.Models
+    name: Models
+    href: RaisedHands.Api.Models.html
+  - name: .
+  - uid: RaisedHands.Api.Models.Groups
+    name: Groups
+    href: RaisedHands.Api.Models.Groups.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: RaisedHands.Api.Models.Groups.GroupDetailModel.Id*
+  commentId: Overload:RaisedHands.Api.Models.Groups.GroupDetailModel.Id
+  href: RaisedHands.Api.Models.Groups.GroupDetailModel.html#RaisedHands_Api_Models_Groups_GroupDetailModel_Id
+  name: Id
+  nameWithType: GroupDetailModel.Id
+  fullName: RaisedHands.Api.Models.Groups.GroupDetailModel.Id
+- uid: System.Guid
+  commentId: T:System.Guid
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.guid
+  name: Guid
+  nameWithType: Guid
+  fullName: System.Guid
+- uid: RaisedHands.Api.Models.Groups.GroupDetailModel.Name*
+  commentId: Overload:RaisedHands.Api.Models.Groups.GroupDetailModel.Name
+  href: RaisedHands.Api.Models.Groups.GroupDetailModel.html#RaisedHands_Api_Models_Groups_GroupDetailModel_Name
+  name: Name
+  nameWithType: GroupDetailModel.Name
+  fullName: RaisedHands.Api.Models.Groups.GroupDetailModel.Name
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: RaisedHands.Api.Models.Groups.GroupDetailModel.Code*
+  commentId: Overload:RaisedHands.Api.Models.Groups.GroupDetailModel.Code
+  href: RaisedHands.Api.Models.Groups.GroupDetailModel.html#RaisedHands_Api_Models_Groups_GroupDetailModel_Code
+  name: Code
+  nameWithType: GroupDetailModel.Code
+  fullName: RaisedHands.Api.Models.Groups.GroupDetailModel.Code
+- uid: RaisedHands.Api.Models.Groups.GroupDetailModel.Owner*
+  commentId: Overload:RaisedHands.Api.Models.Groups.GroupDetailModel.Owner
+  href: RaisedHands.Api.Models.Groups.GroupDetailModel.html#RaisedHands_Api_Models_Groups_GroupDetailModel_Owner
+  name: Owner
+  nameWithType: GroupDetailModel.Owner
+  fullName: RaisedHands.Api.Models.Groups.GroupDetailModel.Owner
+- uid: RaisedHands.Api.Models.Users.UserDetailModel
+  commentId: T:RaisedHands.Api.Models.Users.UserDetailModel
+  parent: RaisedHands.Api.Models.Users
+  href: RaisedHands.Api.Models.Users.UserDetailModel.html
+  name: UserDetailModel
+  nameWithType: UserDetailModel
+  fullName: RaisedHands.Api.Models.Users.UserDetailModel
+- uid: RaisedHands.Api.Models.Users
+  commentId: N:RaisedHands.Api.Models.Users
+  href: RaisedHands.html
+  name: RaisedHands.Api.Models.Users
+  nameWithType: RaisedHands.Api.Models.Users
+  fullName: RaisedHands.Api.Models.Users
+  spec.csharp:
+  - uid: RaisedHands
+    name: RaisedHands
+    href: RaisedHands.html
+  - name: .
+  - uid: RaisedHands.Api
+    name: Api
+    href: RaisedHands.Api.html
+  - name: .
+  - uid: RaisedHands.Api.Models
+    name: Models
+    href: RaisedHands.Api.Models.html
+  - name: .
+  - uid: RaisedHands.Api.Models.Users
+    name: Users
+    href: RaisedHands.Api.Models.Users.html
+  spec.vb:
+  - uid: RaisedHands
+    name: RaisedHands
+    href: RaisedHands.html
+  - name: .
+  - uid: RaisedHands.Api
+    name: Api
+    href: RaisedHands.Api.html
+  - name: .
+  - uid: RaisedHands.Api.Models
+    name: Models
+    href: RaisedHands.Api.Models.html
+  - name: .
+  - uid: RaisedHands.Api.Models.Users
+    name: Users
+    href: RaisedHands.Api.Models.Users.html
+- uid: System.Collections.Generic.List{RaisedHands.Api.Models.Rooms.RoomDetailModel}
+  commentId: T:System.Collections.Generic.List{RaisedHands.Api.Models.Rooms.RoomDetailModel}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<RoomDetailModel>
+  nameWithType: List<RoomDetailModel>
+  fullName: System.Collections.Generic.List<RaisedHands.Api.Models.Rooms.RoomDetailModel>
+  nameWithType.vb: List(Of RoomDetailModel)
+  fullName.vb: System.Collections.Generic.List(Of RaisedHands.Api.Models.Rooms.RoomDetailModel)
+  name.vb: List(Of RoomDetailModel)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: RaisedHands.Api.Models.Rooms.RoomDetailModel
+    name: RoomDetailModel
+    href: RaisedHands.Api.Models.Rooms.RoomDetailModel.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RaisedHands.Api.Models.Rooms.RoomDetailModel
+    name: RoomDetailModel
+    href: RaisedHands.Api.Models.Rooms.RoomDetailModel.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
