@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using RaisedHands.Data.Entities;
+using RaisedHands.Data.Entities.Identity;
 using System.Collections.Generic;
 using System.Reflection.Emit;
 
@@ -21,6 +22,8 @@ public class AppDbContext : IdentityDbContext<User, Role, Guid, IdentityUserClai
     public DbSet<UserRoleGroup> UserGroups { get; set; } = null!;
 
     public DbSet<Email> Emails { get; set; } = null!;
+
+    public DbSet<RefreshToken> RefreshTokens { get; set; }
 
     public AppDbContext(DbContextOptions options) : base(options)
     {

@@ -12,8 +12,7 @@ public class RoomDetailModel
 
     public DateTime? EndDate { get; set; }
 
-    public Group GroupId { get; set; } = null!;
-
+    public Guid GroupId { get; set; } 
 }
 
 public static class RoomDetailModelExtensions
@@ -22,6 +21,9 @@ public static class RoomDetailModelExtensions
         => new()
         {
             Id = source.Id,
-            Name = source.Name
+            Name = source.Name,
+            DateTime = source.DateTime,
+            EndDate = source.EndDate,
+            GroupId = source.GroupId
         };
 }

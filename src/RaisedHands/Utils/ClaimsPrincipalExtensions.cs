@@ -1,17 +1,17 @@
-using RaisedHands.Data.Entities;
+using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 
-namespace RaisedHands.Api.Utilities;
+namespace RaisedHands.Api.Utils;
 
 public static class ClaimsPrincipalExtensions
 {
-    public static string GetName(this ClaimsPrincipal user)
+    public static string GetEmail(this ClaimsPrincipal user)
     {
         if (user.Identity == null || !user.Identity.IsAuthenticated)
         {
             throw new InvalidOperationException("user not logged in");
         }
-        var name = user.Claims.First(x => x.Type == ClaimTypes.Name).Value;
+        var name = user.Claims.First(x => x.Type == JwtRegisteredClaimNames.Email).Value;
         return name;
     }
 
@@ -21,7 +21,7 @@ public static class ClaimsPrincipalExtensions
         {
             throw new InvalidOperationException("user not logged in");
         }
-        var idString = user.Claims.First(x => x.Type == ClaimTypes.NameIdentifier).Value;
+        var idString = user.Claims.First(x => x.Type == JwtRegisteredClaimNames.Sub).Value;
         return Guid.Parse(idString);
     }
 }

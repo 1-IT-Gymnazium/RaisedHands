@@ -76,8 +76,8 @@ public class QuestionController : ControllerBase
             Text = model.Text,
             RoomId = model.RoomId,
             UserRoleGroupId = model.UserRoleGroupId,
-            Answered = false,
-            DateTime = DateTime.UtcNow
+            AnsweredAt = null,
+            SendAt = DateTime.UtcNow
         };
 
         _dbContext.Add(newQuestion);
@@ -95,7 +95,7 @@ public class QuestionController : ControllerBase
         var dbEntities = await _dbContext
             .Set<Question>()
             .Where(x => x.RoomId == roomId)
-            .OrderBy(q => q.DateTime)
+            .OrderBy(q => q.SendAt)
             .ToListAsync();
 
         if (dbEntities == null || !dbEntities.Any())
@@ -104,5 +104,29 @@ public class QuestionController : ControllerBase
         }
 
         return Ok(dbEntities);
+    }
+
+    [HttpPatch("api/v1/Question/{questionId}/answered")]
+    public async Task<ActionResult> UpdateAnsweredAt(
+    [FromRoute] Guid questionId)
+    {
+        // Find the question in the database
+        var question = await _dbContext.Set<Question>().FirstOrDefaultAsync(q => q.Id == questionId);
+
+        if (question == null)
+        {
+            return NotFound(new { Message = "Question not found." });
+        }
+
+        // Update the AnsweredAt timestamp to the current time
+        question.AnsweredAt = DateTime.UtcNow;
+
+        // Save changes to the database
+        await _dbContext.SaveChangesAsync();
+
+        // Notify clients via SignalR
+        await _hubContext.Clients.All.SendAsync("QuestionAnswered", questionId, question.AnsweredAt);
+
+        return Ok(new { Message = "Question updated successfully.", AnsweredAt = question.AnsweredAt });
     }
 }

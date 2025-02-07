@@ -8,7 +8,7 @@ using NodaTime.Text;
 using RaisedHands.Api.Models.Groups;
 using RaisedHands.Api.Models.Rooms;
 using RaisedHands.Api.Models.Users;
-using RaisedHands.Api.Utilities;
+using RaisedHands.Api.Utils;
 using RaisedHands.Data;
 using RaisedHands.Data.Entities;
 using RaisedHands.Data.Interfaces;
@@ -54,7 +54,7 @@ public class GroupController : ControllerBase
     /// <returns>A list of GroupDetailModel objects representing the user's groups, 
     /// or a 404 response if no groups are found, or a 401 response for unauthorized access.</returns>
     [HttpGet("api/v1/Group/my-groups")]
-    public async Task<ActionResult<IEnumerable<GroupDetailModel>>> GetUserGroups()
+    public async Task<ActionResult<IEnumerable<GroupSmallModel>>> GetUserGroups()
     {
         var userId = User.GetUserId();
         if (userId == Guid.Empty)
@@ -78,7 +78,7 @@ public class GroupController : ControllerBase
             return NotFound(new { Message = "No groups found for the user" });
         }
 
-        var groupDetails = dbEntities.Select(x => x.ToDetail());
+        var groupDetails = dbEntities.Select(x => x.ToSmall());
 
         return Ok(groupDetails);
     }
@@ -127,7 +127,7 @@ public class GroupController : ControllerBase
             Name = model.Name,
             OwnerId = User.GetUserId(),
             Code = await GenerateUniqueCodeAsync(8)
-        }.SetCreateBy(User.GetName(), now);
+        }.SetCreateBy(User.GetEmail(), now);
 
         var uniqueCheck = await _dbContext.Set<Group>().AnyAsync(x => x.Name == newGroup.Name);
 

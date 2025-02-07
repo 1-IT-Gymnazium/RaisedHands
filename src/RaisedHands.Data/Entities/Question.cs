@@ -12,9 +12,9 @@ namespace RaisedHands.Data.Entities
 
         public string Text { get; set; } = null!;
 
-        public DateTime DateTime { get; set; }
+        public DateTime SendAt { get; set; }
 
-        public bool Answered { get; set; }
+        public DateTime? AnsweredAt { get; set; }
 
         public bool IsAnonymous { get; set; }
 
