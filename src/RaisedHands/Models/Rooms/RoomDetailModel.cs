@@ -1,3 +1,4 @@
+using NodaTime;
 using RaisedHands.Api.Models.Groups;
 using RaisedHands.Data.Entities;
 
@@ -8,7 +9,7 @@ public class RoomDetailModel
     public Guid Id { get; set; }
     public string Name { get; set; } = null!;
 
-    public DateTime DateTime { get; set; }
+    public Instant CreatedAt { get; set; }
 
     public DateTime? EndDate { get; set; }
 
@@ -22,8 +23,13 @@ public static class RoomDetailModelExtensions
         {
             Id = source.Id,
             Name = source.Name,
-            DateTime = source.DateTime,
+            CreatedAt = source.CreatedAt,
             EndDate = source.EndDate,
             GroupId = source.GroupId
         };
+public static RoomDetailModel ToEnd(this Room source)
+    => new()
+    {
+        EndDate = source.EndDate
+    };
 }

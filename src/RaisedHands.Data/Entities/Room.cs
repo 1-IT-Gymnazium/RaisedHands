@@ -14,12 +14,11 @@ public class Room : ITrackable
 
     public string Name { get; set; } = null!;
 
-    public DateTime DateTime { get; set; }
-
     public Guid GroupId { get; set; }
     public Group Group { get; set; } = null!;
 
     public DateTime? EndDate { get; set; }
+
     public Instant CreatedAt { get; set; }
     public string CreatedBy { get; set; } = null!;
     public Instant ModifiedAt { get; set; }

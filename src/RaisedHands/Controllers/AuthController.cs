@@ -89,9 +89,53 @@ public class AuthController : ControllerBase
         await _emailSenderService.AddEmailToSendAsync(
             model.Email,
             "Potvrzení registrace",
-            $"<a href=\"https://www.projectmanagement.cz/?token={Uri.EscapeDataString(token)}&email={model.Email}\">{token}</a>"
-            );
-        return Ok(token);
+            $@"
+    <html>
+    <head>
+        <style>
+            body {{
+                font-family: Arial, sans-serif;
+                background-color: #f4f4f4;
+                padding: 20px;
+            }}
+            .container {{
+                max-width: 600px;
+                margin: 0 auto;
+                background: #ffffff;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                text-align: center;
+            }}
+            .button {{
+                display: inline-block;
+                padding: 10px 20px;
+                font-size: 16px;
+                color: #fff;
+                background-color: #007bff;
+                text-decoration: none;
+                border-radius: 5px;
+                margin-top: 20px;
+            }}
+            .footer {{
+                margin-top: 20px;
+                font-size: 12px;
+                color: #777;
+            }}
+        </style>
+    </head>
+    <body>
+        <div class='container'>
+            <h2>Potvrzení registrace</h2>
+            <p>Klikněte na tlačítko níže pro potvrzení vaší e-mailové adresy:</p>
+            <a href='http://localhost:4200/confirm?token={Uri.EscapeDataString(token)}&email={model.Email}' class='button'>Potvrdit e-mail</a>
+            <p class='footer'>Pokud jste o registraci nežádali, tento e-mail ignorujte.</p>
+        </div>
+    </body>
+    </html>"
+        );
+        return Ok();
+
     }
 
     [HttpPost("api/v1/Auth/Login")]
@@ -100,12 +144,18 @@ public class AuthController : ControllerBase
         var normalizedEmail = model.Email.ToUpperInvariant();
         var user = await _userManager
             .Users
-            .SingleOrDefaultAsync(x => x.EmailConfirmed && x.NormalizedEmail == normalizedEmail)
-            ;
+            .SingleOrDefaultAsync(x => x.NormalizedEmail == normalizedEmail); // Don't filter by EmailConfirmed here, we will handle that separately
 
         if (user == null)
         {
             ModelState.AddModelError(string.Empty, "LOGIN_FAILED");
+            return ValidationProblem(ModelState);
+        }
+
+        // Check if the user's email is confirmed
+        if (!user.EmailConfirmed)
+        {
+            ModelState.AddModelError(string.Empty, "EMAIL_NOT_VERIFIED");
             return ValidationProblem(ModelState);
         }
 
@@ -118,6 +168,7 @@ public class AuthController : ControllerBase
 
         var accessToken = GenerateAccessToken(user.Id, model.Email, user.UserName!, _jwtSettings.AccessTokenExpirationInMinutes);
         var refreshToken = await GenerateRefreshTokenAsync(user.Id, _jwtSettings.RefreshTokenExpirationInDays);
+
         Response.Cookies.Append("RefreshToken", refreshToken, new CookieOptions
         {
             HttpOnly = true,
@@ -125,6 +176,7 @@ public class AuthController : ControllerBase
             SameSite = SameSiteMode.Strict,
             Expires = DateTime.UtcNow.AddDays(_jwtSettings.RefreshTokenExpirationInDays)
         });
+
         return Ok(new { Token = accessToken });
     }
 
@@ -185,7 +237,7 @@ public class AuthController : ControllerBase
             id = user.Id,
             name = user.UserName,
             isAuthenticated = true,
-            email = null,
+            email = user.Email,
         };
 
         return loggedModel;

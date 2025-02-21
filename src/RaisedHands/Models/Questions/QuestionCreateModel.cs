@@ -11,7 +11,5 @@ namespace RaisedHands.Api.Models.Questions
         public Guid RoomId { get; set; }
 
         public Guid? UserRoleGroupId { get; set; }
-
-        public bool IsAnonymous { get; set; }
     }
 }

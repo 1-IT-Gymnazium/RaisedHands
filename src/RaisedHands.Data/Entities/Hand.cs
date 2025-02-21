@@ -10,9 +10,9 @@ namespace RaisedHands.Data.Entities
     {
         public Guid Id { get; set; }
 
-        public DateTime DateTime { get; set; }
+        public DateTime SendAt { get; set; }
 
-        public bool Answered { get; set; }
+        public DateTime AnsweredAt { get; set; }
 
         public Guid RoomId { get; set; }
         public Room Room { get; set; } = null!;

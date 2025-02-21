@@ -6,6 +6,8 @@ using Microsoft.EntityFrameworkCore;
 using NodaTime;
 using NodaTime.Text;
 using RaisedHands.Api.Models.Groups;
+using RaisedHands.Api.Models.Hands;
+using RaisedHands.Api.Models.Questions;
 using RaisedHands.Api.Models.Rooms;
 using RaisedHands.Api.Models.Users;
 using RaisedHands.Api.Utils;
@@ -389,5 +391,99 @@ public class GroupController : ControllerBase
         var roomDetails = dbGroup.Rooms.Select(r => r.ToDetail()).ToList();
 
         return Ok(roomDetails);
+    }
+
+    [HttpGet("api/v1/Group/{groupId}/User/{userId}/QuestionsAndHandsRaised")]
+    public async Task<ActionResult<UserQuestionsAndHandsRaisedModel>> GetQuestionsAndHandsRaisedByUserInGroup(
+        [FromRoute] Guid groupId,
+        [FromRoute] Guid userId)
+    {
+        // Fetch the group and include related user questions and hands raised
+        var group = await _dbContext
+            .Set<Group>()
+            .Include(g => g.UserGroups)  // Include UserGroups to filter by user
+                .ThenInclude(ug => ug.UserRole)
+                    .ThenInclude(ur => ur.User)  // Include the User
+            .FirstOrDefaultAsync(g => g.Id == groupId);
+
+        if (group == null)
+        {
+            return NotFound(new { Message = "Group not found" });
+        }
+
+        var userGroup = group.UserGroups.FirstOrDefault(ug => ug.UserRole.User.Id == userId);
+        if (userGroup == null)
+        {
+            return NotFound(new { Message = "User not part of the group" });
+        }
+
+        // Fetch all the questions for the rooms within this group
+        var questions = await _dbContext
+            .Set<Question>()
+            .Where(q => q.Room.GroupId == groupId && q.UserRoleGroup.UserRole.User.Id == userId)
+            .Include(q => q.Room)
+            .ToListAsync();
+
+        // Fetch all hands raised by the user in this group (via UserRoleGroup)
+        var handsRaised = await _dbContext
+            .Set<Hand>()
+            .Where(hr => hr.UserRoleGroup.UserRole.User.Id == userId && hr.Room.GroupId == groupId)
+            .Include(hr => hr.Room)
+            .ToListAsync();
+
+        var result = new UserQuestionsAndHandsRaisedModel
+        {
+            UserId = userId,
+            FirstName = userGroup.UserRole.User.FirstName,
+            LastName = userGroup.UserRole.User.LastName,
+            QuestionsAsked = questions.Any() ? questions.Select(q => new QuestionModel
+            {
+                QuestionId = q.Id,
+                Content = q.Text,
+                DateAsked = q.SendAt,
+                RoomName = q.Room.Name
+            }).ToList() : null,
+            HandsRaised = handsRaised.Any() ? handsRaised.Select(hr => new HandRaisedModel
+            {
+                HandRaisedId = hr.Id,
+                RoomName = hr.Room.Name
+            }).ToList() : null
+        };
+
+        return Ok(result);
+    }
+
+    [HttpGet("api/v1/Group/{groupId}/Users")]
+    public async Task<ActionResult<IEnumerable<GroupUserModel>>> GetUsersByGroupId(
+        [FromRoute] Guid groupId)
+    {
+        var dbGroup = await _dbContext
+            .Set<Group>()
+
+            .Include(x => x.UserGroups)
+                .ThenInclude(x => x.UserRole)
+                    .ThenInclude(x => x.User)
+            .Include(x => x.UserGroups) // Explicitly include Role
+                .ThenInclude(x => x.UserRole)
+                    .ThenInclude(x => x.Role)
+                    .FirstOrDefaultAsync(x => x.Id == groupId);
+
+        if (dbGroup == null)
+        {
+            return NotFound(new { Message = "Group not found" });
+        }
+
+        var groupUsers = dbGroup.UserGroups
+            .Select(ug => new GroupUserModel
+            {
+                UserId = ug.UserRole.User.Id,
+                FirstName = ug.UserRole.User.FirstName,
+                LastName = ug.UserRole.User.LastName,
+                RoleId = ug.UserRole.Role.Id,
+                RoleName = ug.UserRole.Role.Name,
+            })
+            .ToList();
+
+        return Ok(groupUsers);
     }
 }

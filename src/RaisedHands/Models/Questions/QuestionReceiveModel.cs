@@ -1,10 +1,12 @@
 using Newtonsoft.Json;
+using RaisedHands.Api.Models.Hands;
 using System.Text.Json.Serialization;
 
 namespace RaisedHands.Api.Models.Questions;
 
 public class QuestionReceiveModel
 {
+
     [JsonProperty("id")]
     public Guid Id { get; set; }
 
@@ -24,4 +26,20 @@ public class QuestionReceiveModel
 
     [JsonProperty("answeredAt")]
     public DateTime? AnsweredAt { get; set; }
+
+    [JsonProperty("user")]
+    public QuestionUserDetailModel? User { get; set; } = null!;
+
 }
+public class QuestionUserDetailModel
+{
+    [JsonProperty("id")]
+    public Guid Id { get; set; } 
+
+    [JsonProperty("firstName")]
+    public string FirstName { get; set; } = null!;
+
+    [JsonProperty("lastName")]
+    public string LastName { get; set; } = null!;
+}
+

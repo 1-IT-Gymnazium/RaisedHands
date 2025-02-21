@@ -10,6 +10,8 @@ using RaisedHands.Api.Models.Groups;
 using RaisedHands.Data.Entities;
 using RaisedHands.Data.Interfaces;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Microsoft.AspNetCore.SignalR;
+using RaisedHands.Api.Hubs;
 
 namespace RaisedHands.Api.Controllers;
 
@@ -105,44 +107,77 @@ public class RoomController : ControllerBase
     /// <param name="id">The unique identifier of the room to update.</param>
     /// <param name="patch">The JSON Patch document containing the updates.</param>
     /// <returns>The updated details of the room.</returns>
-    [HttpPatch("api/v1/Room/{id}")]
-    public async Task<ActionResult> Update(
-        [FromRoute] Guid id,
-        [FromBody] JsonPatchDocument<RoomCreateModel> patch
-        )
+    //[HttpPatch("api/v1/Room/{id}")]
+    //public async Task<ActionResult> Update(
+    //    [FromRoute] Guid id,
+    //    [FromBody] JsonPatchDocument<RoomCreateModel> patch
+    //    )
+    //{
+    //    var dbEntity = await _dbContext
+    //        .Set<Room>()
+    //        .FilterDeleted()
+    //        .SingleOrDefaultAsync(x => x.Id == id);
+
+    //    if (dbEntity == null)
+    //    {
+    //        return NotFound();
+    //    }
+
+    //    var toUpdate = dbEntity.ToUpdate();
+
+    //    patch.ApplyTo(toUpdate);
+
+    //    var uniqueCheck = await _dbContext.Set<Room>().AnyAsync(x => x.Name == toUpdate.Name);
+
+    //    if (uniqueCheck)
+    //    {
+    //        ModelState.AddModelError<RoomCreateModel>(x => x.Name, "name is not unique");
+    //    }
+
+    //    if (!(ModelState.IsValid && TryValidateModel(toUpdate)))
+    //    {
+    //        return ValidationProblem(ModelState);
+    //    }
+
+    //    dbEntity.Name = toUpdate.Name;
+
+    //    await _dbContext.SaveChangesAsync();
+
+    //    dbEntity = await _dbContext.Set<Room>().FirstAsync(x => x.Id == id);
+    //    return Ok(dbEntity.ToDetail());
+    //}
+    [HttpPatch("api/v1/Room/{id}/end")]
+    public async Task<ActionResult> EndRoom(
+    [FromRoute] Guid id,
+    [FromBody] JsonPatchDocument<Room> patch,
+    [FromServices] IHubContext<QuestionHub> hubContext)
     {
-        var dbEntity = await _dbContext
-            .Set<Room>()
-            .FilterDeleted()
-            .SingleOrDefaultAsync(x => x.Id == id);
+        // Fetch the room from the database
+        var room = await _dbContext.Rooms
+            .FirstOrDefaultAsync(r => r.Id == id);
 
-        if (dbEntity == null)
+        if (room == null)
         {
-            return NotFound();
+            return NotFound("Room not found.");
         }
 
-        var toUpdate = dbEntity.ToUpdate();
+        // Apply the patch to the room entity
+        patch.ApplyTo(room);
 
-        patch.ApplyTo(toUpdate);
-
-        var uniqueCheck = await _dbContext.Set<Room>().AnyAsync(x => x.Name == toUpdate.Name);
-
-        if (uniqueCheck)
+        // Set the EndDate automatically if not already set
+        if (room.EndDate == null)
         {
-            ModelState.AddModelError<RoomCreateModel>(x => x.Name, "name is not unique");
+            room.EndDate = DateTime.UtcNow;  // Set EndDate to current time
         }
 
-        if (!(ModelState.IsValid && TryValidateModel(toUpdate)))
-        {
-            return ValidationProblem(ModelState);
-        }
-
-        dbEntity.Name = toUpdate.Name;
-
+        // Save the changes to the database
         await _dbContext.SaveChangesAsync();
 
-        dbEntity = await _dbContext.Set<Room>().FirstAsync(x => x.Id == id);
-        return Ok(dbEntity.ToDetail());
+        // Notify all users in the room that it has ended
+        await hubContext.Clients.Group(id.ToString()).SendAsync("RoomClosed");
+
+        // Return the updated room details
+        return Ok(room);  // Return the updated room with EndDate
     }
 
     /// <summary>

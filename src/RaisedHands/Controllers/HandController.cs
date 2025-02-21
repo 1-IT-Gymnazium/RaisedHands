@@ -10,19 +10,18 @@ using RaisedHands.Api.Models.Questions;
 using RaisedHands.Api.Models.Rooms;
 using RaisedHands.Data;
 using RaisedHands.Data.Entities;
-using System.Reflection.Metadata;
 
 namespace RaisedHands.Api.Controllers;
 [Authorize]
 [ApiController]
 
-public class QuestionController : ControllerBase
+public class HandController : ControllerBase
 {
     private readonly IHubContext<QuestionHub> _hubContext;
     private readonly IClock _clock;
     private readonly DbContext _dbContext;
 
-    public QuestionController(
+    public HandController(
         IHubContext<QuestionHub> hubContext,
         IClock clock,
         AppDbContext dbContext)
@@ -31,7 +30,7 @@ public class QuestionController : ControllerBase
         _clock = clock;
         _dbContext = dbContext;
     }
-    [HttpPost("api/v1/Question")]
+    [HttpPost("api/v1/Hand")]
     public async Task<ActionResult> Create(
     [FromBody] QuestionCreateModel model
 )
@@ -79,89 +78,66 @@ public class QuestionController : ControllerBase
         _dbContext.Add(newQuestion);
         await _dbContext.SaveChangesAsync();
 
-        await _hubContext.Clients.All.SendAsync("NewQuestionAdded", newQuestion);
+        await _hubContext.Clients.All.SendAsync("NewHandAdded", newQuestion);
 
         return Ok();
     }
 
-    [HttpGet("api/v1/Question/{roomId}")]
-    public async Task<ActionResult<QuestionReceiveModel>> GetQuestionsByRoomId(
-        [FromRoute] Guid roomId)
+    [HttpGet("api/v1/Hand/{roomId}")]
+    public async Task<ActionResult<List<HandReceiveModel>>> GetHandsByRoomId(
+    [FromRoute] Guid roomId)
     {
         var dbEntities = await _dbContext
-      .Set<Question>()
-      .Where(x => x.RoomId == roomId)
-      .OrderBy(q => q.SendAt)
-      .Select(x => new QuestionReceiveModel
-      {
-          Id = x.Id,
-          RoomId = x.RoomId.ToString(),
-          Text = x.Text,
-          UserRoleGroupId = x.UserRoleGroupId.ToString(),
-          SendAt = x.SendAt,
-          AnsweredAt = x.AnsweredAt,
-          User = x.UserRoleGroup.UserRole.User != null ? new QuestionUserDetailModel
-          {
-              Id = x.UserRoleGroup.UserRole.User.Id, // Accessing User via UserRole
-              FirstName = x.UserRoleGroup.UserRole.User.FirstName, // Accessing User's FirstName
-              LastName = x.UserRoleGroup.UserRole.User.LastName // Accessing User's LastName
-          } : new QuestionUserDetailModel
-          {
-              FirstName = "User", // Default name for anonymous user
-              LastName = "Anonym"  // Default last name for anonymous user
-          }
-      })
-      .ToListAsync();
+            .Set<Hand>()
+            .Where(x => x.RoomId == roomId)
+            .OrderBy(q => q.SendAt)
+            .Select(x => new HandReceiveModel
+            {
+                Id = x.Id,
+                RoomId = x.RoomId.ToString(),
+                UserRoleGroupId = x.UserRoleGroupId.ToString(),
+                SendAt = x.SendAt,
+                AnsweredAt = x.AnsweredAt,
+                User = new HandUserDetailModel
+                {
+                    // Assuming UserRoleGroup is linked to UserRole, and UserRole has a User
+                    Id = x.UserRoleGroup.UserRole.User.Id, // Accessing User via UserRole
+                    FirstName = x.UserRoleGroup.UserRole.User.FirstName, // Accessing User's FirstName
+                    LastName = x.UserRoleGroup.UserRole.User.LastName // Accessing User's LastName
+                }
+            })
+            .ToListAsync();
 
         if (dbEntities == null || !dbEntities.Any())
         {
-            return NotFound(new { Message = "No questions found for this room." });
+            return NotFound(new { Message = "No hands found for this room." });
         }
 
         return Ok(dbEntities);
     }
 
-    [HttpPatch("api/v1/Question/{questionId}/answered")]
+    [HttpPatch("api/v1/Hand/{handId}/answered")]
     public async Task<ActionResult> UpdateAnsweredAt(
-    [FromRoute] Guid questionId)
+    [FromRoute] Guid handId)
     {
         // Find the question in the database
-        var question = await _dbContext.Set<Question>().FirstOrDefaultAsync(q => q.Id == questionId);
+        var hand = await _dbContext.Set<Hand>().FirstOrDefaultAsync(q => q.Id == handId);
 
-        if (question == null)
+        if (hand == null)
         {
-            return NotFound(new { Message = "Question not found." });
+            return NotFound(new { Message = "Hand not found." });
         }
 
         // Update the AnsweredAt timestamp to the current time
-        question.AnsweredAt = DateTime.UtcNow;
+        hand.AnsweredAt = DateTime.UtcNow;
 
         // Save changes to the database
         await _dbContext.SaveChangesAsync();
 
         // Notify clients via SignalR
-        Console.WriteLine($"📢 Sending HandLowered event for {questionId}");
-        await _hubContext.Clients.All.SendAsync("QuestionAnswered", questionId, question.AnsweredAt);
+        Console.WriteLine($"📢 Sending HandLowered event for {handId}");
+        await _hubContext.Clients.All.SendAsync("HandLowered", handId, hand.AnsweredAt);
 
-        return Ok(new { Message = "Question updated successfully.", AnsweredAt = question.AnsweredAt });
-    }
-
-    [HttpDelete("api/v1/Question/{questionId}")]
-    public async Task<IActionResult> DeleteQuestion(
-    [FromRoute] Guid questionId)
-    {
-        var question = await _dbContext.Set<Question>().FirstOrDefaultAsync(q => q.Id == questionId);
-
-        if (question == null)
-        {
-            return NotFound(new { Message = "Question not found." });
-        }
-
-        _dbContext.Remove(question);
-        await _dbContext.SaveChangesAsync();
-
-        await _hubContext.Clients.All.SendAsync("QuestionDeleted", questionId);
-
-        return NoContent();
+        return Ok(new { Message = "Hand updated successfully.", AnsweredAt = hand.AnsweredAt });
     }
 }

@@ -16,8 +16,6 @@ namespace RaisedHands.Data.Entities
 
         public DateTime? AnsweredAt { get; set; }
 
-        public bool IsAnonymous { get; set; }
-
         public Guid RoomId { get; set; }
         public Room Room { get; set; } = null!;
 
