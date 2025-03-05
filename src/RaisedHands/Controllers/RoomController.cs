@@ -67,10 +67,7 @@ public class RoomController : ControllerBase
             return NotFound();
         }
 
-        var result = new RoomDetailModel
-        {
-            Name = dbEntity.Name
-        };
+        var result = dbEntity.ToDetail();
 
         return Ok(result);
     }

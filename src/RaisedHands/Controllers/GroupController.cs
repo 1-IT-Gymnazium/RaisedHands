@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.EntityFrameworkCore;
 using NodaTime;
 using NodaTime.Text;
+using RaisedHands.Api.Models;
 using RaisedHands.Api.Models.Groups;
 using RaisedHands.Api.Models.Hands;
 using RaisedHands.Api.Models.Questions;
@@ -71,13 +72,15 @@ public class GroupController : ControllerBase
             .Include(x => x.UserGroups)
             .ThenInclude(ug => ug.UserRole)
             .ThenInclude(ur => ur.User)
-            .Where(group => group.UserGroups
-                .Any(ug => ug.UserRole != null && ug.UserRole.UserId == userId))
+            .Where(group => group.DeletedAt == null
+                && group.UserGroups.Any(ug => ug.UserRole != null
+                    && ug.UserRole.UserId == userId
+                    && ug.IsActive)) // Přidána podmínka pro aktivní UserGroup
             .ToListAsync();
 
         if (!dbEntities.Any())
         {
-            return NotFound(new { Message = "No groups found for the user" });
+            return NotFound(new { Message = "No active groups found for the user" });
         }
 
         var groupDetails = dbEntities.Select(x => x.ToSmall());
@@ -169,7 +172,8 @@ public class GroupController : ControllerBase
         {
             Id = Guid.NewGuid(),
             GroupId = newGroup.Id,
-            UserRoleId = userRole.Id
+            UserRoleId = userRole.Id,
+            IsActive = true
         };
 
         _dbContext.Add(userGroup);
@@ -181,6 +185,75 @@ public class GroupController : ControllerBase
 
         var url = Url.Action(nameof(Get), new { dbEntity.Id }) ?? throw new Exception("failed to generate url");
         return Created(url, dbEntity.ToDetail());
+    }
+
+    [HttpPatch("api/v1/Group/{groupId}/User/{userId}/ChangeRole")]
+    public async Task<IActionResult> ChangeUserRole(
+        [FromRoute] Guid groupId,
+        [FromRoute] Guid userId)
+    {
+        using var transaction = await _dbContext.Database.BeginTransactionAsync();
+        try
+        {
+            // Fetch the UserRoleGroup entry for the user within the group
+            var userRoleGroup = await _dbContext.Set<UserRoleGroup>()
+                .Include(ug => ug.UserRole)
+                .FirstOrDefaultAsync(x => x.GroupId == groupId && x.UserRole.UserId == userId);
+
+            // Fetch the group to check the owner
+            var group = await _dbContext.Set<Group>()
+                .FirstOrDefaultAsync(g => g.Id == groupId);
+
+            if (group == null)
+            {
+                return NotFound(new { Message = "Group not found." });
+            }
+
+            if (group.OwnerId == userId)
+            {
+                return BadRequest(new { Message = "The group owner cannot be assigned the student role." });
+            }
+
+            if (userRoleGroup == null)
+            {
+                return NotFound(new { Message = "User is not assigned to this group." });
+            }
+
+            // Get the current role and determine the new role
+            var studentRoleId = Guid.Parse("29d79252-1b53-4b92-a8dd-403d547fc3c4");
+            var teacherRoleId = Guid.Parse("ddb9ab69-cedf-4531-a2fd-138969b4bdd3");
+            var newRoleId = userRoleGroup.UserRole.RoleId == studentRoleId ? teacherRoleId : studentRoleId;
+
+            // Fetch or create the new UserRole
+            var userRole = await _dbContext.Set<UserRole>()
+                .FirstOrDefaultAsync(x => x.UserId == userId && x.RoleId == newRoleId);
+
+            if (userRole == null)
+            {
+                userRole = new UserRole
+                {
+                    Id = Guid.NewGuid(),
+                    UserId = userId,
+                    RoleId = newRoleId
+                };
+
+                _dbContext.Add(userRole);
+                await _dbContext.SaveChangesAsync();
+            }
+
+            // Update the UserRoleGroup to use the new UserRole
+            userRoleGroup.UserRoleId = userRole.Id;
+            _dbContext.Update(userRoleGroup);
+            await _dbContext.SaveChangesAsync();
+
+            await transaction.CommitAsync();
+            return Ok(new { Message = "User role switched successfully" });
+        }
+        catch (Exception ex)
+        {
+            await transaction.RollbackAsync();
+            return StatusCode(500, new { Message = "An error occurred while switching the user role", Error = ex.Message });
+        }
     }
 
     /// <summary>
@@ -279,6 +352,11 @@ public class GroupController : ControllerBase
             return NotFound();
         }
 
+        foreach (var room in dbEntity.Rooms)
+        {
+            room.SetDeleteBySystem(_clock.GetCurrentInstant()); // assuming you have a similar method on Room
+        }
+
         dbEntity.SetDeleteBySystem(_clock.GetCurrentInstant());
         await _dbContext.SaveChangesAsync();
 
@@ -352,13 +430,53 @@ public class GroupController : ControllerBase
         {
             Id = Guid.NewGuid(),
             GroupId = dbGroup.Id,
-            UserRoleId = userRole.Id // Use the Student role ID
+            UserRoleId = userRole.Id, // Use the Student role ID
+            IsActive = true
         };
 
         _dbContext.Add(userGroup);
         await _dbContext.SaveChangesAsync();
 
         return Ok(new { Message = "Successfully joined the group as a Student" });
+    }
+
+    [HttpPost("api/v1/Group/{groupId}/Leave")]
+    public async Task<ActionResult> LeaveGroupById([FromRoute] Guid groupId)
+    {
+        // Retrieve the group by its unique ID
+        var dbGroup = await _dbContext
+            .Set<Group>()
+            .FirstOrDefaultAsync(x => x.Id == groupId);
+
+        if (dbGroup == null)
+        {
+            return NotFound(new { Message = "Group not found with the provided ID" });
+        }
+
+        // Get the current logged-in user's ID
+        var userId = User.GetUserId();
+        if (userId == Guid.Empty)
+        {
+            return Unauthorized(new { Message = "Invalid or unauthorized user" });
+        }
+
+        // Find the UserRoleGroup entry linking the user to the group
+        var userGroup = await _dbContext.Set<UserRoleGroup>()
+            .Include(ug => ug.UserRole)
+            .FirstOrDefaultAsync(ug => ug.GroupId == dbGroup.Id && ug.UserRole.UserId == userId);
+
+        if (userGroup == null)
+        {
+            return NotFound(new { Message = "You are not a member of this group" });
+        }
+
+        // Set IsActive to false instead of deleting the entry
+        userGroup.IsActive = false;
+
+        _dbContext.Update(userGroup);
+        await _dbContext.SaveChangesAsync();
+
+        return Ok(new { Message = "Successfully left the group" });
     }
 
     /// <summary>
@@ -384,11 +502,19 @@ public class GroupController : ControllerBase
 
         var userRoleGroup = dbGroup.UserGroups.FirstOrDefault(x => x.UserRole.UserId == User.GetUserId());
 
-        var identity = User.Identity as ClaimsIdentity; //?
+        if (userRoleGroup == null)
+        {
+            return Forbid();
+        }
 
-        identity.AddClaim(new Claim("UserGroupIdClaim", userRoleGroup.Id.ToString())); //?
+        var identity = User.Identity as ClaimsIdentity;
+        identity?.AddClaim(new Claim("UserGroupIdClaim", userRoleGroup.Id.ToString()));
 
-        var roomDetails = dbGroup.Rooms.Select(r => r.ToDetail()).ToList();
+        // Filter rooms where DeletedAt is null
+        var roomDetails = dbGroup.Rooms
+            .Where(r => r.DeletedAt == null) // ✅ Only include rooms that are NOT deleted
+            .Select(r => r.ToDetail())
+            .ToList();
 
         return Ok(roomDetails);
     }
@@ -485,5 +611,48 @@ public class GroupController : ControllerBase
             .ToList();
 
         return Ok(groupUsers);
+    }
+
+    /// <summary>
+    /// Retrieves the role ID and name of a user within a specific group.
+    /// </summary>
+    /// <param name="groupId">The unique identifier of the group.</param>
+    /// <param name="userId">The unique identifier of the user.</param>
+    /// <returns>The role ID and name of the user within the group.</returns>
+    [HttpGet("api/v1/Group/{groupId}/User/{userId}/Role")]
+    public async Task<ActionResult<IdNameModel>> GetUserRoleInGroup(
+        [FromRoute] Guid groupId,
+        [FromRoute] Guid userId)
+    {
+        // Fetch the group and include related user roles
+        var group = await _dbContext
+              .Set<Group>()
+              .Include(g => g.UserGroups)
+                  .ThenInclude(ug => ug.UserRole)
+                      .ThenInclude(ur => ur.Role)  // Include Role
+                  .Include(g => g.UserGroups)
+                      .ThenInclude(ug => ug.UserRole)
+                          .ThenInclude(ur => ur.User)  // Include User
+              .FirstOrDefaultAsync(g => g.Id == groupId);
+
+        if (group == null)
+        {
+            return NotFound(new { Message = "Group not found" });
+        }
+
+        // Retrieve the user's role within the group
+        var userGroup = group.UserGroups.FirstOrDefault(ug => ug.UserRole.User.Id == userId);
+        if (userGroup == null)
+        {
+            return NotFound(new { Message = "User not part of the group" });
+        }
+
+        var roleModel = new IdNameModel
+        {
+            Id = userGroup.UserRole.Role.Id,
+            Name = userGroup.UserRole.Role.Name
+        };
+
+        return Ok(roleModel);
     }
 }

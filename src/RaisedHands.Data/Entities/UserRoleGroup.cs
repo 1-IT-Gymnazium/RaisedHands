@@ -16,4 +16,6 @@ public class UserRoleGroup
 
     public Guid UserRoleId { get; set; }
     public UserRole UserRole { get; set; } = null!;
+
+    public bool IsActive { get; set; } 
 }
