@@ -148,6 +148,7 @@ namespace RaisedHands.Api.Hubs
                 AnsweredAt = newQuestion.AnsweredAt,
                 User = new QuestionUserDetailModel
                 {
+                    Id = userDetail?.Id ?? Guid.Empty,
                     FirstName = userDetail?.FirstName ?? "Anonymous",  // Use "Anonymous" for anonymous users
                     LastName = userDetail?.LastName ?? ""
                 }
@@ -310,6 +311,7 @@ namespace RaisedHands.Api.Hubs
                 // Include the user's first name and last name
                 User = new HandUserDetailModel
                 {
+                    Id = userDetail.Id,
                     FirstName = userDetail.FirstName,
                     LastName = userDetail.LastName
                 }

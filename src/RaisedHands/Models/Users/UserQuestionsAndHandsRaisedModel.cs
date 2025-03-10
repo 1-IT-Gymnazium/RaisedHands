@@ -6,8 +6,8 @@ namespace RaisedHands.Api.Models.Users;
 public class UserQuestionsAndHandsRaisedModel
 {
     public Guid UserId { get; set; }
-    public string FirstName { get; set; }
-    public string LastName { get; set; }
-    public List<QuestionModel> QuestionsAsked { get; set; }
-    public List<HandRaisedModel> HandsRaised { get; set; }
+    public string FirstName { get; set; } = null!;
+    public string LastName { get; set; } = null!;
+    public List<QuestionModel> QuestionsAsked { get; set; } = null!;
+    public List<HandRaisedModel> HandsRaised { get; set; } = null!;
 }

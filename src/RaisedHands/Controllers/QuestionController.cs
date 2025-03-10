@@ -90,6 +90,7 @@ public class QuestionController : ControllerBase
     {
         var dbEntities = await _dbContext
       .Set<Question>()
+      .Include(q => q.UserRoleGroup).ThenInclude(u => u.UserRole).ThenInclude(r => r.User)
       .Where(x => x.RoomId == roomId)
       .OrderBy(q => q.SendAt)
       .Select(x => new QuestionReceiveModel

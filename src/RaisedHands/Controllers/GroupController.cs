@@ -440,8 +440,8 @@ public class GroupController : ControllerBase
         return Ok(new { Message = "Successfully joined the group as a Student" });
     }
 
-    [HttpPost("api/v1/Group/{groupId}/Leave")]
-    public async Task<ActionResult> LeaveGroupById([FromRoute] Guid groupId)
+    [HttpPost("api/v1/Group/{groupId}/User/{userId}/Leave")]
+    public async Task<ActionResult> LeaveGroupById([FromRoute] Guid groupId, [FromRoute] Guid userId)
     {
         // Retrieve the group by its unique ID
         var dbGroup = await _dbContext
@@ -453,17 +453,10 @@ public class GroupController : ControllerBase
             return NotFound(new { Message = "Group not found with the provided ID" });
         }
 
-        // Get the current logged-in user's ID
-        var userId = User.GetUserId();
-        if (userId == Guid.Empty)
-        {
-            return Unauthorized(new { Message = "Invalid or unauthorized user" });
-        }
-
         // Find the UserRoleGroup entry linking the user to the group
         var userGroup = await _dbContext.Set<UserRoleGroup>()
             .Include(ug => ug.UserRole)
-            .FirstOrDefaultAsync(ug => ug.GroupId == dbGroup.Id && ug.UserRole.UserId == userId);
+            .FirstOrDefaultAsync(ug => ug.GroupId == groupId && ug.UserRole.UserId == userId);
 
         if (userGroup == null)
         {
@@ -473,7 +466,7 @@ public class GroupController : ControllerBase
         // Set IsActive to false instead of deleting the entry
         userGroup.IsActive = false;
 
-        _dbContext.Update(userGroup);
+        // Save changes to the database
         await _dbContext.SaveChangesAsync();
 
         return Ok(new { Message = "Successfully left the group" });
@@ -600,13 +593,14 @@ public class GroupController : ControllerBase
         }
 
         var groupUsers = dbGroup.UserGroups
+            .Where(ug => ug.IsActive)
             .Select(ug => new GroupUserModel
             {
                 UserId = ug.UserRole.User.Id,
                 FirstName = ug.UserRole.User.FirstName,
                 LastName = ug.UserRole.User.LastName,
                 RoleId = ug.UserRole.Role.Id,
-                RoleName = ug.UserRole.Role.Name,
+                RoleName = ug.UserRole.Role.Name = null!,
             })
             .ToList();
 
@@ -650,7 +644,7 @@ public class GroupController : ControllerBase
         var roleModel = new IdNameModel
         {
             Id = userGroup.UserRole.Role.Id,
-            Name = userGroup.UserRole.Role.Name
+            Name = userGroup.UserRole.Role.Name = null!
         };
 
         return Ok(roleModel);
