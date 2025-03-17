@@ -15,7 +15,11 @@ public class UserController : ControllerBase
     private readonly UserManager<User> _userManager;
     private readonly SignInManager<User> _signInManager;
 
-    public UserController(AppDbContext dbContext, UserManager<User> userManager, SignInManager<User> signInManager)
+    public UserController(
+        AppDbContext dbContext,
+        UserManager<User> userManager,
+        SignInManager<User> signInManager
+        )
     {
         _dbContext = dbContext;
         _userManager = userManager;
@@ -23,8 +27,9 @@ public class UserController : ControllerBase
     }
 
     /// <summary>
-    /// Gets the currently authenticated user's information.
+    /// Retrieves the currently authenticated user's information.
     /// </summary>
+    /// <returns>User details including ID, name, email, and phone number. Returns Unauthorized if not authenticated.</returns>
     [Authorize]
     [HttpGet("api/v1/User/UserInfo")]
     public async Task<ActionResult> GetUserInfo()
@@ -56,8 +61,10 @@ public class UserController : ControllerBase
     }
 
     /// <summary>
-    /// Updates user profile information (except password).
+    /// Updates the authenticated user's profile information (excluding password).
     /// </summary>
+    /// <param name="model">The user profile update model containing new details.</param>
+    /// <returns>HTTP 200 if successful, Unauthorized if not authenticated, NotFound if user does not exist, or BadRequest on failure.</returns>
     [Authorize]
     [HttpPatch("api/v1/User/Update")]
     public async Task<ActionResult> UpdateUserInfo([FromBody] UpdateUserModel model)
@@ -99,6 +106,8 @@ public class UserController : ControllerBase
     /// <summary>
     /// Changes the authenticated user's password.
     /// </summary>
+    /// <param name="model">The model containing old password, new password, and confirmation password.</param>
+    /// <returns>HTTP 200 if successful, Unauthorized if not authenticated, NotFound if user does not exist, or BadRequest on failure.</returns>
     [Authorize]
     [HttpPost("api/v1/User/ChangePassword")]
     public async Task<ActionResult> ChangePassword([FromBody] ChangePasswordModel model)

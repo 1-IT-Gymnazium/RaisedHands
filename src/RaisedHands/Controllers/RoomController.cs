@@ -12,6 +12,8 @@ using RaisedHands.Data.Interfaces;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.SignalR;
 using RaisedHands.Api.Hubs;
+using RaisedHands.Api.Models.Questions;
+using RaisedHands.Api.Models.Users;
 
 namespace RaisedHands.Api.Controllers;
 
@@ -35,24 +37,10 @@ public class RoomController : ControllerBase
     }
 
     /// <summary>
-    /// Retrieves a list of all rooms.
+    /// Retrieves a specific room by its ID.
     /// </summary>
-    /// <returns>A list of RoomDetailModel representing all rooms.</returns>
-    [HttpGet("api/v1/Room")]
-    public async Task<ActionResult<IEnumerable<RoomDetailModel>>> GetList()
-    {
-        var dbEntities = await _dbContext
-            .Set<Room>()
-            .ToListAsync();
-
-        return Ok(dbEntities);
-    }
-
-    /// <summary>
-    /// Retrieves the details of a specific room by its ID.
-    /// </summary>
-    /// <param name="id">The unique identifier of the room.</param>
-    /// <returns>The details of the specified room.</returns>
+    /// <param name="id">Room ID.</param>
+    /// <returns>Room details if found, otherwise NotFound.</returns>
     [HttpGet("api/v1/Room/{id}")]
     public async Task<ActionResult<RoomDetailModel>> Get(
    [FromRoute] Guid id
@@ -73,10 +61,10 @@ public class RoomController : ControllerBase
     }
 
     /// <summary>
-    /// Creates a new room and associates it with a specified group.
+    /// Creates a new room.
     /// </summary>
-    /// <param name="model">The model containing details for the new room.</param>
-    /// <returns>A success response upon creation.</returns>
+    /// <param name="model">Room details.</param>
+    /// <returns>HTTP 200 on success.</returns>
     [HttpPost("api/v1/Room")]
     public async Task<ActionResult> Create(
       [FromBody] RoomCreateModel model
@@ -99,93 +87,45 @@ public class RoomController : ControllerBase
     }
 
     /// <summary>
-    /// Updates specific properties of a room using a JSON Patch document.
+    /// Ends an active room.
     /// </summary>
-    /// <param name="id">The unique identifier of the room to update.</param>
-    /// <param name="patch">The JSON Patch document containing the updates.</param>
-    /// <returns>The updated details of the room.</returns>
-    //[HttpPatch("api/v1/Room/{id}")]
-    //public async Task<ActionResult> Update(
-    //    [FromRoute] Guid id,
-    //    [FromBody] JsonPatchDocument<RoomCreateModel> patch
-    //    )
-    //{
-    //    var dbEntity = await _dbContext
-    //        .Set<Room>()
-    //        .FilterDeleted()
-    //        .SingleOrDefaultAsync(x => x.Id == id);
-
-    //    if (dbEntity == null)
-    //    {
-    //        return NotFound();
-    //    }
-
-    //    var toUpdate = dbEntity.ToUpdate();
-
-    //    patch.ApplyTo(toUpdate);
-
-    //    var uniqueCheck = await _dbContext.Set<Room>().AnyAsync(x => x.Name == toUpdate.Name);
-
-    //    if (uniqueCheck)
-    //    {
-    //        ModelState.AddModelError<RoomCreateModel>(x => x.Name, "name is not unique");
-    //    }
-
-    //    if (!(ModelState.IsValid && TryValidateModel(toUpdate)))
-    //    {
-    //        return ValidationProblem(ModelState);
-    //    }
-
-    //    dbEntity.Name = toUpdate.Name;
-
-    //    await _dbContext.SaveChangesAsync();
-
-    //    dbEntity = await _dbContext.Set<Room>().FirstAsync(x => x.Id == id);
-    //    return Ok(dbEntity.ToDetail());
-    //}
+    /// <param name="id">Room ID.</param>
+    /// <param name="patch">Patch document to modify the room.</param>
+    /// <param name="hubContext">SignalR hub context for real-time updates.</param>
+    /// <returns>Updated room details.</returns>
     [HttpPatch("api/v1/Room/{id}/end")]
     public async Task<ActionResult> EndRoom(
-    [FromRoute] Guid id,
-    [FromBody] JsonPatchDocument<Room> patch,
-    [FromServices] IHubContext<QuestionHub> hubContext)
+        [FromRoute] Guid id,
+        [FromBody] JsonPatchDocument<Room> patch,
+        [FromServices] IHubContext<QuestionHub> hubContext)
     {
-        // Fetch the room from the database
-        var room = await _dbContext.Rooms
-            .FirstOrDefaultAsync(r => r.Id == id);
+        var room = await _dbContext.Rooms.FirstOrDefaultAsync(r => r.Id == id);
 
         if (room == null)
         {
             return NotFound("Room not found.");
         }
 
-        // Apply the patch to the room entity
         patch.ApplyTo(room);
 
-        // Set the EndDate automatically if not already set
         if (room.EndDate == null)
         {
-            room.EndDate = DateTime.UtcNow;  // Set EndDate to current time
+            room.EndDate = DateTime.UtcNow;
         }
 
-        // Save the changes to the database
         await _dbContext.SaveChangesAsync();
-
-        // Notify all users in the room that it has ended
         await hubContext.Clients.Group(id.ToString()).SendAsync("RoomClosed");
 
-        // Return the updated room details
-        return Ok(room);  // Return the updated room with EndDate
+        return Ok(room);
     }
 
     /// <summary>
-    /// Soft-deletes a room by marking it as deleted in the database.
+    /// Marks a room as deleted.
     /// </summary>
-    /// <param name="id">The unique identifier of the room to delete.</param>
-    /// <returns>No content if successful.</returns>
+    /// <param name="id">Room ID.</param>
+    /// <returns>HTTP 204 on success, NotFound if room is missing.</returns>
     [HttpDelete("api/v1/Room/{id}")]
-    public async Task<ActionResult> Delete(
-    [FromRoute] Guid id
-)
+    public async Task<ActionResult> Delete([FromRoute] Guid id)
     {
         var dbEntity = await _dbContext
             .Set<Room>()
@@ -201,6 +141,55 @@ public class RoomController : ControllerBase
         await _dbContext.SaveChangesAsync();
 
         return NoContent();
+    }
+
+    [HttpGet("api/v1/Room/{roomId}/UsersQuestionsAndHands")]
+    public async Task<ActionResult<List<UserQuestionsAndHandsRaisedModel>>> GetUsersQuestionsAndHandsInRoom([FromRoute] Guid roomId)
+    {
+        var room = await _dbContext.Set<Room>()
+            .Include(r => r.Group)
+            .ThenInclude(g => g.UserGroups)
+                .ThenInclude(ug => ug.UserRole)
+                    .ThenInclude(ur => ur.User)
+            .FirstOrDefaultAsync(r => r.Id == roomId);
+
+        if (room == null)
+        {
+            return NotFound(new { Message = "Room not found" });
+        }
+
+        var userStats = new List<RoomQuestionsAndHandsRaisedModel>();
+
+        foreach (var userGroup in room.Group.UserGroups)
+        {
+            var userId = userGroup.UserRole.User.Id;
+
+            // Fetch all questions for this user in the room
+            var questions = await _dbContext.Set<Question>()
+                .Where(q => q.RoomId == roomId && q.UserRoleGroup.UserRole.User.Id == userId)
+                .Include(q => q.Room)
+                .ToListAsync();
+
+            // Count of hand raises for this user in the room
+            var handsRaisedCount = await _dbContext.Set<Hand>()
+                .Where(hr => hr.UserRoleGroup.UserRole.User.Id == userId && hr.RoomId == roomId)
+                .CountAsync();
+
+            userStats.Add(new RoomQuestionsAndHandsRaisedModel
+            {
+                UserId = userId,
+                FirstName = userGroup.UserRole.User.FirstName,
+                LastName = userGroup.UserRole.User.LastName,
+                QuestionsAsked = questions.Select(q => new QuestionModel
+                {
+                    QuestionId = q.Id,
+                    Content = q.Text,
+                    RoomName = q.Room.Name
+                }).ToList(),
+                HandsRaisedCount = handsRaisedCount
+            });
+        }
+        return Ok(userStats);
     }
 }
 

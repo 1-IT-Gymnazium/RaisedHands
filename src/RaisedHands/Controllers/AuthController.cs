@@ -49,16 +49,144 @@ public class AuthController : ControllerBase
         _jwtSettings = options.Value;
     }
 
-    // We will also add verion of endpoint into post controller
+    /// <summary>
+    /// Handles the forgot password request.
+    /// </summary>
+    /// <param name="model">The model containing the email of the user who wants to reset their password.</param>
+    /// <returns>An HTTP response indicating success or failure.</returns>
+    [HttpPost("api/v1/Auth/ForgotPassword")]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult> ForgotPassword([FromBody] ForgotPasswordModel model)
+    {
+        var user = await _userManager.FindByEmailAsync(model.Email);
+
+        if (user == null)
+        {
+            ModelState.AddModelError<ForgotPasswordModel>(
+                x => x.Email, "If your email is registered, you will receive a password reset link.");
+            return ValidationProblem(ModelState);
+        }
+
+        var token = await _userManager.GeneratePasswordResetTokenAsync(user);
+
+        await _emailSenderService.AddEmailToSendAsync(
+            model.Email,
+            "Reset Your Password",
+            $@"
+<html>
+<head>
+    <style>
+        body {{
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }}
+        .container {{
+            max-width: 600px;
+            margin: 40px auto;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }}
+        h2 {{
+            color: #333;
+        }}
+        p {{
+            color: #555;
+            font-size: 16px;
+        }}
+        .button {{
+            display: inline-block;
+            background-color: #007bff;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            margin-top: 20px;
+        }}
+        .button:hover {{
+            background-color: #0056b3;
+        }}
+        .footer {{
+            margin-top: 20px;
+            font-size: 12px;
+            color: #777;
+        }}
+    </style>
+</head>
+<body>
+    <div class=""container"">
+        <h2>Reset Your Password</h2>
+        <p>You have requested to reset your password. Click the button below to proceed:</p>
+        <a class=""button"" href=""http://localhost:4200/reset-password?token={{Uri.EscapeDataString(token)}}&email={{model.Email}}"">
+            Reset Password
+        </a>
+        <p class=""footer"">If you did not request this, please ignore this email.</p>
+    </div>
+</body>
+</html>
+"
+        );
+
+        return Ok();
+    }
+
+    /// <summary>
+    /// Handles the reset password request.
+    /// </summary>
+    /// <param name="model">The model containing email, token, and new password.</param>
+    /// <returns>An HTTP response indicating success or failure.</returns>
+    [HttpPost("api/v1/Auth/ResetPassword")]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult> ResetPassword([FromBody] ResetPasswordModel model)
+    {
+        var user = await _userManager.FindByEmailAsync(model.Email);
+
+        if (user == null)
+        {
+            ModelState.AddModelError<ResetPasswordModel>(
+                x => x.Email, "Invalid email or token.");
+            return ValidationProblem(ModelState);
+        }
+
+        var resetResult = await _userManager.ResetPasswordAsync(user, model.Token, model.NewPassword);
+
+        if (!resetResult.Succeeded)
+        {
+            ModelState.AddModelError<ResetPasswordModel>(
+                x => x.NewPassword, string.Join("\n", resetResult.Errors.Select(e => e.Description)));
+            return ValidationProblem(ModelState);
+        }
+
+        return Ok();
+    }
+
+    /// <summary>
+    /// Registers a new user and sends an email confirmation link.
+    /// </summary>
+    /// <param name="model">The registration details including email, name, and password.</param>
+    /// <returns>HTTP 200 if successful, validation errors otherwise.</returns>
     [HttpPost("api/v1/Auth/Register")]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    public async Task<ActionResult> Register(
-       [FromBody] RegisterModel model
-       )
+    public async Task<ActionResult> Register([FromBody] RegisterModel model)
     {
         var validator = new PasswordValidator<User>();
         var now = _clock.GetCurrentInstant();
+
+        // Check if email is already registered
+        var existingUser = await _userManager.FindByEmailAsync(model.Email);
+        if (existingUser != null)
+        {
+            ModelState.AddModelError("Email", "Email is already in use.");
+            return ValidationProblem(ModelState);
+        }
 
         var newUser = new User
         {
@@ -73,96 +201,106 @@ public class AuthController : ControllerBase
 
         if (!checkPassword.Succeeded)
         {
-            ModelState.AddModelError<RegisterModel>(
-                x => x.Password, string.Join("\n", checkPassword.Errors.Select(x => x.Description)));
+            ModelState.AddModelError("Password", string.Join("\n", checkPassword.Errors.Select(x => x.Description)));
             return ValidationProblem(ModelState);
         }
 
-        // Method with SaveChanges()!
+        // Create user and check if creation is successful
         var result = await _userManager.CreateAsync(newUser);
-        // Method with SaveChanges()!
-        await _userManager.AddPasswordAsync(newUser, model.Password);
+        if (!result.Succeeded)
+        {
+            ModelState.AddModelError("UserCreation", "Failed to create user. Please try again.");
+            return ValidationProblem(ModelState);
+        }
 
-        var token = string.Empty;
-        token = await _userManager.GenerateEmailConfirmationTokenAsync(newUser);
+        await _userManager.AddPasswordAsync(newUser, model.Password);
+        var token = await _userManager.GenerateEmailConfirmationTokenAsync(newUser);
 
         await _emailSenderService.AddEmailToSendAsync(
             model.Email,
             "Potvrzení registrace",
             $@"
     <html>
-    <head>
-        <style>
-            body {{
-                font-family: Arial, sans-serif;
-                background-color: #f4f4f4;
-                padding: 20px;
-            }}
-            .container {{
-                max-width: 600px;
-                margin: 0 auto;
-                background: #ffffff;
-                padding: 20px;
-                border-radius: 8px;
-                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-                text-align: center;
-            }}
-            .button {{
-                display: inline-block;
-                padding: 10px 20px;
-                font-size: 16px;
-                color: #fff;
-                background-color: #007bff;
-                text-decoration: none;
-                border-radius: 5px;
-                margin-top: 20px;
-            }}
-            .footer {{
-                margin-top: 20px;
-                font-size: 12px;
-                color: #777;
-            }}
-        </style>
-    </head>
+    <style>
+        body {{
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }}
+        .container {{
+            width: 100%;
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }}
+        h2 {{
+            color: #333;
+        }}
+        p {{
+            color: #666;
+            font-size: 16px;
+        }}
+        .btn {{
+            display: inline-block;
+            background-color: #007bff;
+            color: #ffffff;
+            padding: 12px 20px;
+            text-decoration: none;
+            font-size: 16px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }}
+        .btn:hover {{
+            background-color: #0056b3;
+        }}
+        .footer {{
+            margin-top: 20px;
+            font-size: 12px;
+            color: #999;
+        }}
+    </style>
     <body>
-        <div class='container'>
-            <h2>Potvrzení registrace</h2>
-            <p>Klikněte na tlačítko níže pro potvrzení vaší e-mailové adresy:</p>
-            <a href='http://localhost:4200/confirm?token={Uri.EscapeDataString(token)}&email={model.Email}' class='button'>Potvrdit e-mail</a>
-            <p class='footer'>Pokud jste o registraci nežádali, tento e-mail ignorujte.</p>
-        </div>
+<div class=""container"">
+        <h2>Confirm Your Registration</h2>
+        <p>Click the button below to confirm your email:</p>
+        <a class=""btn"" href='http://localhost:4200/confirm?token={Uri.EscapeDataString(token)}&email={model.Email}'>
+            Confirm Email
+        </a>
+        <p class=""footer"">If you did not request this registration, please ignore this email.</p>
+    </div>
     </body>
     </html>"
         );
-        return Ok();
 
+        return Ok();
     }
 
+    /// <summary>
+    /// Authenticates a user and returns an access token.
+    /// </summary>
+    /// <param name="model">The login credentials.</param>
+    /// <returns>JWT token if successful, validation error otherwise.</returns>
     [HttpPost("api/v1/Auth/Login")]
     public async Task<ActionResult> Login([FromBody] LoginModel model)
     {
         var normalizedEmail = model.Email.ToUpperInvariant();
-        var user = await _userManager
-            .Users
-            .SingleOrDefaultAsync(x => x.NormalizedEmail == normalizedEmail); // Don't filter by EmailConfirmed here, we will handle that separately
+        var user = await _userManager.Users.SingleOrDefaultAsync(x => x.NormalizedEmail == normalizedEmail);
 
-        if (user == null)
+        if (user == null || !user.EmailConfirmed)
         {
-            ModelState.AddModelError(string.Empty, "LOGIN_FAILED");
-            return ValidationProblem(ModelState);
-        }
-
-        // Check if the user's email is confirmed
-        if (!user.EmailConfirmed)
-        {
-            ModelState.AddModelError(string.Empty, "EMAIL_NOT_VERIFIED");
+            ModelState.AddModelError("error", user == null ? "LOGIN_FAILED" : "EMAIL_NOT_VERIFIED");
             return ValidationProblem(ModelState);
         }
 
         var signInResult = await _signInManager.CheckPasswordSignInAsync(user, model.Password, lockoutOnFailure: true);
         if (!signInResult.Succeeded)
         {
-            ModelState.AddModelError(string.Empty, "LOGIN_FAILED");
+            ModelState.AddModelError("error", "LOGIN_FAILED");
             return ValidationProblem(ModelState);
         }
 
@@ -172,7 +310,7 @@ public class AuthController : ControllerBase
         Response.Cookies.Append("RefreshToken", refreshToken, new CookieOptions
         {
             HttpOnly = true,
-            Secure = false, // For HTTPS
+            Secure = false,
             SameSite = SameSiteMode.Strict,
             Expires = DateTime.UtcNow.AddDays(_jwtSettings.RefreshTokenExpirationInDays)
         });
@@ -181,19 +319,15 @@ public class AuthController : ControllerBase
     }
 
     /// <summary>
-    /// unescape token before sending
+    /// Validates a token for email confirmation.
     /// </summary>
-    /// <param name="model"></param>
-    /// <returns></returns>
+    /// <param name="model">The token and email for validation.</param>
+    /// <returns>HTTP 204 if successful, validation errors otherwise.</returns>
     [HttpPost("api/v1/Auth/ValidateToken")]
-    public async Task<ActionResult> ValidateToken(
-        [FromBody] TokenModel model
-        )
+    public async Task<ActionResult> ValidateToken([FromBody] TokenModel model)
     {
         var normalizedMail = model.Email.ToUpperInvariant();
-        var user = await _userManager
-            .Users
-            .SingleOrDefaultAsync(x => !x.EmailConfirmed && x.NormalizedEmail == normalizedMail);
+        var user = await _userManager.Users.SingleOrDefaultAsync(x => !x.EmailConfirmed && x.NormalizedEmail == normalizedMail);
 
         if (user == null)
         {
@@ -211,37 +345,29 @@ public class AuthController : ControllerBase
         return NoContent();
     }
 
+    /// <summary>
+    /// Retrieves authenticated user's information.
+    /// </summary>
+    /// <returns>User details if authenticated, otherwise default values.</returns>
     [AllowAnonymous]
     [HttpGet("api/v1/Auth/UserInfo")]
     public async Task<ActionResult<LoggedUserModel>> GetUserInfo()
     {
         if (!User.Identities.Any(x => x.IsAuthenticated))
         {
-            return new LoggedUserModel
-            {
-                id = default,
-                name = null,
-                email = null,
-                isAuthenticated = false,
-            };
+            return new LoggedUserModel { id = default, name = null, email = null, isAuthenticated = false };
         }
 
         var id = User.GetUserId();
-        var user = await _userManager.Users
-            .Where(x => x.Id == id)
-            .AsNoTracking()
-            .SingleAsync();
+        var user = await _userManager.Users.Where(x => x.Id == id).AsNoTracking().SingleAsync();
 
-        var loggedModel = new LoggedUserModel
-        {
-            id = user.Id,
-            name = user.UserName,
-            isAuthenticated = true,
-            email = user.Email,
-        };
-
-        return loggedModel;
+        return new LoggedUserModel { id = user.Id, name = user.UserName, isAuthenticated = true, email = user.Email };
     }
+
+    /// <summary>
+    /// Refreshes the access token using a refresh token.
+    /// </summary>
+    /// <returns>New access token if successful, Unauthorized otherwise.</returns>
     [HttpPost("api/v1/Auth/Refresh")]
     public async Task<IActionResult> RefreshToken()
     {
@@ -249,37 +375,39 @@ public class AuthController : ControllerBase
         {
             return Unauthorized(new { Message = "Refresh token not found" });
         }
+
         var hashedToken = Hash(incomingToken);
-        var storedToken = await _dbContext.RefreshTokens
-            .FirstOrDefaultAsync(t => t.Token == hashedToken);
+        var storedToken = await _dbContext.RefreshTokens.FirstOrDefaultAsync(t => t.Token == hashedToken);
+
         if (storedToken == null || storedToken.ExpiresAt < _clock.GetCurrentInstant() || storedToken.RevokedAt != null)
         {
             return Unauthorized(new { Message = "Invalid or expired refresh token" });
         }
-        // Generate new access and refresh tokens
+
         var user = await _dbContext.Users.FindAsync(storedToken.UserId);
-        if (user == null)
-        {
-            return Unauthorized();
-        }
-        // Generate new tokens
+        if (user == null) return Unauthorized();
+
         var newAccessToken = GenerateAccessToken(user.Id, user.Email!, user.UserName!, _jwtSettings.AccessTokenExpirationInMinutes);
         var newRefreshToken = await GenerateRefreshTokenAsync(user.Id, _jwtSettings.RefreshTokenExpirationInDays);
+
         storedToken.RevokedAt = _clock.GetCurrentInstant();
         await _dbContext.SaveChangesAsync();
+
         Response.Cookies.Append("RefreshToken", newRefreshToken, new CookieOptions
         {
             HttpOnly = true,
-            Secure = false, // For HTTPS
+            Secure = false,
             SameSite = SameSiteMode.Strict,
             Expires = DateTime.UtcNow.AddDays(_jwtSettings.RefreshTokenExpirationInDays)
         });
-        return Ok(new
-        {
-            Token = newAccessToken,
-        });
+
+        return Ok(new { Token = newAccessToken });
     }
 
+    /// <summary>
+    /// Logs out a user by revoking their refresh token.
+    /// </summary>
+    /// <returns>HTTP 204 on success.</returns>
     [Authorize]
     [HttpPost("api/v1/Auth/Logout")]
     public async Task<ActionResult> Logout()
@@ -288,31 +416,45 @@ public class AuthController : ControllerBase
         {
             return NoContent();
         }
+
         var hashedToken = Hash(incomingToken);
-        var storedToken = await _dbContext.RefreshTokens
-            .FirstOrDefaultAsync(t => t.Token == hashedToken);
+        var storedToken = await _dbContext.RefreshTokens.FirstOrDefaultAsync(t => t.Token == hashedToken);
+
         if (storedToken == null || storedToken.ExpiresAt < _clock.GetCurrentInstant() || storedToken.RevokedAt != null)
         {
             return NoContent();
         }
+
         storedToken.ExpiresAt = _clock.GetCurrentInstant();
         await _dbContext.SaveChangesAsync();
         Response.Cookies.Delete("RefreshToken");
+
         return NoContent();
     }
 
+    /// <summary>
+    /// Tests authentication by returning a success message.
+    /// </summary>
+    /// <returns>Success message if authenticated.</returns>
     [Authorize]
     [HttpGet("api/v1/Auth/TestMeBeforeLoginAndAfter")]
     public ActionResult TestMeBeforeLoginAndAfter()
     {
-        return Ok("Succesfully reached endpoint!");
+        return Ok("Successfully reached endpoint!");
     }
 
+    /// <summary>
+    /// Generates a refresh token for a user and stores it in the database.
+    /// </summary>
+    /// <param name="userId">The unique identifier of the user.</param>
+    /// <param name="expirationInDays">Number of days before the refresh token expires.</param>
+    /// <returns>A newly generated refresh token as a string.</returns>
     private async Task<string> GenerateRefreshTokenAsync(Guid userId, int expirationInDays)
     {
         var refreshToken = Guid.NewGuid().ToString();
         var data = Request.Headers.UserAgent.ToString();
         var now = _clock.GetCurrentInstant();
+
         _dbContext.Add(new RefreshToken
         {
             UserId = userId,
@@ -321,28 +463,46 @@ public class AuthController : ControllerBase
             ExpiresAt = now.Plus(Duration.FromDays(expirationInDays)),
             RequestInfo = data,
         });
+
         await _dbContext.SaveChangesAsync();
         return refreshToken;
     }
+
+    /// <summary>
+    /// Generates a JWT access token for a user.
+    /// </summary>
+    /// <param name="userId">The unique identifier of the user.</param>
+    /// <param name="email">The email of the user.</param>
+    /// <param name="username">The username of the user.</param>
+    /// <param name="expirationInMinutes">The number of minutes before the token expires.</param>
+    /// <returns>A signed JWT access token as a string.</returns>
     private string GenerateAccessToken(Guid userId, string email, string username, int expirationInMinutes)
     {
         var claims = new List<Claim>
-        {
-            new(JwtRegisteredClaimNames.Sub, userId.ToString().ToLowerInvariant()),
-            new(JwtRegisteredClaimNames.Email, email),
-            new(JwtRegisteredClaimNames.Name, username)
-        };
+    {
+        new(JwtRegisteredClaimNames.Sub, userId.ToString().ToLowerInvariant()),
+        new(JwtRegisteredClaimNames.Email, email),
+        new(JwtRegisteredClaimNames.Name, username)
+    };
+
         var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwtSettings.SecretKey));
         var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+
         var token = new JwtSecurityToken(
             issuer: _jwtSettings.Issuer,
             audience: _jwtSettings.Audience,
             claims: claims,
-            expires: DateTime.Now.AddMinutes(expirationInMinutes),
+            expires: DateTime.UtcNow.AddMinutes(expirationInMinutes),
             signingCredentials: creds);
 
         return new JwtSecurityTokenHandler().WriteToken(token);
     }
+
+    /// <summary>
+    /// Hashes a token using SHA-256 for secure storage.
+    /// </summary>
+    /// <param name="token">The token to be hashed.</param>
+    /// <returns>A base64-encoded SHA-256 hash of the input token.</returns>
     public static string Hash(string token)
     {
         var bytes = Encoding.UTF8.GetBytes(token);

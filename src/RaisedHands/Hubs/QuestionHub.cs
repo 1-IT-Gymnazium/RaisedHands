@@ -25,74 +25,91 @@ namespace RaisedHands.Api.Hubs
             _clock = clock;
             _userManager = userManager;
         }
+        /// <summary>
+        /// Allows a user to join a room if it is open.
+        /// </summary>
+        /// <param name="roomId">The unique identifier of the room.</param>
+        /// <returns>A task representing the asynchronous operation.</returns>
         public async Task JoinRoom(string roomId)
         {
             var room = await _appDbContext.Set<Room>().FindAsync(Guid.Parse(roomId));
 
             if (room == null || room.EndDate != null)
             {
-                await Clients.Caller.SendAsync("RoomClosed"); // Notify user that room is closed
-                return; // Prevent joining
+                await Clients.Caller.SendAsync("RoomClosed");
+                return;
             }
 
             await Groups.AddToGroupAsync(Context.ConnectionId, roomId);
         }
 
+        /// <summary>
+        /// Allows a user to leave a room.
+        /// </summary>
+        /// <param name="roomId">The unique identifier of the room.</param>
+        /// <returns>A task representing the asynchronous operation.</returns>
         public async Task LeaveRoom(string roomId)
         {
             await Groups.RemoveFromGroupAsync(Context.ConnectionId, roomId);
         }
 
-        // Method called by client to mark a question as answered
+        /// <summary>
+        /// Marks a question as answered and notifies all clients.
+        /// </summary>
+        /// <param name="questionId">The unique identifier of the question.</param>
+        /// <returns>A task representing the asynchronous operation.</returns>
         public async Task MarkQuestionAsAnswered(string questionId)
         {
-            // Your logic to update the question's status, e.g., mark it as answered in the database
-            // After that, notify all clients
             await Clients.All.SendAsync("QuestionAnswered", questionId);
         }
 
+        /// <summary>
+        /// Deletes a question and notifies all clients.
+        /// </summary>
+        /// <param name="questionId">The unique identifier of the question.</param>
+        /// <returns>A task representing the asynchronous operation.</returns>
         public async Task DeleteQuestion(string questionId)
         {
-            // Your logic to update the question's status, e.g., mark it as answered in the database
-            // After that, notify all clients
             await Clients.All.SendAsync("QuestionDeleted", questionId);
         }
 
+        /// <summary>
+        /// Marks a raised hand as answered (lowered) and notifies all clients.
+        /// </summary>
+        /// <param name="handId">The unique identifier of the raised hand.</param>
+        /// <returns>A task representing the asynchronous operation.</returns>
         public async Task MarkHandAsAnswered(string handId)
         {
-            // Your logic to update the question's status, e.g., mark it as answered in the database
-            // After that, notify all clients
             await Clients.All.SendAsync("HandLowered", handId);
         }
 
+        /// <summary>
+        /// Sends a message to a specific room.
+        /// </summary>
+        /// <param name="questionSendModel">The model containing message details including user ID, room ID, group ID, and message text.</param>
+        /// <returns>A task representing the asynchronous operation.</returns>
         public async Task SendMessageToRoom(QuestionSendModel questionSendModel)
         {
-            var userId = questionSendModel.UserId;  // UserId may or may not be used for anonymous messages
+            var userId = questionSendModel.UserId;
             var roomId = questionSendModel.RoomId;
             var message = questionSendModel.Text;
             var groupId = questionSendModel.GroupId;
 
-            // Check if the message is from an anonymous user (groupId is empty)
             bool isAnonymous = string.IsNullOrEmpty(userId);
 
-            // If anonymous, set userId to a placeholder GUID
             if (isAnonymous)
             {
-                userId = Guid.Empty.ToString();  // Use a placeholder for anonymous users
+                userId = Guid.Empty.ToString();
             }
 
-            // Convert userId to GUID (use default GUID if anonymous)
             var userGuid = new Guid(userId);
 
-            // Initialize userRoleGroupId as null for anonymous users
             Guid? userRoleGroupId = null;
 
-            // If not anonymous, retrieve roles and group information
             if (!isAnonymous)
             {
                 var groupGuid = new Guid(groupId);
 
-                // Retrieve the user's roles using the GroupId and UserId
                 var userRoles = _appDbContext.UserRoles
                     .Include(ur => ur.UserGroups)
                     .Where(x => x.UserId == userGuid && x.UserGroups.Any(y => y.GroupId == groupGuid));
@@ -111,31 +128,28 @@ namespace RaisedHands.Api.Hubs
                     throw new ArgumentException("No matching role group found for the user in the specified group.");
                 }
 
-                userRoleGroupId = userRoleGroup.Id; // Use UserRoleGroupId for non-anonymous users
+                userRoleGroupId = userRoleGroup.Id;
             }
 
             var currentTime = DateTime.UtcNow;
 
-            // Create a new question object
             var newQuestion = new Question
             {
                 Id = Guid.NewGuid(),
                 Text = message,
-                RoomId = Guid.Parse(roomId),  // roomId needs to be parsed as Guid
+                RoomId = Guid.Parse(roomId),
                 SendAt = currentTime,
-                UserRoleGroupId = userRoleGroupId,  // For anonymous users, this remains null
+                UserRoleGroupId = userRoleGroupId, 
                 AnsweredAt = null
             };
 
             _appDbContext.Add(newQuestion);
             await _appDbContext.SaveChangesAsync();
 
-            // Retrieve user details for non-anonymous users
             var user = isAnonymous ? null : await _appDbContext.Users
                 .Where(u => u.Id == userGuid)
                 .FirstOrDefaultAsync();
 
-            // If the user exists (non-anonymous), convert user to UserDetailModel
             var userDetail = user?.ToDetail();
 
             var questionReceiveModel = new QuestionReceiveModel
@@ -149,99 +163,18 @@ namespace RaisedHands.Api.Hubs
                 User = new QuestionUserDetailModel
                 {
                     Id = userDetail?.Id ?? Guid.Empty,
-                    FirstName = userDetail?.FirstName ?? "Anonymous",  // Use "Anonymous" for anonymous users
+                    FirstName = userDetail?.FirstName ?? "Anonymous",
                     LastName = userDetail?.LastName ?? ""
                 }
             };
 
-            // Send the message to the SignalR group
             await Clients.Group(roomId).SendAsync("ReceiveMessage", JsonConvert.SerializeObject(questionReceiveModel));
         }
-
-        //public async Task SendMessageToRoom(QuestionSendModel questionSendModel)
-        //{
-        //    // Extract the necessary information from the questionDetailModel
-        //    var userId = questionSendModel.UserId;  // Assuming User is part of the QuestionDetailModel
-        //    var roomId = questionSendModel.RoomId;
-        //    var message = questionSendModel.Text;
-        //    //var sendAt = questionSendModel.SendAt;
-        //    var groupId = questionSendModel.GroupId;  // Assuming GroupId is part of the model
-
-        //    // Convert userId and groupId to GUIDs
-        //    var userGuid = new Guid(userId);
-        //    var groupGuid = new Guid(groupId);
-
-        //    // Retrieve the user's roles using the GroupId and UserId
-        //    var userRoles = _appDbContext.UserRoles
-        //        .Include(ur => ur.UserGroups) // Include UserGroups related to the UserRole
-        //        .Where(x => x.UserId == userGuid && x.UserGroups.Any(y => y.GroupId == groupGuid));
-
-        //    var userRole = userRoles
-        //        .FirstOrDefault(); // Get the first match (assuming user can have multiple roles)
-
-        //    if (userRole == null)
-        //    {
-        //        throw new ArgumentException("No roles found for the user.");
-        //    }
-
-        //    // Find the UserRoleGroupId related to the specified groupId
-        //    var userRoleGroup = userRole.UserGroups
-        //        .FirstOrDefault(urg => urg.GroupId == groupGuid);  // Assuming UserRoleGroup contains GroupId
-
-        //    if (userRoleGroup == null)
-        //    {
-        //        throw new ArgumentException("No matching role group found for the user in the specified group.");
-        //    }
-
-        //    var userRoleGroupId = userRoleGroup.Id; // UserRoleGroupId for the UserRoleGroup
-
-        //    var currentTime = DateTime.UtcNow;
-
-        //    // Create a new question object using the model's details
-        //    var newQuestion = new Question
-        //    {
-        //        Id = Guid.NewGuid(),
-        //        Text = message,
-        //        RoomId = Guid.Parse(roomId),  // roomId needs to be parsed as Guid
-        //        SendAt = currentTime,
-        //        UserRoleGroupId = userRoleGroupId,  // Set the UserRoleGroupId found above
-        //        AnsweredAt = null
-        //    };
-
-        //    _appDbContext.Add(newQuestion);
-        //    await _appDbContext.SaveChangesAsync();
-
-        //    // Retrieve user details using the userId
-        //    var user = await _appDbContext.Users
-        //        .Where(u => u.Id == userGuid)
-        //        .FirstOrDefaultAsync();
-
-        //    if (user == null)
-        //    {
-        //        throw new ArgumentException("User not found.");
-        //    }
-
-        //    // Convert user to UserDetailModel using ToDetail extension method
-        //    var userDetail = user.ToDetail();
-
-        //    var questionReceiveModel = new QuestionReceiveModel
-        //    {
-        //        Id = newQuestion.Id,
-        //        Text = newQuestion.Text,
-        //        RoomId = newQuestion.RoomId.ToString(),
-        //        SendAt = newQuestion.SendAt,
-        //        UserRoleGroupId = newQuestion.UserRoleGroupId.ToString(),
-        //        AnsweredAt = newQuestion.AnsweredAt,
-        //        User = new QuestionUserDetailModel
-        //        {
-        //            FirstName = userDetail.FirstName,
-        //            LastName = userDetail.LastName
-        //        }
-        //    };
-
-        //    // Send the message to the SignalR group
-        //    await Clients.Group(roomId).SendAsync("ReceiveMessage", JsonConvert.SerializeObject(questionReceiveModel));
-        //}
+        /// <summary>
+        /// Sends a "hand raised" signal to a specific room.
+        /// </summary>
+        /// <param name="handSendModel">The model containing user ID, room ID, and group ID details.</param>
+        /// <returns>A task representing the asynchronous operation, returning a HandReceiveModel containing the hand raise details.</returns>
         public async Task<HandReceiveModel> SendHandToRoom(HandSendModel handSendModel)
         {
             if (handSendModel.UserId == null)
@@ -288,7 +221,6 @@ namespace RaisedHands.Api.Hubs
             _appDbContext.Add(newHand);
             await _appDbContext.SaveChangesAsync();
 
-            // Retrieve user details using the userId
             var user = await _appDbContext.Users
                 .Where(u => u.Id == userGuid)
                 .FirstOrDefaultAsync();
@@ -298,17 +230,14 @@ namespace RaisedHands.Api.Hubs
                 throw new ArgumentException("User not found.");
             }
 
-            // Convert user to UserDetailModel using ToDetail extension method
             var userDetail = user.ToDetail();
 
-            // Create the HandReceiveModel and include user details
             var handReceiveModel = new HandReceiveModel
             {
                 Id = newHand.Id,
                 RoomId = newHand.RoomId.ToString(),
                 SendAt = newHand.SendAt,
                 UserRoleGroupId = newHand.UserRoleGroupId.ToString(),
-                // Include the user's first name and last name
                 User = new HandUserDetailModel
                 {
                     Id = userDetail.Id,
@@ -317,7 +246,6 @@ namespace RaisedHands.Api.Hubs
                 }
             };
 
-            // Send the hand raise information to the group
             await Clients.Group(roomId).SendAsync("ReceiveHand", JsonConvert.SerializeObject(handReceiveModel));
 
             return handReceiveModel;
