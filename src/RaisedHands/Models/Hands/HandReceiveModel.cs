@@ -1,4 +1,6 @@
 using Newtonsoft.Json;
+using RaisedHands.Api.Models.Users;
+using RaisedHands.Data.Entities;
 using System.Text.Json.Serialization;
 
 namespace RaisedHands.Api.Models.Hands
@@ -20,7 +22,6 @@ namespace RaisedHands.Api.Models.Hands
         [JsonProperty("answeredAt")]
         public DateTime? AnsweredAt { get; set; }
 
-        // Add properties for user's first and last name
         [JsonProperty("user")]
         public HandUserDetailModel User { get; set; } = null!;
     }
@@ -36,4 +37,25 @@ namespace RaisedHands.Api.Models.Hands
         [JsonProperty("lastName")]
         public string LastName { get; set; } = null!;
     }
+    public static class HandReceiveModelExtensions
+    {
+        public static HandReceiveModel ToReceiveModel(this Hand hand)
+        {
+            return new HandReceiveModel
+            {
+                Id = hand.Id,
+                RoomId = hand.RoomId.ToString(),
+                UserRoleGroupId = hand.UserRoleGroupId.ToString(),
+                SendAt = hand.SendAt,
+                AnsweredAt = hand.AnsweredAt,
+                User = new HandUserDetailModel
+                {
+                    Id = hand.UserRoleGroup.UserRole.User.Id,
+                    FirstName = hand.UserRoleGroup.UserRole.User.FirstName,
+                    LastName = hand.UserRoleGroup.UserRole.User.LastName
+                }
+            };
+        }
+    }
 }
+

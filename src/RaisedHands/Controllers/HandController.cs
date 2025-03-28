@@ -30,7 +30,7 @@ public class HandController : ControllerBase
         _clock = clock;
         _dbContext = dbContext;
     }
-   
+
     /// <summary>
     /// Retrieves all raised hands for a specific room.
     /// </summary>
@@ -41,25 +41,19 @@ public class HandController : ControllerBase
     {
         var dbEntities = await _dbContext
             .Set<Hand>()
+            .Include(x => x.UserRoleGroup)
+                .ThenInclude(urg => urg.UserRole)
+                    .ThenInclude(ur => ur.User)
             .Where(x => x.RoomId == roomId)
             .OrderBy(q => q.SendAt)
-            .Select(x => new HandReceiveModel
-            {
-                Id = x.Id,
-                RoomId = x.RoomId.ToString(),
-                UserRoleGroupId = x.UserRoleGroupId.ToString(),
-                SendAt = x.SendAt,
-                AnsweredAt = x.AnsweredAt,
-                User = new HandUserDetailModel
-                {
-                    Id = x.UserRoleGroup.UserRole.User.Id,
-                    FirstName = x.UserRoleGroup.UserRole.User.FirstName,
-                    LastName = x.UserRoleGroup.UserRole.User.LastName
-                }
-            })
             .ToListAsync();
 
-        return Ok(dbEntities);
+        var result = dbEntities
+            .Where(x => x.UserRoleGroup?.UserRole?.User != null)
+            .Select(x => x.ToReceiveModel())
+            .ToList();
+
+        return Ok(result);
     }
 
     /// <summary>
@@ -67,7 +61,7 @@ public class HandController : ControllerBase
     /// </summary>
     /// <param name="handId">The ID of the raised hand.</param>
     /// <returns>HTTP 200 on success, NotFound if the hand does not exist.</returns>
-    [HttpPatch("api/v1/Hand/{handId}/answered")]
+    [HttpPatch("api/v1/Hand/{handId}/Answered")]
     public async Task<ActionResult> UpdateAnsweredAt([FromRoute] Guid handId)
     {
         var hand = await _dbContext.Set<Hand>().FirstOrDefaultAsync(q => q.Id == handId);
@@ -80,7 +74,6 @@ public class HandController : ControllerBase
         hand.AnsweredAt = DateTime.UtcNow;
         await _dbContext.SaveChangesAsync();
 
-        Console.WriteLine($"📢 Sending HandLowered event for {handId}");
         await _hubContext.Clients.All.SendAsync("HandLowered", handId, hand.AnsweredAt);
 
         return Ok(new { Message = "Hand updated successfully.", AnsweredAt = hand.AnsweredAt });
