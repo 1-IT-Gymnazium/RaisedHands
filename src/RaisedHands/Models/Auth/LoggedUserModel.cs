@@ -2,11 +2,11 @@ namespace RaisedHands.Api.Models.Auth;
 
 public class LoggedUserModel
 {
-    public Guid id { get; set; }
+    public Guid Id { get; set; }
 
-    public string? email { get; set; }
+    public string? Email { get; set; }
 
-    public string? name { get; set; } = string.Empty;
+    public string? Name { get; set; } = string.Empty;
 
-    public bool isAuthenticated { get; set; }
+    public bool IsAuthenticated { get; set; }
 }

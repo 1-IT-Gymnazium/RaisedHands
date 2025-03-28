@@ -1,5 +1,7 @@
 using Newtonsoft.Json;
 using RaisedHands.Api.Models.Hands;
+using RaisedHands.Api.Models.Users;
+using RaisedHands.Data.Entities;
 using System.Text.Json.Serialization;
 
 namespace RaisedHands.Api.Models.Questions;
@@ -34,12 +36,58 @@ public class QuestionReceiveModel
 public class QuestionUserDetailModel
 {
     [JsonProperty("id")]
-    public Guid Id { get; set; } 
+    public Guid Id { get; set; }
 
     [JsonProperty("firstName")]
     public string FirstName { get; set; } = null!;
 
     [JsonProperty("lastName")]
     public string LastName { get; set; } = null!;
+}
+public static class QuestionExtensions
+{
+    public static QuestionReceiveModel ToReceiveModel(this Question question, UserDetailModel? userDetail = null)
+    {
+        QuestionUserDetailModel userModel;
+
+        if (userDetail != null)
+        {
+            userModel = new QuestionUserDetailModel
+            {
+                Id = userDetail.Id,
+                FirstName = userDetail.FirstName,
+                LastName = userDetail.LastName
+            };
+        }
+        else if (question.UserRoleGroup?.UserRole?.User != null)
+        {
+            var user = question.UserRoleGroup.UserRole.User;
+            userModel = new QuestionUserDetailModel
+            {
+                Id = user.Id,
+                FirstName = user.FirstName,
+                LastName = user.LastName
+            };
+        }
+        else
+        {
+            userModel = new QuestionUserDetailModel
+            {
+                FirstName = "Anonymous",
+                LastName = ""
+            };
+        }
+
+        return new QuestionReceiveModel
+        {
+            Id = question.Id,
+            RoomId = question.RoomId.ToString(),
+            Text = question.Text,
+            UserRoleGroupId = question.UserRoleGroupId?.ToString(),
+            SendAt = question.SendAt,
+            AnsweredAt = question.AnsweredAt,
+            User = userModel
+        };
+    }
 }
 

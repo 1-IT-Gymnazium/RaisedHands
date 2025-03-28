@@ -17,6 +17,6 @@ public  class UserRole:IdentityUserRole<Guid>
 
     public Role Role { get; set; } = null!;
 
-    public ICollection<UserRoleGroup> UserGroups { get; set; } = [];
+    public ICollection<UserRoleGroup> UserRoleGroups { get; set; } = [];
 
 }

@@ -74,11 +74,9 @@ public class EmailSenderService
             }
             catch (Exception ex)
             {
-                // log error, notify someone
             }
             finally
             {
-                // nothing to do right now
             }
         }
     }

@@ -1,7 +1,4 @@
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
@@ -23,6 +20,7 @@ using System.Security.Cryptography;
 using System.Text;
 
 namespace RaisedHands.Api.Controllers;
+
 [ApiController]
 public class AuthController : ControllerBase
 {
@@ -50,10 +48,10 @@ public class AuthController : ControllerBase
     }
 
     /// <summary>
-    /// Handles the forgot password request.
+    /// Initiates the forgot password process by generating a reset token and sending an email with a reset link.
     /// </summary>
-    /// <param name="model">The model containing the email of the user who wants to reset their password.</param>
-    /// <returns>An HTTP response indicating success or failure.</returns>
+    /// <param name="model">The email address of the user requesting the password reset.</param>
+    /// <returns>Always returns 200 OK, regardless of whether the email exists, to avoid account enumeration.</returns>
     [HttpPost("api/v1/Auth/ForgotPassword")]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -137,10 +135,13 @@ public class AuthController : ControllerBase
     }
 
     /// <summary>
-    /// Handles the reset password request.
+    /// Resets the user's password using the provided reset token.
     /// </summary>
-    /// <param name="model">The model containing email, token, and new password.</param>
-    /// <returns>An HTTP response indicating success or failure.</returns>
+    /// <param name="model">The reset model containing email, token, and new password.</param>
+    /// <returns>
+    /// 200 OK if the password was successfully reset.<br/>
+    /// 400 Bad Request if the token is invalid or password validation fails.
+    /// </returns>
     [HttpPost("api/v1/Auth/ResetPassword")]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -168,10 +169,13 @@ public class AuthController : ControllerBase
     }
 
     /// <summary>
-    /// Registers a new user and sends an email confirmation link.
+    /// Registers a new user and sends an email confirmation link to verify the account.
     /// </summary>
-    /// <param name="model">The registration details including email, name, and password.</param>
-    /// <returns>HTTP 200 if successful, validation errors otherwise.</returns>
+    /// <param name="model">The registration data: email, name, and password.</param>
+    /// <returns>
+    /// 200 OK on success.<br/>
+    /// 400 Bad Request if validation fails or the email is already in use.
+    /// </returns>
     [HttpPost("api/v1/Auth/Register")]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -180,7 +184,6 @@ public class AuthController : ControllerBase
         var validator = new PasswordValidator<User>();
         var now = _clock.GetCurrentInstant();
 
-        // Check if email is already registered
         var existingUser = await _userManager.FindByEmailAsync(model.Email);
         if (existingUser != null)
         {
@@ -281,10 +284,13 @@ public class AuthController : ControllerBase
     }
 
     /// <summary>
-    /// Authenticates a user and returns an access token.
+    /// Authenticates a user and issues a JWT access token and a secure refresh token.
     /// </summary>
-    /// <param name="model">The login credentials.</param>
-    /// <returns>JWT token if successful, validation error otherwise.</returns>
+    /// <param name="model">The login credentials (email and password).</param>
+    /// <returns>
+    /// 200 OK with an access token.<br/>
+    /// 400 Bad Request if login fails or the email is unconfirmed.
+    /// </returns>
     [HttpPost("api/v1/Auth/Login")]
     public async Task<ActionResult> Login([FromBody] LoginModel model)
     {
@@ -319,10 +325,13 @@ public class AuthController : ControllerBase
     }
 
     /// <summary>
-    /// Validates a token for email confirmation.
+    /// Validates and confirms a user's email using the confirmation token sent after registration.
     /// </summary>
-    /// <param name="model">The token and email for validation.</param>
-    /// <returns>HTTP 204 if successful, validation errors otherwise.</returns>
+    /// <param name="model">Contains the email and confirmation token.</param>
+    /// <returns>
+    /// 204 No Content if the email is confirmed successfully.<br/>
+    /// 400 Bad Request if the token is invalid.
+    /// </returns>
     [HttpPost("api/v1/Auth/ValidateToken")]
     public async Task<ActionResult> ValidateToken([FromBody] TokenModel model)
     {
@@ -346,28 +355,34 @@ public class AuthController : ControllerBase
     }
 
     /// <summary>
-    /// Retrieves authenticated user's information.
+    /// Retrieves information about the currently authenticated user.
     /// </summary>
-    /// <returns>User details if authenticated, otherwise default values.</returns>
+    /// <returns>
+    /// 200 OK with user details if authenticated.<br/>
+    /// If unauthenticated, returns a default model with IsAuthenticated = false.
+    /// </returns>
     [AllowAnonymous]
     [HttpGet("api/v1/Auth/UserInfo")]
     public async Task<ActionResult<LoggedUserModel>> GetUserInfo()
     {
         if (!User.Identities.Any(x => x.IsAuthenticated))
         {
-            return new LoggedUserModel { id = default, name = null, email = null, isAuthenticated = false };
+            return new LoggedUserModel { Id = default, Name = null, Email = null, IsAuthenticated = false };
         }
 
         var id = User.GetUserId();
         var user = await _userManager.Users.Where(x => x.Id == id).AsNoTracking().SingleAsync();
 
-        return new LoggedUserModel { id = user.Id, name = user.UserName, isAuthenticated = true, email = user.Email };
+        return new LoggedUserModel { Id = user.Id, Name = user.UserName, IsAuthenticated = true, Email = user.Email };
     }
 
     /// <summary>
-    /// Refreshes the access token using a refresh token.
+    /// Refreshes the JWT access token using a valid refresh token cookie.
     /// </summary>
-    /// <returns>New access token if successful, Unauthorized otherwise.</returns>
+    /// <returns>
+    /// 200 OK with a new access token.<br/>
+    /// 401 Unauthorized if the refresh token is missing, expired, or invalid.
+    /// </returns>
     [HttpPost("api/v1/Auth/Refresh")]
     public async Task<IActionResult> RefreshToken()
     {
@@ -405,9 +420,9 @@ public class AuthController : ControllerBase
     }
 
     /// <summary>
-    /// Logs out a user by revoking their refresh token.
+    /// Logs out the current user by invalidating their refresh token and clearing the cookie.
     /// </summary>
-    /// <returns>HTTP 204 on success.</returns>
+    /// <returns>204 No Content whether or not a valid token existed.</returns>
     [Authorize]
     [HttpPost("api/v1/Auth/Logout")]
     public async Task<ActionResult> Logout()
@@ -430,17 +445,6 @@ public class AuthController : ControllerBase
         Response.Cookies.Delete("RefreshToken");
 
         return NoContent();
-    }
-
-    /// <summary>
-    /// Tests authentication by returning a success message.
-    /// </summary>
-    /// <returns>Success message if authenticated.</returns>
-    [Authorize]
-    [HttpGet("api/v1/Auth/TestMeBeforeLoginAndAfter")]
-    public ActionResult TestMeBeforeLoginAndAfter()
-    {
-        return Ok("Successfully reached endpoint!");
     }
 
     /// <summary>

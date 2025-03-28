@@ -30,57 +30,7 @@ public class HandController : ControllerBase
         _clock = clock;
         _dbContext = dbContext;
     }
-    /// <summary>
-    /// Creates a new hand raise entry using RoomId and UserRoleGroupId from cookies.
-    /// </summary>
-    /// <param name="model">The hand creation model.</param>
-    /// <returns>HTTP 200 if created successfully, BadRequest or NotFound otherwise.</returns>
-    [HttpPost("api/v1/Hand")]
-    public async Task<ActionResult> Create([FromBody] QuestionCreateModel model)
-    {
-        var now = _clock.GetCurrentInstant();
-
-        var roomIdFromCookie = HttpContext.Request.Cookies["RoomId"];
-        var userRoleGroupIdFromCookie = HttpContext.Request.Cookies["UserRoleGroupId"];
-
-        if (string.IsNullOrEmpty(roomIdFromCookie) || string.IsNullOrEmpty(userRoleGroupIdFromCookie))
-        {
-            return BadRequest(new { Message = "RoomId or UserRoleGroupId not found in cookies or request" });
-        }
-
-        model.RoomId = Guid.Parse(roomIdFromCookie);
-        model.UserRoleGroupId = Guid.Parse(userRoleGroupIdFromCookie);
-
-        var roomExists = await _dbContext.Set<Room>().AnyAsync(r => r.Id == model.RoomId);
-        if (!roomExists)
-        {
-            return NotFound(new { Message = "Specified room does not exist" });
-        }
-
-        var userGroupExists = await _dbContext.Set<UserRoleGroup>().AnyAsync(ug => ug.Id == model.UserRoleGroupId);
-        if (!userGroupExists)
-        {
-            return NotFound(new { Message = "Specified user group does not exist" });
-        }
-
-        var newQuestion = new Question
-        {
-            Id = Guid.NewGuid(),
-            Text = model.Text,
-            RoomId = model.RoomId,
-            UserRoleGroupId = model.UserRoleGroupId,
-            AnsweredAt = null,
-            SendAt = DateTime.UtcNow
-        };
-
-        _dbContext.Add(newQuestion);
-        await _dbContext.SaveChangesAsync();
-
-        await _hubContext.Clients.All.SendAsync("NewHandAdded", newQuestion);
-
-        return Ok();
-    }
-
+   
     /// <summary>
     /// Retrieves all raised hands for a specific room.
     /// </summary>

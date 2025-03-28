@@ -1,10 +1,5 @@
 using NodaTime;
 using RaisedHands.Data.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RaisedHands.Data.Entities
 {
@@ -18,7 +13,7 @@ namespace RaisedHands.Data.Entities
 
         public ICollection<Room> Rooms { get; set; } = new HashSet<Room>();
 
-        public ICollection<UserRoleGroup> UserGroups { get; set; } = [];
+        public ICollection<UserRoleGroup> UserRoleGroups { get; set; } = [];
 
         public Guid OwnerId { get; set; }
         public User Owner { get; set; } = null!;

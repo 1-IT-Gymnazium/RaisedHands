@@ -4,7 +4,6 @@ namespace RaisedHands.Api.Models.Questions;
 
 public class QuestionSendModel
 {
-
     public string RoomId { get; set; } = null!;
 
     public string Text { get; set; } = null!;

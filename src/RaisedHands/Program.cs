@@ -23,7 +23,6 @@ public class Program
     {
         var builder = WebApplication.CreateBuilder(args);
 
-        // Add services to the container.
         builder.Services.AddDbContext<AppDbContext>(options =>
         {
             options.UseNpgsql(builder.Configuration.GetValue<string>("ConnectionStrings:DefaultConnection"), options =>
@@ -75,31 +74,28 @@ public class Program
 
         builder.Services.AddSingleton<IClock>(SystemClock.Instance);
         builder.Services.AddScoped<EmailSenderService>();
+        builder.Services.AddScoped<UserService>();
         builder.Services.AddHostedService<EmailSenderBackgroundService>();
         builder.Services.Configure<SmtpSettings>(builder.Configuration.GetSection("SmtpSettings"));
         builder.Services.AddControllers()
             .AddNewtonsoftJson();
 
-        // Register SignalR
         builder.Services.AddSignalR();
 
-        // CORS Configuration (Added)
         builder.Services.AddCors(options =>
         {
             options.AddPolicy("AllowAngular", policy =>
-                policy.WithOrigins("http://localhost:4200") // Allow frontend Angular app origin
+                policy.WithOrigins("http://localhost:4200")
                       .AllowAnyMethod()
                       .AllowAnyHeader()
                       .AllowCredentials());
         });
 
-        // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen(options =>
         {
             options.SwaggerDoc("v1", new OpenApiInfo { Title = "JWT API", Version = "v1" });
 
-            // Configure JWT Authentication in Swagger
             options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
             {
                 Name = "Authorization",
@@ -128,19 +124,17 @@ public class Program
 
         var app = builder.Build();
 
-        // Configure the HTTP request pipeline.
         if (app.Environment.IsDevelopment())
         {
             app.UseSwagger();
             app.UseSwaggerUI();
         }
 
-        app.UseCors("AllowAngular"); // Apply CORS policy to allow Angular frontend
+        app.UseCors("AllowAngular");
 
         app.UseAuthentication();
         app.UseAuthorization();
 
-        // Map the SignalR hub
         app.MapHub<QuestionHub>("/questionHub");
 
         app.MapControllers();

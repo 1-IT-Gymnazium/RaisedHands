@@ -111,8 +111,8 @@ namespace RaisedHands.Api.Hubs
                 var groupGuid = new Guid(groupId);
 
                 var userRoles = _appDbContext.UserRoles
-                    .Include(ur => ur.UserGroups)
-                    .Where(x => x.UserId == userGuid && x.UserGroups.Any(y => y.GroupId == groupGuid));
+                    .Include(ur => ur.UserRoleGroups)
+                    .Where(x => x.UserId == userGuid && x.UserRoleGroups.Any(y => y.GroupId == groupGuid));
 
                 var userRole = userRoles.FirstOrDefault();
 
@@ -121,7 +121,7 @@ namespace RaisedHands.Api.Hubs
                     throw new ArgumentException("No roles found for the user.");
                 }
 
-                var userRoleGroup = userRole.UserGroups.FirstOrDefault(urg => urg.GroupId == groupGuid);
+                var userRoleGroup = userRole.UserRoleGroups.FirstOrDefault(urg => urg.GroupId == groupGuid);
 
                 if (userRoleGroup == null)
                 {
@@ -139,7 +139,7 @@ namespace RaisedHands.Api.Hubs
                 Text = message,
                 RoomId = Guid.Parse(roomId),
                 SendAt = currentTime,
-                UserRoleGroupId = userRoleGroupId, 
+                UserRoleGroupId = userRoleGroupId,
                 AnsweredAt = null
             };
 
@@ -190,8 +190,8 @@ namespace RaisedHands.Api.Hubs
             var groupGuid = new Guid(groupId);
 
             var userRoles = _appDbContext.UserRoles
-                .Include(ur => ur.UserGroups)
-                .Where(x => x.UserId == userGuid && x.UserGroups.Any(y => y.GroupId == groupGuid));
+                .Include(ur => ur.UserRoleGroups)
+                .Where(x => x.UserId == userGuid && x.UserRoleGroups.Any(y => y.GroupId == groupGuid));
 
             var userRole = userRoles.FirstOrDefault();
 
@@ -200,7 +200,7 @@ namespace RaisedHands.Api.Hubs
                 throw new ArgumentException("No roles found for the user.");
             }
 
-            var userRoleGroup = userRole.UserGroups.FirstOrDefault(urg => urg.GroupId == groupGuid);
+            var userRoleGroup = userRole.UserRoleGroups.FirstOrDefault(urg => urg.GroupId == groupGuid);
 
             if (userRoleGroup == null)
             {

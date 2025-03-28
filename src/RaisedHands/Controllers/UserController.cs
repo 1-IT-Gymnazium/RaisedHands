@@ -11,9 +11,7 @@ namespace RaisedHands.Api.Controllers;
 
 public class UserController : ControllerBase
 {
-    private readonly AppDbContext _dbContext;
     private readonly UserManager<User> _userManager;
-    private readonly SignInManager<User> _signInManager;
 
     public UserController(
         AppDbContext dbContext,
@@ -21,15 +19,20 @@ public class UserController : ControllerBase
         SignInManager<User> signInManager
         )
     {
-        _dbContext = dbContext;
         _userManager = userManager;
-        _signInManager = signInManager;
     }
 
     /// <summary>
-    /// Retrieves the currently authenticated user's information.
+    /// Retrieves the currently authenticated user's profile information.
     /// </summary>
-    /// <returns>User details including ID, name, email, and phone number. Returns Unauthorized if not authenticated.</returns>
+    /// <remarks>
+    /// The user must be logged in and authenticated via JWT or cookie.
+    /// </remarks>
+    /// <returns>
+    /// 200 OK with <see cref="UserInfoModel"/> if successful.<br/>
+    /// 401 Unauthorized if the user is not authenticated.<br/>
+    /// 404 Not Found if the user does not exist in the system.
+    /// </returns>
     [Authorize]
     [HttpGet("api/v1/User/UserInfo")]
     public async Task<ActionResult> GetUserInfo()
@@ -41,30 +44,30 @@ public class UserController : ControllerBase
         }
 
         var user = await _userManager.Users
-            .Where(x => x.Id.ToString() == userId)
-            .Select(u => new
-            {
-                u.Id,
-                u.FirstName,
-                u.LastName,
-                u.Email,
-                u.PhoneNumber
-            })
-            .FirstOrDefaultAsync();
+                .Where(x => x.Id.ToString() == userId)
+                .FirstOrDefaultAsync();
 
         if (user == null)
         {
             return NotFound(new { message = "User not found" });
         }
 
-        return Ok(user);
+        return Ok(user.ToUserInfo());
     }
 
     /// <summary>
-    /// Updates the authenticated user's profile information (excluding password).
+    /// Updates the profile details of the currently authenticated user, excluding their password.
     /// </summary>
-    /// <param name="model">The user profile update model containing new details.</param>
-    /// <returns>HTTP 200 if successful, Unauthorized if not authenticated, NotFound if user does not exist, or BadRequest on failure.</returns>
+    /// <remarks>
+    /// Only fields such as first name, last name, and email can be updated. If the email is changed, the username will also be updated.
+    /// </remarks>
+    /// <param name="model">An instance of <see cref="UpdateUserModel"/> containing the new user data.</param>
+    /// <returns>
+    /// 200 OK if the update is successful.<br/>
+    /// 401 Unauthorized if the user is not authenticated.<br/>
+    /// 404 Not Found if the user does not exist.<br/>
+    /// 400 Bad Request if the update fails validation or saving.
+    /// </returns>
     [Authorize]
     [HttpPatch("api/v1/User/Update")]
     public async Task<ActionResult> UpdateUserInfo([FromBody] UpdateUserModel model)
@@ -83,14 +86,13 @@ public class UserController : ControllerBase
 
         bool emailChanged = user.Email != model.Email;
 
-        // Update user properties
         user.FirstName = model.FirstName;
         user.LastName = model.LastName;
         user.Email = model.Email;
 
         if (emailChanged)
         {
-            user.UserName = model.Email; // ✅ Update username if email is changed
+            user.UserName = model.Email;
         }
 
         var result = await _userManager.UpdateAsync(user);
@@ -104,10 +106,18 @@ public class UserController : ControllerBase
     }
 
     /// <summary>
-    /// Changes the authenticated user's password.
+    /// Changes the password of the currently authenticated user.
     /// </summary>
-    /// <param name="model">The model containing old password, new password, and confirmation password.</param>
-    /// <returns>HTTP 200 if successful, Unauthorized if not authenticated, NotFound if user does not exist, or BadRequest on failure.</returns>
+    /// <remarks>
+    /// The user must provide their current password along with a new password. The password will be changed only if the current one is verified successfully.
+    /// </remarks>
+    /// <param name="model">An instance of <see cref="ChangePasswordModel"/> containing the old and new password values.</param>
+    /// <returns>
+    /// 200 OK if the password is changed successfully.<br/>
+    /// 401 Unauthorized if the user is not authenticated.<br/>
+    /// 404 Not Found if the user does not exist.<br/>
+    /// 400 Bad Request if the current password is incorrect or validation fails.
+    /// </returns>
     [Authorize]
     [HttpPost("api/v1/User/ChangePassword")]
     public async Task<ActionResult> ChangePassword([FromBody] ChangePasswordModel model)
@@ -122,11 +132,6 @@ public class UserController : ControllerBase
         if (user == null)
         {
             return NotFound(new { message = "User not found" });
-        }
-
-        if (model.NewPassword != model.ConfirmPassword)
-        {
-            return BadRequest(new { message = "New passwords do not match" });
         }
 
         var result = await _userManager.ChangePasswordAsync(user, model.OldPassword, model.NewPassword);

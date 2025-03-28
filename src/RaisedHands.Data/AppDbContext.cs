@@ -10,7 +10,6 @@ namespace RaisedHands.Data;
 
 public class AppDbContext : IdentityDbContext<User, Role, Guid, IdentityUserClaim<Guid>, UserRole, IdentityUserLogin<Guid>, IdentityRoleClaim<Guid>, IdentityUserToken<Guid>>
 {
-
     public DbSet<Room> Rooms { get; set; } = null!;
 
     public DbSet<Question> Questions { get; set; } = null!;
@@ -19,11 +18,11 @@ public class AppDbContext : IdentityDbContext<User, Role, Guid, IdentityUserClai
 
     public DbSet<Group> Groups { get; set; } = null!;
 
-    public DbSet<UserRoleGroup> UserGroups { get; set; } = null!;
+    public DbSet<UserRoleGroup> UserRoleGroups { get; set; } = null!;
 
     public DbSet<Email> Emails { get; set; } = null!;
 
-    public DbSet<RefreshToken> RefreshTokens { get; set; }
+    public DbSet<RefreshToken> RefreshTokens { get; set; } = null!;
 
     public AppDbContext(DbContextOptions options) : base(options)
     {
@@ -50,16 +49,13 @@ public class AppDbContext : IdentityDbContext<User, Role, Guid, IdentityUserClai
 
         modelBuilder.Entity<UserRoleGroup>()
             .HasOne(e => e.Group)
-            .WithMany(e => e.UserGroups)
+            .WithMany(e => e.UserRoleGroups)
             .HasForeignKey(e => e.GroupId);
 
         modelBuilder.Entity<UserRoleGroup>()
             .HasOne(e => e.UserRole)
-            .WithMany(e => e.UserGroups)
+            .WithMany(e => e.UserRoleGroups)
             .HasForeignKey(e => e.UserRoleId);
-
-        modelBuilder.Entity<Role>().HasData(new Role
-        { Id = Guid.Parse("74681C7E-6270-4ED1-8F2D-9347A326F974"), Name = "Admin" });
 
         modelBuilder.Entity<Role>().HasData(new Role
         { Id = Guid.Parse("29D79252-1B53-4B92-A8DD-403D547FC3C4"), Name = "Student" });
