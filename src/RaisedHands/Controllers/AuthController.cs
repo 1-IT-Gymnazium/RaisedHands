@@ -121,7 +121,7 @@ public class AuthController : ControllerBase
     <div class=""container"">
         <h2>Reset Your Password</h2>
         <p>You have requested to reset your password. Click the button below to proceed:</p>
-        <a class=""button"" href=""http://localhost:4200/reset-password?token={{Uri.EscapeDataString(token)}}&email={{model.Email}}"">
+        <a class=""button"" href=""http://localhost:4200/reset-password?token={Uri.EscapeDataString(token)}&email={Uri.EscapeDataString(model.Email)}"">
             Reset Password
         </a>
         <p class=""footer"">If you did not request this, please ignore this email.</p>

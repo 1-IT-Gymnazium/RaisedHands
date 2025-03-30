@@ -7,6 +7,7 @@ using NodaTime;
 using RaisedHands.Api.Models;
 using RaisedHands.Api.Models.Groups;
 using RaisedHands.Api.Models.Rooms;
+using RaisedHands.Api.Models.Stats;
 using RaisedHands.Api.Models.Users;
 using RaisedHands.Api.Services;
 using RaisedHands.Api.Utils;

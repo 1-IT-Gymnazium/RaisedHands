@@ -14,6 +14,7 @@ using RaisedHands.Api.Models.Users;
 using System.Security.Claims;
 using RaisedHands.Api.Utils;
 using RaisedHands.Api.Services;
+using RaisedHands.Api.Models.Stats;
 
 namespace RaisedHands.Api.Controllers;
 

@@ -2,7 +2,7 @@ using RaisedHands.Api.Models.Hands;
 using RaisedHands.Api.Models.Questions;
 using RaisedHands.Data.Entities;
 
-namespace RaisedHands.Api.Models.Users;
+namespace RaisedHands.Api.Models.Stats;
 
 public class UserQuestionsAndHandsRaisedModel
 {
