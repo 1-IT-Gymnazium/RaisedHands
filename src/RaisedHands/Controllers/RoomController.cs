@@ -104,16 +104,21 @@ public class RoomController : ControllerBase
     }
 
     /// <summary>
-    /// Ends an active room session. Notifies clients via SignalR that the room is closed.
+    /// Ends an active room session by setting its end date and applying any additional updates.
+    /// Only teachers in the associated group are authorized to perform this action.
+    /// Notifies all connected clients via SignalR that the room has ended.
     /// </summary>
-    /// <param name="id">The ID of the room to end.</param>
-    /// <param name="patch">Patch document containing updates to the room.</param>
-    /// <param name="hubContext">SignalR hub context for broadcasting to connected clients.</param>
+    /// <param name="id">The unique identifier of the room to end.</param>
+    /// <param name="patch">A JSON Patch document containing optional updates to apply to the room.</param>
+    /// <param name="hubContext">SignalR hub context used to broadcast the room closure to connected clients.</param>
     /// <returns>
-    /// 200 OK with the updated room.<br/>
-    /// 401 Unauthorized if the user is not authenticated.<br/>
-    /// 403 Forbidden if the user is not authorized.<br/>
-    /// 404 Not Found if the room does not exist.
+    /// An <see cref="ActionResult"/> containing the result of the operation:
+    /// <list type="bullet">
+    ///   <item><description><c>200 OK</c> – Room successfully ended and updated.</description></item>
+    ///   <item><description><c>401 Unauthorized</c> – Requesting user is not authenticated.</description></item>
+    ///   <item><description><c>403 Forbidden</c> – User is not a teacher in the group.</description></item>
+    ///   <item><description><c>404 Not Found</c> – No room found with the specified ID.</description></item>
+    /// </list>
     /// </returns>
     [HttpPatch("api/v1/Room/{id}/End")]
     public async Task<ActionResult> EndRoom(
@@ -147,23 +152,34 @@ public class RoomController : ControllerBase
         }
 
         await _dbContext.SaveChangesAsync();
-        await hubContext.Clients.Group(id.ToString()).SendAsync("RoomClosed");
+        await hubContext.Clients.Group(id.ToString()).SendAsync("RoomClosed", new
+        {
+            roomId = id.ToString(),
+            reason = "ended"
+        });
 
         return Ok(room);
     }
 
     /// <summary>
-    /// Soft-deletes a room. Only teachers in the group can perform this action.
+    /// Soft-deletes a specific room from the system.  
+    /// Only users with a teacher role in the associated group are authorized to perform this action.
     /// </summary>
-    /// <param name="id">The ID of the room to delete.</param>
+    /// <param name="id">The unique identifier of the room to delete.</param>
+    /// <param name="hubContext">The SignalR hub context used to notify connected clients that the room was closed.</param>
     /// <returns>
-    /// 204 No Content on success.<br/>
-    /// 401 Unauthorized if user is not authenticated.<br/>
-    /// 403 Forbidden if user is not a teacher in the group.<br/>
-    /// 404 Not Found if the room does not exist.
+    /// An <see cref="ActionResult"/> indicating the outcome of the operation:
+    /// <list type="bullet">
+    ///   <item><description><c>204 No Content</c> – Room was successfully soft-deleted.</description></item>
+    ///   <item><description><c>401 Unauthorized</c> – Requesting user is not authenticated.</description></item>
+    ///   <item><description><c>403 Forbidden</c> – User is not a teacher in the group associated with the room.</description></item>
+    ///   <item><description><c>404 Not Found</c> – Room with the specified ID does not exist or is already deleted.</description></item>
+    /// </list>
     /// </returns>
     [HttpDelete("api/v1/Room/{id}")]
-    public async Task<ActionResult> Delete([FromRoute] Guid id)
+    public async Task<ActionResult> Delete(
+            [FromRoute] Guid id,
+    [FromServices] IHubContext<QuestionHub> hubContext)
     {
         var userId = User.GetUserId();
         if (userId == Guid.Empty)
@@ -188,7 +204,14 @@ public class RoomController : ControllerBase
         }
 
         dbEntity.SetDeleteBySystem(_clock.GetCurrentInstant());
+
         await _dbContext.SaveChangesAsync();
+
+        await hubContext.Clients.Group(dbEntity.Id.ToString()).SendAsync("RoomClosed", new
+        {
+            roomId = dbEntity.Id.ToString(),
+            reason = "deleted"
+        });
 
         return NoContent();
     }
